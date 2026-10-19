@@ -1,0 +1,24 @@
+name: Preview next week (no posting)
+
+on:
+  schedule:
+    - cron: "30 3 * * 0"   # har Sunday subah 9 baje IST
+  workflow_dispatch: {}
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m bot.main preview-week --date $(TZ=Asia/Kolkata date -d "next monday" +%F)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: next-week-preview
+          path: preview/

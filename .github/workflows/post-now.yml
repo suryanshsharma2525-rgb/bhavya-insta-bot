@@ -1,0 +1,85 @@
+name: POST NOW (abhi turant post karo)
+
+on:
+  workflow_dispatch:
+    inputs:
+      format:
+        description: "Kaisa post? (auto = bot khud chunega)"
+        type: choice
+        default: auto
+        options:
+          - auto
+          - meme_card
+          - relatable_exam
+          - local_roorkee
+          - trend_twist
+          - versus
+          - comment_battle
+          - tag_friend
+          - rate_combo
+          - weekend_plan
+          - spot_difference
+          - hidden_item
+          - count_items
+          - zoom_read
+          - swipe_twist
+          - this_or_that
+          - offer_flash_reel
+          - offer_zoom_code
+      idea:
+        description: "Aapka idea / announcement (optional) — jaise: 'Aaj baarish hai, Kulhad Chai special' ya 'Fest week me cafe raat 1 baje tak open'"
+        required: false
+        default: ""
+      item:
+        description: "Kaunsa item dikhana hai? (optional) — jaise: Kulhad Pizza, Potato Twister"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency: daily-post
+
+jobs:
+  post-now:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Post banao
+        id: gen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+          IN_FORMAT: ${{ inputs.format }}
+          IN_IDEA: ${{ inputs.idea }}
+          IN_ITEM: ${{ inputs.item }}
+        run: python -m bot.main post-now --format "$IN_FORMAT" --idea "$IN_IDEA" --item "$IN_ITEM"
+
+      - name: Images save karo
+        run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add posts data
+          [ -d assets/photos_ai ] && git add assets/photos_ai
+          git commit -m "Post now ${{ steps.gen.outputs.post_dir }}"
+          git push
+          sleep 25
+
+      - name: Instagram pe publish karo
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python -m bot.main publish --dir "${{ steps.gen.outputs.post_dir }}"
+
+      - name: Post link save karo
+        if: always()
+        run: |
+          git add posts data
+          git commit -m "Published ${{ steps.gen.outputs.post_dir }}" || echo "nothing to commit"
+          git push || true

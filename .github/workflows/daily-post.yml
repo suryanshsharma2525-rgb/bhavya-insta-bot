@@ -1,0 +1,53 @@
+name: Daily Instagram post
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 13:00 UTC = 6:30 PM IST (GitHub kabhi-kabhi 10-20 min late chalata hai)
+  workflow_dispatch: {}    # "Run workflow" button se haath se bhi chala sakte ho
+
+permissions:
+  contents: write
+
+concurrency: daily-post
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Aaj ka post banao
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+        run: |
+          D=$(TZ=Asia/Kolkata date +%F)
+          if [ -f "posts/$D/post.json" ]; then echo "Post already generated"; else python -m bot.main generate; fi
+
+      - name: Images ko repo me save karo (Instagram yahin se uthayega)
+        run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add posts data
+          [ -d assets/photos_ai ] && git add assets/photos_ai
+          git commit -m "Post for $(TZ=Asia/Kolkata date +%F)" || echo "nothing to commit"
+          git push
+          sleep 25
+
+      - name: Instagram pe publish karo
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python -m bot.main publish
+
+      - name: Post link save karo
+        if: always()
+        run: |
+          git add posts data
+          git commit -m "Published $(TZ=Asia/Kolkata date +%F)" || echo "nothing to commit"
+          git push || true

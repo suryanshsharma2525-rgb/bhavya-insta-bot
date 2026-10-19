@@ -1,0 +1,35 @@
+name: Plan content calendar
+
+on:
+  schedule:
+    - cron: "0 3 * * 0"    # har Sunday subah 8:30 IST
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Kitne din aage ka plan?"
+        default: "30"
+
+permissions:
+  contents: write
+
+concurrency: daily-post
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m bot.main plan-calendar --days "${{ inputs.days || '30' }}"
+      - run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data
+          git commit -m "Content calendar update" || echo "nothing new"
+          git push

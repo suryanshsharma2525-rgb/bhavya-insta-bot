@@ -1,0 +1,28 @@
+name: Make AI food photos (one time)
+
+on:
+  workflow_dispatch: {}   # Setup ke baad ek baar "Run workflow" dabao
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+        run: python -m bot.main make-photos
+      - run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          mkdir -p assets/photos_ai && git add assets/photos_ai
+          git commit -m "AI food photos" || echo "nothing new"
+          git push
