@@ -1,0 +1,278 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Bhavya Cafe//Insta Bot//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Bhavya Cafe – Instagram Plan
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:bhavya-2026-10-20@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:📸 Roorkee local meme – Butterscotch Kheer (Dussehra (IITR holiday))
+DESCRIPTION:Idea: Dussehra chhutti: 'Ravan ke 10 sar\, aur hamare group ke 10 alag order' — sabka order ek hi table pe\, Butterscotch Kheer se khatam\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-21@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:📸 OFFER: Pause karo reel – Cheese Burst Samosa
+DESCRIPTION:Idea: Weekly offer reel: items tezi se flash honge\, PAUSE karo — Kulhad Chai ya Cheese Burst Samosa jo ruke wo FREE\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-22@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261022
+DTEND;VALUE=DATE:20261023
+SUMMARY:📸 Zoom karke padho – Veg Momos
+DESCRIPTION:Idea: Zoom karke padho: chhupa message 'Proxy lagwa di hai\, ab Veg Momos khane chalo'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-23@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261023
+DTEND;VALUE=DATE:20261024
+SUMMARY:📸 Odd one dhundo – Cheese Burger
+DESCRIPTION:Idea: Odd one dhundo grid — caption: '10 second me mila? Tum placement ke liye ready ho'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-24@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:📸 Meme – Peshawari Khewani Kheer
+DESCRIPTION:Idea: Meme: 'Mess ki kheer vs Bhavya ki Peshawari Khewani Kheer — ek pe rona aata hai\, ek pe pyaar'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-25@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:📸 Rate the combo – Nachos Chaat
+DESCRIPTION:Idea: Rate karo combo 'Sunday Laziness Kit': Nachos Chaat + Cold Coffee — 1 se 10\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-26@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:📸 Tag your friend – Matcha Shake
+DESCRIPTION:Idea: Tag karo us dost ko jo har jagah 'Matcha try karte hain' bolta hai aur phir Cold Coffee hi mangata hai\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-27@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:📸 Momos gino – Loaded Chips Chaat
+DESCRIPTION:Idea: Momos gino challenge — galat answer wala Loaded Chips Chaat ka bill bharega\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-28@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:📸 OFFER: Zoom code – Kulhad Chai
+DESCRIPTION:Idea: Offer: image me hidden CODE dhundo\, counter pe dikhao — Kulhad Chai FREE\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-29@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:📸 Weekend checklist – Potato Twister
+DESCRIPTION:Idea: Weekend plan checklist: assignment ❌\, laundry ❌\, ghar call ❌\, Potato Twister ✅\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-30@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:📸 Swipe-till-end carousel – Cold Coffee
+DESCRIPTION:Idea: Carousel: 'Friday raat 8 baje' → 'group chat me 47 messages' → 'koi decide nahi kar raha' → last slide: Bhavya\, Cold Coffee\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-10-31@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:📸 Roorkee local meme – Aloo Tikki Burger (Halloween)
+DESCRIPTION:Idea: Halloween: 'Sabse darawna cheez? Month-end ka wallet' — Aloo Tikki Burger ₹60 jo wallet ko bacha le\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-01@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:📸 Mess vs Bhavya – Cheese Burst Samosa (Pre-Diwali week)
+DESCRIPTION:Idea: Mess vs Bhavya: 'Mess ka samosa (thanda) vs Cheese Burst Samosa (pighla cheese)' — Diwali week opener\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-02@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:📸 Meme – Simple Chips Chaat (Pre-Diwali week)
+DESCRIPTION:Idea: Meme: 'Ghar jaane se pehle dosto ke saath last treat — Simple Chips Chaat ₹40\, budget friendly bidaai'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-03@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261104
+SUMMARY:📸 Roorkee local meme – Kesar Pista Kheer (Pre-Diwali week)
+DESCRIPTION:Idea: Roorkee meme: 'Diwali shopping Civil Lines me 3 ghante\, phir thak ke Kesar Pista Kheer'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-04@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261104
+DTEND;VALUE=DATE:20261105
+SUMMARY:📸 OFFER: Pause karo reel – Cheese Burst Samosa (Pre-Diwali week)
+DESCRIPTION:Idea: Diwali offer reel: 'PAUSE karo\, Diwali gift hamari taraf se' — jo item ruke wo FREE\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-05@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:📸 Roorkee local meme – Peshawari Khewani Kheer (Pre-Diwali week)
+DESCRIPTION:Idea: Roorkee meme: 'Mummy: ghar kab aa rahe ho? Main: Peshawari Kheer khatam karke'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-06@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:📸 Swipe-till-end carousel – Cheese Burger (Pre-Diwali week)
+DESCRIPTION:Idea: Carousel: 'Train ki ticket book' → 'packing shuru' → 'ek cheez bhool gaye' → last slide: Bhavya ka Cheese Burger khaye bina ghar nahi jaana\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-07@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:📸 Tag your friend – Butterscotch Kheer (Pre-Diwali week)
+DESCRIPTION:Idea: Tag karo us dost ko jo Diwali pe ghar nahi ja raha — usko Butterscotch Kheer pe le aao\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-08@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:📸 Mess vs Bhavya – Tandoori Burger (Diwali (IITR holiday))
+DESCRIPTION:Idea: Happy Diwali post: 'Ghar ki mithai vs Bhavya ka Tandoori Burger — dono me pyaar' — warm wishes\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-09@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:📸 Meme – Matcha Shake (Govardhan Puja (IITR holiday))
+DESCRIPTION:Idea: Meme: 'Diwali ke baad food coma: ab sirf halka-phulka... Matcha Shake'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-10@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261110
+DTEND;VALUE=DATE:20261111
+SUMMARY:📸 Rate the combo – Corn Chips Chaat
+DESCRIPTION:Idea: Rate karo combo 'Comeback to Roorkee Kit': Corn Chips Chaat + Kulhad Chai\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-11@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:📸 OFFER: Zoom code – Kulhad Chai (Last teaching day (IITR))
+DESCRIPTION:Idea: Last teaching day offer: hidden CODE dhundo\, Kulhad Chai FREE — 'end-sem se pehle ek chai ho jaaye'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-12@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:📸 Tag your friend – Veg Momos
+DESCRIPTION:Idea: Tag karo us dost ko jo exam se ek din pehle bolta hai 'maine kuch nahi padha' aur topper nikalta hai — Veg Momos uski treat\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-13@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:📸 Rate the combo – Hot Coffee (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: End-sems shuru: 'Night study survival kit' — Hot Coffee + Bun Makkhan\, rate karo\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-14@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:📸 Zoom karke padho – Nachos Chaat (END-SEM EXAMS (IITR) + Children's Day)
+DESCRIPTION:Idea: Children's Day + exams: zoom message 'Bachpan me exam ke baad toffee milti thi\, ab Nachos Chaat'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-15@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+SUMMARY:📸 Swipe-till-end carousel – Bun Makkhan (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Carousel: 'Kal paper hai' → 'syllabus dekha' → 'syllabus ne mujhe dekha' → last slide: Bun Makkhan + chai\, sab theek ho jaayega\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-16@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:📸 Rate the combo – Mocha Shake (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Rate karo 'Exam Fuel Combo': Mocha Shake + Cheese Burst Samosa\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-17@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:📸 Exam/IIT life meme – Kesar Pista Kheer (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Exam meme: 'Question paper: Explain. Main: Kesar Pista Kheer ki recipe explain kar dun?'\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-18@instabot
+DTSTAMP:20261019T140014Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:📸 OFFER: Pause karo reel – Cheese Burst Samosa (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Exam week offer reel: 'Paper ke baad PAUSE karo' — jo item ruke wo FREE\nStatus: planned
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

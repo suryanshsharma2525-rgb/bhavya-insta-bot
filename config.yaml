@@ -1,0 +1,89 @@
+# ============================================================
+#  Bhavya Cafe – Instagram Auto-Post Bot : SETTINGS
+#  Sirf yahi file edit karni hai. Code ko haath lagane ki zarurat nahi.
+# ============================================================
+
+brand:
+  name: "Bhavya Cafe"
+  location_line: "📍 Bhavya Cafe, near IIT Roorkee"
+  # Instagram "location tag" ka ID (optional). Kaise nikaalna hai — README dekho.
+  location_id: ""
+
+# Roz post kab hoga — time .github/workflows/daily-post.yml me set hai
+# (default: shaam 6:30 baje IST).
+
+# ---------------- MENU (asli menu card se) ----------------
+# AI sirf inhi items aur inhi prices ka use karega. Naya item / price badla → yahan update karo.
+menu:
+  # Burgers & Quick Bites
+  - {name: "Aloo Tikki Burger",       price: 60,  emoji: "🍔"}
+  - {name: "Tandoori Burger",         price: 70,  emoji: "🍔"}
+  - {name: "Cheese Burger",           price: 80,  emoji: "🍔"}
+  - {name: "Vada Pav",                price: 60,  emoji: "🍔"}
+  - {name: "Cheese Burst Samosa",     price: 30,  emoji: "🥟"}
+  - {name: "Bun Makkhan",             price: 50,  emoji: "🍞"}
+  - {name: "Potato Twister",          price: 70,  emoji: "🌪️"}
+  # Chaat & Nachos
+  - {name: "Simple Chips Chaat",      price: 40,  emoji: "🥔"}
+  - {name: "Corn Chips Chaat",        price: 50,  emoji: "🌽"}
+  - {name: "Loaded Chips Chaat",      price: 60,  emoji: "🥔"}
+  - {name: "Nachos Chaat",            price: 70,  emoji: "🌮"}
+  # Kulhad Pizza
+  - {name: "Kulhad Pizza",            price: 70,  emoji: "🍕"}
+  # Momos (8 pcs)
+  - {name: "Veg Momos",               price: 70,  emoji: "🥟"}
+  - {name: "Paneer Momos",            price: 90,  emoji: "🥟"}
+  - {name: "Cheese Sweet Corn Momos", price: 100, emoji: "🥟"}
+  # Kheer Specials
+  - {name: "Peshawari Khewani Kheer", price: 50,  emoji: "🍮"}
+  - {name: "Kesar Pista Kheer",       price: 60,  emoji: "🍮"}
+  - {name: "Butterscotch Kheer",      price: 60,  emoji: "🍮"}
+  # Tea & Coffee
+  - {name: "Kulhad Chai",             price: 20,  emoji: "🍵"}
+  - {name: "Hot Coffee",              price: 40,  emoji: "☕"}
+  - {name: "Cold Coffee",             price: 70,  emoji: "🧋"}
+  # Special Shakes
+  - {name: "Mocha Shake",             price: 80,  emoji: "🥤"}
+  - {name: "Matcha Shake",            price: 80,  emoji: "🍵"}
+
+# ---------------- WEEKLY OFFER ----------------
+weekly_offer:
+  enabled: true
+  weekday: "Wednesday"          # Har hafte offer post kis din jaaye
+  # Menu me sirf ye 2 items ₹30 ya kam ke hain. Naya sasta item aaye to yahan jodo.
+  free_items:
+    - {name: "Kulhad Chai",         price: 20, emoji: "🍵"}
+    - {name: "Cheese Burst Samosa", price: 30, emoji: "🥟"}
+  max_item_price: 30            # isse mehenga item offer me kabhi nahi aayega
+  terms: "Offer applied on orders up to ₹300 · 1 per person · Dine-in only"
+  valid_days: 7                 # offer kitne din valid rahega
+
+# ---------------- HASHTAGS (Instagram max 5) ----------------
+hashtags:
+  always: ["#Roorkee", "#IITRoorkee", "#BhavyaCafe"]     # ye 3 har post me
+  rotate: ["#RoorkeeFood", "#RoorkeeCafe", "#FoodiesOfRoorkee",
+           "#RoorkeeDiaries", "#StudentLife", "#MomosLover",
+           "#ColdCoffee", "#UttarakhandFood",
+           "#KulhadPizza", "#KulhadChai"]             # inme se 2 AI chunega
+
+# ---------------- TREND SHEET (optional) ----------------
+# Google Sheet → File → Share → Publish to web → CSV ka link yahan daalo.
+# Sheet me 2 columns: date | trend  (jaise: 2026-10-20 | 2 kachori 1 samosa meme)
+trend_sheet_csv_url: ""
+
+# ---------------- AI ----------------
+ai:
+  model: "gemini-2.5-flash"           # text (jokes, captions)
+  image_model: "gemini-2.5-flash-image"  # food photos ("Nano Banana")
+
+# ---------------- FOOD PHOTOS ----------------
+# AI realistic food photos (emoji ki jagah). Har item ki kuch photos ek baar banti hain aur reuse hoti hain.
+# assets/photos/ me tumhari ASLI photo ho to wahi lagegi (AI se pehle).
+photos:
+  ai_photos: true
+  variants_per_item: 2      # har item ki kitni alag photos
+  max_new_per_run: 12       # ek din me max kitni nayi photos banengi
+
+# ---------------- INSTAGRAM ----------------
+instagram:
+  api_base: "https://graph.instagram.com/v23.0"
