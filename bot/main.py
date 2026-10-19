@@ -209,7 +209,15 @@ def cmd_publish(date, cfg, dirname=None):
     url = lambda f: f"https://raw.githubusercontent.com/{repo}/{branch}/posts/{dirname}/{f}"
     ig = IG(cfg)
     if meta["kind"] == "reel":
-        link = ig.post_reel(os.path.join(d, "reel.mp4"), meta["caption"], cover_url=url("reel_cover.jpg"))
+        import subprocess
+        try:
+            sha = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        except Exception:
+            sha = ""
+        ref = sha or branch
+        vids = [f"https://cdn.jsdelivr.net/gh/{repo}@{ref}/posts/{dirname}/reel.mp4",   # sahi video/mp4 type
+                f"https://raw.githubusercontent.com/{repo}/{ref}/posts/{dirname}/reel.mp4"]
+        link = ig.post_reel(vids, meta["caption"], cover_url=url("reel_cover.jpg"))
     elif meta["kind"] == "carousel":
         link = ig.post_carousel([url(f) for f in meta["files"]], meta["caption"], meta["alt_text"])
     else:

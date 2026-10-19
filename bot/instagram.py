@@ -68,19 +68,20 @@ class IG:
             self._wait(k)
         return self._publish(self._container(media_type="CAROUSEL", children=",".join(kids), caption=caption))
 
-    def post_reel(self, path, caption, cover_url=None):
-        params = dict(media_type="REELS", upload_type="resumable", caption=caption, share_to_feed="true")
-        if cover_url:
-            params["cover_url"] = cover_url
-        res = self._req("POST", f"{self.uid}/media", **params)
-        cid, uri = res["id"], res.get("uri") or f"https://rupload.facebook.com/ig-api-upload/{self.base.rsplit('/', 1)[-1]}/{res['id']}"
-        size = os.path.getsize(path)
-        with open(path, "rb") as fh:
-            r = requests.post(uri, data=fh, timeout=600, headers={
-                "Authorization": f"OAuth {self.token}", "offset": "0", "file_size": str(size)})
-        if r.status_code >= 400:
-            raise RuntimeError(f"Reel upload failed {r.status_code}: {r.text}")
-        return self._publish(cid)
+    def post_reel(self, video_urls, caption, cover_url=None):
+        """Instagram public link se video uthata hai. Pehla link fail ho to agla try karte hain."""
+        last = None
+        for vurl in video_urls:
+            params = dict(media_type="REELS", video_url=vurl, caption=caption, share_to_feed="true")
+            if cover_url:
+                params["cover_url"] = cover_url
+            try:
+                cid = self._req("POST", f"{self.uid}/media", **params)["id"]
+                return self._publish(cid)
+            except RuntimeError as e:
+                print("Reel upload try failed with", vurl, "→", str(e)[:300])
+                last = e
+        raise last
 
 
 def refresh_token():
