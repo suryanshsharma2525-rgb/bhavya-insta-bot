@@ -11,10 +11,16 @@ from .formats import FORMATS
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 
-def _pool(year):
-    pool = sorted(FORMATS)
-    random.Random(f"bhavya-{year}").shuffle(pool)
+def _pool(year, keys, tag):
+    pool = sorted(keys)
+    random.Random(f"bhavya-{year}-{tag}").shuffle(pool)
     return pool
+
+
+# Social-media-manager mix: har hafte 3 reels + 3 posts + 1 offer
+# (~40% product/aesthetic, ~30% smart humour, ~20% interactive, ~10% offer)
+SLOTS = [("product", "reel"), ("humor", "image"), ("interactive", "any"),
+         ("product", "image"), ("story", "reel"), ("humor", "reel")]
 
 
 def week_plan(date, cfg, has_trend=False):
@@ -23,17 +29,23 @@ def week_plan(date, cfg, has_trend=False):
     offer = cfg.get("weekly_offer", {})
     offer_day = offer.get("weekday", "Wednesday") if offer.get("enabled", True) else None
     normal_days = [d for d in DAYS if d != offer_day]
-
-    pool = _pool(year)
-    if not has_trend:
-        pool = [p for p in pool if not FORMATS[p].get("needs_trend")]
-    n = len(normal_days)
-    start = (week * n) % len(pool)
-    picks = [pool[(start + i) % len(pool)] for i in range(n)]
-
-    plan = dict(zip(normal_days, picks))
-    if has_trend and "trend_twist" not in picks:
-        plan[normal_days[-2]] = "trend_twist"  # Saturday-ish: trend post gets the weekend reach
+    plan, used = {}, set()
+    for i, d in enumerate(normal_days):
+        cat, kind = SLOTS[i % len(SLOTS)]
+        cands = [k for k, f in FORMATS.items() if f.get("cat") == cat
+                 and (kind == "any" or (f["kind"] == "reel") == (kind == "reel"))
+                 and (has_trend or not f.get("needs_trend")) and k not in used]
+        if cat == "story" and "reel_freestyle" in cands:
+            pick = "reel_freestyle"  # har hafte ek bilkul naya AI concept reel
+        else:
+            pool = _pool(year, cands, f"{cat}-{kind}")
+            pick = pool[week % len(pool)] if pool else "meme_card"
+        plan[d] = pick
+        used.add(pick)
+    if has_trend and "trend_twist" not in plan.values():
+        hd = [d for d in normal_days if FORMATS[plan[d]].get("cat") == "humor" and FORMATS[plan[d]]["kind"] != "reel"]
+        if hd:
+            plan[hd[0]] = "trend_twist"
     if offer_day:
         plan[offer_day] = "offer_flash_reel" if week % 2 else "offer_zoom_code"
     return {d: plan[d] for d in DAYS}

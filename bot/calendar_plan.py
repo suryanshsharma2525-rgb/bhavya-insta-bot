@@ -33,10 +33,13 @@ FORMAT_LABEL = {
     "spot_difference": "Spot the difference", "hidden_item": "Odd one dhundo", "count_items": "Momos gino",
     "zoom_read": "Zoom karke padho", "swipe_twist": "Swipe-till-end carousel", "this_or_that": "This or That",
     "offer_flash_reel": "OFFER: Pause karo reel", "offer_zoom_code": "OFFER: Zoom code",
+    "reel_meme": "Meme reel", "reel_pov": "POV reel", "reel_top5": "Top 5 reel", "reel_this_or_that": "This or That reel",
+    "reel_pause_game": "Pause game reel", "reel_freestyle": "AI concept reel (new idea)", "reel_showcase": "Cinematic food reel",
+    "product_spotlight": "Product spotlight", "mood_quote": "Mood / aesthetic post", "fact_carousel": "Did-you-know carousel",
 }
 # occasions pe kaunse formats best hain
-FESTIVE = ["meme_card", "local_roorkee", "rate_combo", "tag_friend", "versus", "swipe_twist"]
-EXAM = ["relatable_exam", "zoom_read", "swipe_twist", "rate_combo", "meme_card"]
+FESTIVE = ["reel_showcase", "product_spotlight", "mood_quote", "reel_freestyle", "local_roorkee", "tag_friend", "reel_pov"]
+EXAM = ["relatable_exam", "reel_pov", "reel_top5", "mood_quote", "zoom_read", "reel_freestyle", "product_spotlight"]
 
 
 # ---------------------------------------------------------------- csv helpers

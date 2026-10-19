@@ -18,7 +18,7 @@ import shutil
 import yaml
 from PIL import Image
 
-from . import ai, calendar_plan, photos, planner, render
+from . import ai, calendar_plan, photos, planner, reels, render
 from .formats import ALL_FORMATS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,6 +35,14 @@ def today_ist():
     return dt.datetime.now(IST).date()
 
 
+def pick_theme(cfg, date, seed):
+    import random as _r
+    themes = [t for t in (cfg.get("themes") or ["classic_gold"]) if t in render.THEMES] or ["classic_gold"]
+    if cfg.get("theme_mode", "rotate") == "fixed":
+        return themes[0]
+    return themes[(date.toordinal() + _r.Random(seed).randint(0, 0)) % len(themes)]
+
+
 def load_history():
     if os.path.exists(HISTORY):
         with open(HISTORY, encoding="utf-8") as fh:
@@ -42,7 +50,8 @@ def load_history():
     return []
 
 
-def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None, focus_item=None, seed_extra=""):
+def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None, focus_item=None, seed_extra="",
+               as_video=False, theme=None):
     trends = planner.recent_trends(cfg, date) if trends is None else trends
     day = date.strftime("%A")
     fmt_key = fmt_key or planner.week_plan(date, cfg, has_trend=bool(trends))[day]
@@ -60,12 +69,15 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
     os.makedirs(out_dir, exist_ok=True)
     # AI food photos: pehle aaj ke post ke items, phir baaki menu (library dheere-dheere poori ho jaati hai)
     wanted = [post.get(k) for k in ("item", "right_item", "a_item", "b_item")] + list(post.get("items") or [])
+    wanted += [x.get("item") for x in post.get("shots", []) + post.get("scenes", []) if isinstance(x, dict)]
     if offer_item:
         wanted += [i["name"] for i in all_items]
     wanted += [m["name"] for m in cfg["menu"]]
     photos.ensure_photos([w for w in wanted if w], cfg)
     seed = f"{date.isoformat()}-{fmt_key}{seed_extra}"
     files, owner_note = [], ""
+    theme = render.set_theme(theme if theme and theme != "auto" else pick_theme(cfg, date, seed))
+    kind = fmt["kind"]
 
     if fmt_key.startswith("offer_"):
         valid_till = date + dt.timedelta(days=cfg["weekly_offer"].get("valid_days", 7) - 1)
@@ -78,6 +90,9 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
         files = [os.path.basename(path), "reel_cover.jpg"]
         owner_note = (f"FLASH OFFER: jo bhi item ka screenshot dikhaye ({', '.join(i['name'] for i in all_items)}) "
                       f"wo free — valid till {valid_till:%d %b}. Terms: {cfg['weekly_offer']['terms']}")
+    elif kind == "reel":
+        path = reels.render_reel(fmt["renderer"], post, cfg, os.path.join(out_dir, "reel.mp4"), seed)
+        files = ["reel.mp4", "reel_cover.jpg"]
     else:
         if fmt_key == "offer_zoom_code":
             post["_offer_item"] = offer_item
@@ -91,12 +106,17 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
             files.append(name)
         if post.get("_answer"):
             owner_note = f"Puzzle answer: {post['_answer']}"
+        if as_video:  # image/carousel post → music wala video
+            reels.images_to_reel(images, cfg, os.path.join(out_dir, "reel.mp4"), seed)
+            files, kind = ["reel.mp4", "reel_cover.jpg"], "reel"
 
-    headline = (post.get("top") or post.get("headline") or post.get("line") or post.get("question")
+    headline = (post.get("top") or post.get("hook") or post.get("concept_title") or post.get("title")
+                or post.get("tagline") or post.get("quote") or post.get("opening_line")
+                or (post.get("pov_lines") or [None])[0] or post.get("headline") or post.get("line") or post.get("question")
                 or post.get("combo_name") or (post.get("slides") or [{}])[0].get("big") or fmt_key)
     featured = (focus_item or post.get("item") or post.get("right_item") or post.get("a_item")
                 or (post.get("items") or [None])[0] or (offer_item or {}).get("name") or "")
-    meta = {"date": date.isoformat(), "format": fmt_key, "kind": fmt["kind"], "files": files, "featured_item": featured,
+    meta = {"date": date.isoformat(), "format": fmt_key, "kind": kind, "theme": theme, "files": files, "featured_item": featured,
             "caption": post["caption"], "alt_text": post["alt_text"], "headline": headline,
             "owner_note": owner_note, "text_source": post["_source"], "trends_used": trends}
     with open(os.path.join(out_dir, "post.json"), "w", encoding="utf-8") as fh:
@@ -140,23 +160,31 @@ def _match_item(cfg, name):
     return None
 
 
-def cmd_post_now(cfg, fmt_key=None, idea=None, item=None):
-    """Abhi ke abhi ek extra post banao (daily post se alag)."""
+def cmd_post_now(cfg, fmt_key=None, idea=None, item=None, post_type="auto", theme=None):
+    """Abhi ke abhi ek extra post banao (daily post se alag). post_type: auto | image | video"""
     import random as _r
     now = dt.datetime.now(IST)
     history = load_history()
+    post_type = (post_type or "auto").lower()
     if not fmt_key or fmt_key == "auto":
         recent = {h.get("format") for h in history[-7:]}
-        pool = list(planner.FORMATS)
+        pool = [k for k, f in planner.FORMATS.items() if not f.get("needs_trend")]
+        if post_type == "video":
+            pool = [k for k in pool if planner.FORMATS[k]["kind"] == "reel"]
+        elif post_type == "image":
+            pool = [k for k in pool if planner.FORMATS[k]["kind"] != "reel"]
         if idea or item:  # idea/item diya hai → wahi formats jisme text aur item dikh sake
-            pool = ["meme_card", "local_roorkee", "relatable_exam", "versus", "tag_friend", "rate_combo", "swipe_twist"]
-        choices = [k for k in pool if k not in recent and not planner.FORMATS[k].get("needs_trend")]
-        fmt_key = _r.choice(choices or list(planner.FORMATS))
+            pool = [k for k in pool if k in ("reel_freestyle", "reel_showcase", "reel_meme", "reel_pov", "product_spotlight",
+                                             "mood_quote", "meme_card", "local_roorkee", "versus", "tag_friend")] or pool
+        choices = [k for k in pool if k not in recent] or pool
+        fmt_key = _r.choice(choices)
     if fmt_key not in ALL_FORMATS:
         raise SystemExit(f"Format '{fmt_key}' nahi mila. Options: {', '.join(ALL_FORMATS)}")
+    as_video = post_type == "video" and ALL_FORMATS[fmt_key]["kind"] != "reel"
     name = f"{now.date().isoformat()}_now_{now:%H%M}"
     meta = build_post(now.date(), cfg, os.path.join(ROOT, "posts", name), history, fmt_key=fmt_key,
-                      idea=(idea or "").strip() or None, focus_item=_match_item(cfg, item), seed_extra=name)
+                      idea=(idea or "").strip() or None, focus_item=_match_item(cfg, item), seed_extra=name,
+                      as_video=as_video, theme=theme)
     _save_history(history, meta)
     calendar_plan.log_post(name, meta, "post-now", "generated")
     out = os.environ.get("GITHUB_OUTPUT")
@@ -228,6 +256,8 @@ def main():
     ap.add_argument("--format", help="post-now: format ka naam ya 'auto'")
     ap.add_argument("--idea", help="post-now: aapka idea / offer / announcement")
     ap.add_argument("--item", help="post-now: kaunsa menu item feature karna hai")
+    ap.add_argument("--type", default="auto", help="post-now: auto | image | video")
+    ap.add_argument("--theme", default="auto", help="colour theme ka naam ya auto")
     ap.add_argument("--dir", help="publish: posts/ ke andar folder ka naam")
     ap.add_argument("--days", type=int, default=30, help="plan-calendar: kitne din aage")
     a = ap.parse_args()
@@ -240,7 +270,7 @@ def main():
     elif a.command == "plan-calendar":
         calendar_plan.plan_calendar(cfg, date, a.days)
     elif a.command == "post-now":
-        cmd_post_now(cfg, a.format, a.idea, a.item)
+        cmd_post_now(cfg, a.format, a.idea, a.item, a.type, a.theme)
     elif a.command == "make-photos":
         made = photos.ensure_photos([m["name"] for m in cfg["menu"]] + [i["name"] for i in cfg["weekly_offer"]["free_items"]],
                                     cfg, max_new=200)

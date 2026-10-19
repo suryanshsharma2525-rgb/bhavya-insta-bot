@@ -71,6 +71,11 @@ hashtags:
 # Sheet me 2 columns: date | trend  (jaise: 2026-10-20 | 2 kachori 1 samosa meme)
 trend_sheet_csv_url: ""
 
+# ---------------- LOOK & MIX ----------------
+# Colour themes jo rotate honge (logo hamesha gold). Options: classic_gold, emerald, maroon, midnight, kulhad
+themes: [classic_gold, emerald, maroon, midnight, kulhad]
+theme_mode: rotate        # rotate = har din alag theme | fixed = hamesha pehli wali
+
 # ---------------- AI ----------------
 ai:
   model: "gemini-2.5-flash"           # text (jokes, captions)

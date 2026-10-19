@@ -15,7 +15,16 @@ Ye bot roz shaam 6:30 baje Bhavya Cafe ke Instagram pe apne aap ek post daalta h
 
 ---
 
-## Formats (har hafte inme se 6 + 1 offer)
+## Content strategy (premium cafe brand)
+Har hafte: **3 reels + 3 posts + 1 offer**.
+- Lagbhag 40% product/aesthetic content: cinematic food reels, spotlight, mood posts, did-you-know.
+- Lagbhag 30% samajhdar humour: mature, clever, bina cringe ke.
+- Lagbhag 20% interactive posts, aur 10% offers.
+- **Har hafte ek "AI concept reel"** aata hai, jisme AI har baar bilkul naya idea sochta hai. Is format ki variety ki koi limit nahi.
+- **5 colour themes** rotate hoti hain: classic_gold, emerald, maroon, midnight, kulhad. Logo hamesha gold rehta hai. Badalni ho to `config.yaml` → `themes`.
+- **Music:** `assets/music/` me 4 original tracks hain (lo-fi, upbeat, desi dholak, game beat). Ye copyright-free hain. Apne `.mp3` bhi daal sakte ho.
+
+## Formats
 
 | Format | Kya hai | Kaise algorithm ko help karta hai |
 |---|---|---|
@@ -99,7 +108,9 @@ Daily post apne aap jaata rahega. Iske alawa jab bhi kuch special ho, jaise baar
 
 1. Phone pe **GitHub app** kholo (ya github.com) → apna repo → **Actions** → **POST NOW (abhi turant post karo)** → **Run workflow**.
 2. 3 cheezein bharo (teeno optional hain):
-   - **format**: `auto` rehne do, bot khud chunega. Ya list se koi format chuno, jaise `offer_zoom_code`.
+   - **type**: `video` (reel), `image`, ya `auto`. Video chuno aur format image wala ho, to bhi bot use music wale video me badal dega.
+   - **format**: `auto` rehne do, bot khud chunega. Ya list se koi format chuno, jaise `reel_showcase`.
+   - **theme**: `auto` ya koi colour theme.
    - **idea**: apni baat likho, jaise *"Aaj baarish hai, Kulhad Chai + Bun Makkhan perfect combo"* ya *"Fest week me cafe raat 1 baje tak open"*.
    - **item**: kaunsa item dikhana hai, jaise *Kulhad Pizza* ya *Potato Twister*.
 3. **Run workflow** dabao. 2–4 minute me post Instagram pe aa jayega.

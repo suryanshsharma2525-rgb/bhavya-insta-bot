@@ -15,11 +15,36 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 A = lambda *p: os.path.join(ROOT, "assets", *p)
 
 W, H = 1080, 1350
-BG = (14, 13, 11)
-CREAM = (246, 236, 214)
-MUTED = (150, 138, 115)
-GOLD = (212, 162, 76)
-GOLD_STOPS = [(0, (247, 222, 146)), (0.45, (219, 170, 82)), (0.8, (178, 124, 44)), (1, (236, 196, 112))]
+
+# ---------------------------------------------------------------- colour themes
+# Har post alag theme me ban sakta hai (config.yaml → themes). Logo hamesha gold rehta hai.
+GOLDS = [(0, (247, 222, 146)), (0.45, (219, 170, 82)), (0.8, (178, 124, 44)), (1, (236, 196, 112))]
+THEMES = {
+    "classic_gold": dict(bg=(14, 13, 11), card=(24, 22, 18), panel=(20, 18, 15), line=(120, 92, 44), alt=(40, 30, 14),
+                         gold=(212, 162, 76), stops=GOLDS, cream=(246, 236, 214), muted=(150, 138, 115)),
+    "emerald": dict(bg=(8, 34, 25), card=(14, 48, 36), panel=(11, 41, 31), line=(122, 140, 80), alt=(18, 62, 45),
+                    gold=(214, 170, 84), stops=GOLDS, cream=(246, 240, 220), muted=(150, 175, 150)),
+    "maroon": dict(bg=(40, 9, 15), card=(58, 16, 24), panel=(50, 13, 19), line=(150, 96, 60), alt=(74, 20, 30),
+                   gold=(222, 172, 86), stops=GOLDS, cream=(250, 236, 222), muted=(196, 150, 140)),
+    "midnight": dict(bg=(9, 14, 32), card=(18, 27, 54), panel=(14, 21, 44), line=(110, 116, 150), alt=(26, 36, 74),
+                     gold=(230, 182, 92), stops=GOLDS, cream=(240, 240, 250), muted=(150, 160, 192)),
+    "kulhad": dict(bg=(44, 21, 11), card=(66, 33, 18), panel=(56, 27, 14), line=(176, 112, 60), alt=(92, 44, 20),
+                   gold=(240, 168, 88),
+                   stops=[(0, (255, 218, 160)), (0.45, (242, 166, 82)), (0.8, (204, 108, 44)), (1, (252, 192, 112))],
+                   cream=(255, 242, 224), muted=(214, 172, 140)),
+}
+THEME = "classic_gold"
+
+
+def set_theme(name):
+    global THEME, BG, CARD, PANEL, LINE, ALT, GOLD, GOLD_STOPS, CREAM, MUTED
+    name = name if name in THEMES else "classic_gold"
+    t = THEMES[name]
+    THEME = name
+    BG, CARD, PANEL, LINE, ALT = t["bg"], t["card"], t["panel"], t["line"], t["alt"]
+    GOLD, GOLD_STOPS, CREAM, MUTED = t["gold"], t["stops"], t["cream"], t["muted"]
+    _gradient.cache_clear()
+    return name
 
 
 # ---------------------------------------------------------------- basics
@@ -44,7 +69,7 @@ def F(kind, size):
 
 
 @lru_cache(None)
-def _gradient(w, h):
+def _gradient(w, h, _theme=None):
     import numpy as np
     xs = np.linspace(0, 1, w)[None, :]
     ys = np.linspace(0, 1, h)[:, None]
@@ -63,13 +88,14 @@ def gold_text(img, xy, text, f, anchor="mm", shadow=True):
     if shadow:
         sh = mask.filter(ImageFilter.GaussianBlur(6))
         img.paste((0, 0, 0), (0, 0), sh.point(lambda v: int(v * 0.8)))
-    grad = _gradient(max(1, bbox[2] - bbox[0]), max(1, bbox[3] - bbox[1]))
+    grad = _gradient(max(1, bbox[2] - bbox[0]), max(1, bbox[3] - bbox[1]), THEME)
     layer = Image.new("RGB", img.size)
     layer.paste(grad, bbox[:2])
     img.paste(layer, (0, 0), mask)
 
 
-def text(img, xy, s, f, fill=CREAM, anchor="mm"):
+def text(img, xy, s, f, fill=None, anchor="mm"):
+    fill = fill or CREAM
     ImageDraw.Draw(img).text(xy, s, font=f, fill=fill, anchor=anchor)
 
 
@@ -99,7 +125,8 @@ def fit(s, kind, maxw, maxh, start=90, minimum=34, spacing=1.18):
     return f, wrap(s, f, maxw), minimum
 
 
-def block(img, s, kind, box, gold=False, fill=CREAM, start=90, minimum=34, spacing=1.18):
+def block(img, s, kind, box, gold=False, fill=None, start=90, minimum=34, spacing=1.18):
+    fill = fill or CREAM
     x0, y0, x1, y1 = box
     f, lines, size = fit(s, kind, x1 - x0, y1 - y0, start, minimum, spacing)
     lh = size * spacing
@@ -155,8 +182,8 @@ def glow(img, cx, cy, r, alpha=70):
     img.paste(GOLD, (0, 0), g)
 
 
-def rrect(img, box, r=36, fill=(24, 22, 18), outline=GOLD, width=3):
-    ImageDraw.Draw(img).rounded_rectangle(box, r, fill=fill, outline=outline, width=width)
+def rrect(img, box, r=36, fill=None, outline=None, width=3):
+    ImageDraw.Draw(img).rounded_rectangle(box, r, fill=fill or CARD, outline=outline or GOLD, width=width)
 
 
 def slug(s):
@@ -216,7 +243,7 @@ def canvas(w=W, h=H, footer="Near IIT Roorkee", header=True):
     img = Image.new("RGB", (w, h), BG)
     glow(img, w * 0.5, h * 0.42, w * 0.55, 26)
     d = ImageDraw.Draw(img)
-    d.rectangle((26, 26, w - 27, h - 27), outline=(120, 92, 44), width=2)
+    d.rectangle((26, 26, w - 27, h - 27), outline=LINE, width=2)
     leaf = _brand("leaf.png").copy()
     leaf.thumbnail((130, 190))
     leaf.putalpha(leaf.split()[3].point(lambda v: int(v * 0.55)))
@@ -237,7 +264,8 @@ def canvas(w=W, h=H, footer="Near IIT Roorkee", header=True):
     return img
 
 
-def pill(img, cx, cy, s, f, fill=GOLD, color=BG, pad=(34, 16)):
+def pill(img, cx, cy, s, f, fill=None, color=None, pad=(34, 16)):
+    fill, color = fill or GOLD, color or BG
     tw = f.getlength(s)
     box = (cx - tw / 2 - pad[0], cy - f.size / 2 - pad[1], cx + tw / 2 + pad[0], cy + f.size / 2 + pad[1] + 4)
     ImageDraw.Draw(img).rounded_rectangle(box, 999, fill=fill)
@@ -261,7 +289,7 @@ def r_versus(p, cfg, rng):
         x0 = 70 + i * 480
         box = (x0, 370, x0 + 460, 1190)
         rrect(img, box, outline=GOLD if side == "right" else (90, 84, 74), width=4 if side == "right" else 2,
-              fill=(26, 23, 18) if side == "right" else (22, 22, 22))
+              fill=CARD if side == "right" else PANEL)
         cx = (box[0] + box[2]) / 2
         title = p[f"{side}_title"].upper()
         if side == "right":
@@ -303,7 +331,7 @@ def r_tag(p, cfg, rng):
     block(img, p["line"], "bold", (100, 460, 980, 760), start=64, minimum=36)
     item_visual(img, cfg, p["item"], W / 2, 920, 250, rng)
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle((170, 1110, 910, 1200), 999, outline=GOLD, width=3, fill=(24, 22, 18))
+    d.rounded_rectangle((170, 1110, 910, 1200), 999, outline=GOLD, width=3, fill=CARD)
     text(img, (215, 1155), "@", F("bold", 46), GOLD, anchor="lm")
     d.line((270, 1175, 820, 1175), fill=(110, 95, 70), width=3)
     d.line((830, 1128, 830, 1182), fill=CREAM, width=4)  # blinking cursor look
@@ -328,7 +356,7 @@ def r_rate(p, cfg, rng):
         x = 115 + i * 87
         box = (x, 1030, x + 72, 1110)
         filled = i < 9
-        ImageDraw.Draw(img).rounded_rectangle(box, 14, fill=GOLD if i == 9 else (34, 30, 24),
+        ImageDraw.Draw(img).rounded_rectangle(box, 14, fill=GOLD if i == 9 else CARD,
                                               outline=GOLD, width=2)
         text(img, ((box[0] + box[2]) / 2, 1072), str(i + 1), F("bold", 36), BG if i == 9 else CREAM)
     text(img, (W / 2, 1170), "comments me apna number", F("reg", 30), MUTED)
@@ -379,10 +407,10 @@ def _scene(rng, n=13):
 
 
 def _panel(items):
-    p = Image.new("RGB", (920, 400), (28, 25, 20))
+    p = Image.new("RGB", (920, 400), PANEL)
     d = ImageDraw.Draw(p)
     for i in range(0, 920, 46):
-        d.line((i, 0, i, 400), fill=(33, 29, 23), width=22)  # wooden-table stripes
+        d.line((i, 0, i, 400), fill=CARD, width=22)  # wooden-table stripes
     for x, y, s, e, a in items:
         if e:
             paste_c(p, emoji(e, s, a), x, y)
@@ -466,7 +494,7 @@ def _micro_texture(img, box, hidden, rng, size=13):
             s = pre + " " + hidden.upper() + " · " + s
         while f.getlength(s) > (x1 - x0):
             s = s[:-1]
-        d.text((x0, y), s, font=f, fill=(150, 116, 60))
+        d.text((x0, y), s, font=f, fill=tuple(int(c * 0.7) for c in GOLD))
     return target
 
 
@@ -474,7 +502,7 @@ def r_zoomread(p, cfg, rng):
     img = canvas()
     gold_text(img, (W / 2, 250), p["headline"].upper(), fit(p["headline"].upper(), "impact", 880, 120, 110)[0])
     paste_c(img, emoji("🔍", 80), W / 2, 352)
-    ImageDraw.Draw(img).rounded_rectangle((90, 410, 990, 1130), 24, fill=(20, 18, 15), outline=GOLD, width=3)
+    ImageDraw.Draw(img).rounded_rectangle((90, 410, 990, 1130), 24, fill=PANEL, outline=GOLD, width=3)
     _micro_texture(img, (115, 430, 965, 1110), p["hidden_message"], rng)
     text(img, (W / 2, 1185), "Secret message chhupa hai · hold karke zoom karo", F("med", 30), CREAM)
     return [img]
@@ -487,7 +515,7 @@ def r_zoomcode(p, cfg, rng):
     gold_text(img, (W / 2, 280), f"FREE {it['name'].upper()}", fit(f"FREE {it['name'].upper()}", "impact", 660, 120, 110)[0])
     paste_c(img, emoji(it.get("emoji", "🎁"), 90), 130, 280)
     paste_c(img, emoji("🎁", 85), 950, 280)
-    ImageDraw.Draw(img).rounded_rectangle((90, 360, 990, 900), 24, fill=(20, 18, 15), outline=GOLD, width=3)
+    ImageDraw.Draw(img).rounded_rectangle((90, 360, 990, 900), 24, fill=PANEL, outline=GOLD, width=3)
     _micro_texture(img, (115, 380, 965, 880), f"CODE: {p['_code']}", rng)
     steps = ["1. Image zoom karo", "2. Hidden CODE dhundo", "3. Counter pe dikhao, FREE lo"]
     for i, s in enumerate(steps):
@@ -539,6 +567,29 @@ def r_thisorthat(p, cfg, rng):
     return out
 
 
+def r_spotlight(p, cfg, rng):
+    img = canvas()
+    text(img, (W / 2, 235), p.get("kicker", "").upper(), F("bold", 30), MUTED)
+    item_visual(img, cfg, p["item"], W / 2, 600, 560, rng)
+    block(img, p["item"], "serif", (80, 900, 1000, 1040), gold=True, start=96, minimum=50)
+    block(img, p["tagline"], "reg", (120, 1050, 960, 1150), start=40, minimum=28)
+    price = next((m.get("price") for m in cfg["menu"] if m["name"] == p["item"]), None)
+    if price:
+        pill(img, W / 2, 1205, f"₹{price}", F("bold", 40))
+    return [img]
+
+
+def r_moodquote(p, cfg, rng):
+    img = canvas()
+    item_visual(img, cfg, p["item"], W / 2, 470, 430, rng)
+    text(img, (W / 2, 760), "\u201c", F("serif", 150), GOLD)
+    block(img, p["quote"], "serif", (110, 790, 970, 1130), gold=True, start=70, minimum=40, spacing=1.3)
+    d = ImageDraw.Draw(img)
+    d.line((W / 2 - 60, 1170, W / 2 + 60, 1170), fill=GOLD, width=2)
+    text(img, (W / 2, 1205), p["item"], F("med", 30), MUTED)
+    return [img]
+
+
 RENDERERS = {k[2:]: v for k, v in globals().items() if k.startswith("r_")}
 
 
@@ -588,7 +639,7 @@ def render_reel(post, cfg, out_path, seed):
     intro = _reel_text_card([("PAUSE KARO", "impact", 190, True), ("jo item aaye", "bold", 80, False),
                              ("wo FREE", "impact", 150, True)])
     frames += [intro] * 18  # 1.5 s at 12 fps
-    cards = [_reel_card(cfg, it, bg) for it in items for bg in [(14, 13, 11), (40, 30, 14)]]
+    cards = [_reel_card(cfg, it, bg) for it in items for bg in [BG, ALT]]
     for i in range(8 * 12):  # 8 s of flashing, 3 frames per item
         frames.append(cards[(i // 3) % len(cards)])
     outro = _reel_text_card([("Screenshot lo", "impact", 130, True),
@@ -599,14 +650,18 @@ def render_reel(post, cfg, out_path, seed):
     for i, fr in enumerate(frames):
         fr.save(os.path.join(tmp, f"{i:04d}.jpg"), quality=92)
     dur = len(frames) / 12
-    music = sorted(glob.glob(A("music", "*.mp3")) + glob.glob(A("music", "*.m4a")))
+    from .reels import pick_music
+    music = pick_music(seed, "game")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", os.path.join(tmp, "%04d.jpg")]
     if music:
-        cmd += ["-i", rng.choice(music), "-af", f"afade=t=out:st={dur - 1.5}:d=1.5", "-c:a", "aac", "-b:a", "160k",
-                "-shortest"]
+        cmd += ["-stream_loop", "-1", "-i", music, "-map", "0:v", "-map", "1:a",
+                "-af", f"afade=t=out:st={dur - 1.5}:d=1.5", "-c:a", "aac", "-b:a", "160k"]
     cmd += ["-r", "30", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart",
             "-t", f"{dur}", out_path]
     subprocess.run(cmd, check=True)
     intro.save(out_path.replace(".mp4", "_cover.jpg"), quality=92)
     shutil.rmtree(tmp)
     return out_path
+
+
+set_theme("classic_gold")

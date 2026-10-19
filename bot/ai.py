@@ -9,30 +9,32 @@ import requests
 from .formats import ALL_FORMATS
 
 STYLE_RULES = """
-You are the social media voice of Bhavya Cafe, a cafe near IIT Roorkee (Uttarakhand, India).
-Audience: IIT Roorkee students + nearby college students + Roorkee locals (18-28).
+You are the senior social media manager of Bhavya Cafe — a premium, aesthetic cafe near IIT Roorkee (Uttarakhand, India).
+Your job: build a high-end brand presence and grow the page fast (reach, saves, shares, follows, footfall).
+Audience: IIT Roorkee students, nearby college students, young professionals and Roorkee families (18-35).
 
-VOICE
-- Write in natural Hinglish (Roman script), like a funny friend from the hostel, NOT like an ad.
-- Desi meme energy: short, punchy, relatable, a little dramatic. Think viral Indian Instagram meme pages.
-- Use real student/local life: end-sems, quizzes, attendance, placements, internships, assignments at 11:59 PM,
-  hostel mess, late-night hunger, Roorkee ki thand, monsoon, Ganga canal, Haridwar/Dehradun trips, going home on holidays,
-  fests, cricket matches, budget at month-end.
+BRAND VOICE
+- Premium, warm, confident and witty. Think a well-run modern cafe brand, not a meme page.
+- Humour must be MATURE and clever: observational, understated, smart wordplay, relatable student/work life.
+  No cringe, no slapstick, no 'bhai/bro' spam, no shouting, no over-the-top dramatics.
+- Language: natural Hinglish mixed with clean English (Roman script). Elegant and easy to read.
+- Product posts are sensory and aspirational (aroma, warmth, texture, the moment) — make people crave and want to visit.
+- Use real student/local context tastefully: exams, placements, late nights, Roorkee winters, monsoon, Ganga canal evenings,
+  weekend plans, friends' catch-ups, family outings.
 - Only use items from the MENU, with their EXACT names. Never invent items or prices; if you mention a price, use the MENU price.
 
 HARD RULES (never break)
 - Never make fun of any person, professor, branch, college, state, religion, caste, gender, body or language.
-  Self-roast of "student life" is fine. Never name real people.
-- No politics, no religion, no double-meaning / adult jokes, no alcohol/smoking.
-- Never claim things about IIT Roorkee as an institution (no fake events, no logos).
-- On-image text: NO emojis, NO hashtags. Keep it short — it must be readable on a phone in 1 second.
-- Do not repeat any joke from RECENT POSTS.
+- No politics, no religion jokes, no double-meaning / adult jokes, no alcohol/smoking.
+- Never claim things about IIT Roorkee as an institution, and never invent facts about Bhavya (recipes, sourcing, awards,
+  reviews, customer quotes, numbers of customers).
+- On-image text: NO emojis, NO hashtags. Short — readable on a phone in 1 second.
+- Do not repeat any idea from RECENT POSTS.
 
-SEO (very important — Instagram search works on keywords)
-- "caption_hook" = first caption line, max 12 words, MUST contain the word "Roorkee" and one food keyword
-  (e.g. "Best momos in Roorkee near IIT?"), plus 1-2 emojis.
-- "caption_body" = 1-3 short lines continuing the joke (emojis ok).
-- "cta" = one line that makes people COMMENT, SAVE, SHARE or TAG (questions work best).
+SEO + GROWTH (very important — Instagram search works on keywords)
+- "caption_hook" = first caption line, max 12 words, MUST contain "Roorkee" and one food/cafe keyword, at most 1 emoji.
+- "caption_body" = 1-3 short, well-written lines (max 2 emojis total). Storytelling > shouting.
+- "cta" = one line that drives SAVE, SHARE, COMMENT or a VISIT (questions work best).
 - "alt_text" = plain description of the image incl. "Bhavya Cafe Roorkee".
 - "extra_hashtags" = exactly 2 picked from the allowed list.
 """
@@ -86,6 +88,56 @@ SAMPLES = {
                                {"a": "Veg Momos", "a_emoji": "🥟", "b": "Kulhad Pizza", "b_emoji": "🍕"}],
                      "caption_hook": "This or That, Roorkee food edition 🥟☕", "caption_body": "Swipe karo aur choose karo 👉",
                      "cta": "Comment karo apne answers jaise: A B A 👇"},
+    "reel_meme": {"hook": "Attendance 74.9% dekh ke mera reaction", "punchline": "Proxy wale dost ko Veg Momos ki treat",
+                  "item": "Veg Momos", "caption_hook": "Veg Momos near IIT Roorkee, proxy ka asli reward 🥟😂",
+                  "caption_body": "Dosti me itna to banta hai 🤝", "cta": "Tag karo apne proxy partner ko 👇"},
+    "reel_pov": {"pov_lines": ["Raat ke 1 baje assignment khatam hua", "Pet bola: ab kuch accha kha le",
+                               "Kal Bhavya pe Cheese Burger pakka"], "item": "Cheese Burger",
+                 "caption_hook": "Cheese Burger in Roorkee hits different after an all-nighter 🍔🌙",
+                 "caption_body": "Har IITian ki kahani 😮‍💨", "cta": "Relatable? Share karo hostel group me 👇"},
+    "reel_top5": {"title": "End-sem raaton ke Top 5 saathi",
+                  "items": ["Bun Makkhan", "Hot Coffee", "Simple Chips Chaat", "Mocha Shake", "Kulhad Chai"],
+                  "caption_hook": "Top 5 late-night snacks in Roorkee near IIT ☕📚",
+                  "caption_body": "#1 pe koi doubt? 😏", "cta": "Comment karo tumhara #1 👇"},
+    "reel_this_or_that": {"pairs": [{"a": "8 AM class", "a_emoji": "😴", "b": "Mess ka nashta", "b_emoji": "🍳"},
+                                    {"a": "Kulhad Chai", "a_emoji": "🍵", "b": "Cold Coffee", "b_emoji": "🧋"},
+                                    {"a": "Veg Momos", "a_emoji": "🥟", "b": "Kulhad Pizza", "b_emoji": "🍕"}],
+                          "caption_hook": "This or That, Roorkee cafe edition 🍵🆚🧋",
+                          "caption_body": "3 second me decide karo ⏱️", "cta": "Comment karo apne answers: A B A 👇"},
+    "reel_pause_game": {"headline": "Jo item aaye wahi aaj ka dinner",
+                        "caption_hook": "Pause challenge: aaj Roorkee me kya khaoge? ⏸️🍔",
+                        "caption_body": "Screenshot lo aur dinner fix 😎", "cta": "Comment karo kya aaya 👇"},
+    "reel_showcase": {"opening_line": "Roorkee evenings, done right",
+                      "shots": [{"item": "Kulhad Pizza", "line": "Baked in clay, finished with molten cheese"},
+                                {"item": "Kesar Pista Kheer", "line": "Slow-cooked, saffron-kissed comfort"},
+                                {"item": "Kulhad Chai", "line": "The warmth every conversation needs"}],
+                      "closing_line": "Your table is waiting",
+                      "caption_hook": "A slow evening at Bhavya Cafe, Roorkee ✨",
+                      "caption_body": "Clay-baked pizza, saffron kheer and kulhad chai. Some evenings deserve a little more care.",
+                      "cta": "Save this for your next plan with friends."},
+    "product_spotlight": {"item": "Kulhad Pizza", "tagline": "Baked in clay. Loaded with cheese. Made to share.",
+                          "kicker": "Chef's pick", "caption_hook": "Kulhad Pizza in Roorkee, our most-shared plate 🍕",
+                          "caption_body": "Crisp edges, bubbling cheese and that earthy kulhad aroma. Best enjoyed hot, with good company.",
+                          "cta": "Who are you bringing along? Tag them."},
+    "mood_quote": {"quote": "Some conversations need a kulhad of chai and no deadline.", "item": "Kulhad Chai",
+                   "caption_hook": "Kulhad Chai evenings in Roorkee ☕",
+                   "caption_body": "Slow down for twenty minutes. The assignment will still be there.",
+                   "cta": "Send this to the friend you owe a chai."},
+    "fact_carousel": {"slides": [{"big": "Why chai tastes better in a kulhad", "small": "Swipe for a little story behind your favourite cup"},
+                                 {"big": "An old Indian tradition", "small": "Clay cups have been used for tea and lassi across North India for generations"},
+                                 {"big": "Earthy aroma", "small": "Unglazed clay adds a subtle earthy note many people love"},
+                                 {"big": "Try it at Bhavya", "small": "Kulhad Chai, ₹20, near IIT Roorkee"}],
+                      "caption_hook": "The story behind kulhad chai, now in Roorkee ☕",
+                      "caption_body": "A small cup with a long history.", "cta": "Save this and share it with a chai lover."},
+    "reel_freestyle": {"concept_title": "Bhavya pe aane wale 5 type ke log", "numbered": True,
+                       "scenes": [{"text": "Jo menu 10 min padhta hai aur Kulhad Chai mangata hai", "style": "list", "item": "Kulhad Chai"},
+                                  {"text": "Jo bolta hai bas ek bite aur poora pizza kha jaata hai", "style": "list", "item": "Kulhad Pizza"},
+                                  {"text": "Jo har baar Cold Coffee hi leta hai", "style": "list", "item": "Cold Coffee"},
+                                  {"text": "Jo bill ke time phone pe busy ho jaata hai", "style": "list", "emoji": "📱"},
+                                  {"text": "Aur tum kaunse ho?", "style": "question", "emoji": "🤔"}],
+                       "end_line": "Comment karo apna type",
+                       "caption_hook": "Types of people at Bhavya Cafe Roorkee 😂☕",
+                       "caption_body": "Har group me ye sab milte hain 👀", "cta": "Tag karo apne group ko 👇"},
     "offer_flash_reel": {"headline": "Pause karo, jo aaye wo FREE", "caption_hook": "Roorkee walo, free food ka mauka 🎁🔥",
                          "caption_body": "Reel PAUSE karo, screenshot lo, counter pe dikhao. Jo item aaya, wo FREE 😍",
                          "cta": "Tag karo us dost ko jiske saath aaoge 👇"},
@@ -173,6 +225,30 @@ def _valid(fmt_key, d, cfg):
         return False
     if fmt_key == "this_or_that" and len(d["pairs"]) < 2:
         return False
+    if fmt_key == "reel_showcase":
+        shots = [x for x in d["shots"] if isinstance(x, dict) and str(x.get("item", "")).lower() in names]
+        if len(shots) < 2:
+            return False
+        d["shots"] = shots[:3]
+    if fmt_key == "fact_carousel" and len(d["slides"]) < 3:
+        return False
+    if fmt_key == "reel_pov" and len(d["pov_lines"]) < 3:
+        return False
+    if fmt_key == "reel_top5" and len(d["items"]) < 5:
+        return False
+    if fmt_key in ("reel_this_or_that",) and len(d["pairs"]) < 2:
+        return False
+    if fmt_key == "reel_freestyle":
+        sc = [x for x in d["scenes"] if isinstance(x, dict) and x.get("text")]
+        if len(sc) < 3:
+            return False
+        canon = {m["name"].lower(): m["name"] for m in cfg["menu"]}
+        for x in sc:  # galat item naam → item hata do (emoji fallback), post reject mat karo
+            it = str(x.get("item") or "").strip().lower()
+            x["item"] = canon.get(it) if it else None
+            x["style"] = x.get("style") if x.get("style") in ("hook", "list", "question", "punch", "reveal") else "hook"
+        d["scenes"] = sc[:6]
+        d["numbered"] = str(d.get("numbered")).lower() == "true"
     if fmt_key == "weekend_plan" and len(d.get("done", [])) != len(d["checklist"]):
         d["done"] = [False] * (len(d["checklist"]) - 1) + [True]
     return True
@@ -181,9 +257,15 @@ def _valid(fmt_key, d, cfg):
 def _finalise(fmt_key, d, cfg, ctx):
     # on-image text must have no emojis
     for k in ("top", "bottom", "headline", "line", "question", "a_line", "b_line", "left_title", "left_line",
-              "right_title", "right_line", "combo_name", "hidden_message"):
+              "right_title", "right_line", "combo_name", "hidden_message", "hook", "punchline", "title",
+              "concept_title", "end_line", "tagline", "kicker", "quote", "opening_line", "closing_line"):
         if k in d:
             d[k] = strip_emoji(d[k])
+    d["pov_lines"] = [strip_emoji(x) for x in d.get("pov_lines", [])] or d.get("pov_lines")
+    for x in d.get("shots", []):
+        x["line"] = strip_emoji(x.get("line"))
+    for x in d.get("scenes", []):
+        x["text"] = strip_emoji(x.get("text"))
     for s in d.get("slides", []):
         s["big"], s["small"] = strip_emoji(s.get("big")), strip_emoji(s.get("small"))
     d["checklist"] = [strip_emoji(x) for x in d.get("checklist", [])] or d.get("checklist")
