@@ -78,7 +78,7 @@ theme_mode: rotate        # rotate = har din alag theme | fixed = hamesha pehli 
 
 # ---------------- AI ----------------
 ai:
-  model: "gemini-2.5-flash"           # text (jokes, captions)
+  model: "gemini-flash-latest"        # text (naam badle to bot khud naya model dhundh lega)
   image_model: "gemini-2.5-flash-image"  # food photos ("Nano Banana")
 
 # ---------------- FOOD PHOTOS ----------------
