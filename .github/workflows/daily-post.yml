@@ -25,6 +25,8 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: |
           D=$(TZ=Asia/Kolkata date +%F)
           if [ -f "posts/$D/post.json" ]; then echo "Post already generated"; else python -m bot.main generate; fi
