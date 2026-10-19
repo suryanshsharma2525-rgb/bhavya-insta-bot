@@ -65,9 +65,32 @@ def photos_for(name):
     return ai, "ai" if ai else None
 
 
+_DEAD = set()  # is run me jo service fail ho chuki, use dobara try nahi karte
+
+
+def _cloudflare(prompt, cfg):
+    """Cloudflare Workers AI (FLUX schnell) — free ~170 images/day. Needs CF_ACCOUNT_ID + CF_API_TOKEN."""
+    acc, tok = os.environ.get("CF_ACCOUNT_ID"), os.environ.get("CF_API_TOKEN")
+    if not acc or not tok or "cf" in _DEAD:
+        return None
+    url = f"https://api.cloudflare.com/client/v4/accounts/{acc.strip()}/ai/run/@cf/black-forest-labs/flux-1-schnell"
+    try:
+        r = requests.post(url, headers={"Authorization": f"Bearer {tok.strip()}"},
+                          json={"prompt": prompt[:2000], "steps": 8}, timeout=180)
+        r.raise_for_status()
+        img = (r.json().get("result") or {}).get("image")
+        if img:
+            return base64.b64decode(img)
+        print("Cloudflare: no image in response", r.text[:300])
+    except Exception as e:
+        print("Cloudflare failed:", str(e)[:300])
+        _DEAD.add("cf")
+    return None
+
+
 def _gemini_image(prompt, cfg):
     key = os.environ.get("GEMINI_API_KEY")
-    if not key:
+    if not key or "gemini" in _DEAD:
         return None
     model = cfg.get("ai", {}).get("image_model", "gemini-2.5-flash-image")
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
@@ -83,11 +106,14 @@ def _gemini_image(prompt, cfg):
         print("Gemini image: no image in response")
     except Exception as e:
         print("Gemini image failed:", str(e)[:300])
+        _DEAD.add("gemini")
     return None
 
 
 def _pollinations(prompt, cfg):
     key = os.environ.get("POLLINATIONS_KEY")
+    if not key or "poll" in _DEAD:
+        return None
     url = "https://gen.pollinations.ai/image/" + urllib.parse.quote(prompt)
     headers = {"Authorization": f"Bearer {key}"} if key else {}
     try:
@@ -99,6 +125,7 @@ def _pollinations(prompt, cfg):
         print("Pollinations: not an image")
     except Exception as e:
         print("Pollinations failed:", str(e)[:300])
+        _DEAD.add("poll")
     return None
 
 
@@ -107,7 +134,7 @@ def generate_one(name, cfg, variant):
     angles = ["", " Close-up hero shot.", " 45-degree angle, a few ingredients scattered around.",
               " Top-down flat lay.", " Served on a dark ceramic plate with a gold rim."]
     prompt = STYLE.format(dish=dish) + angles[variant % len(angles)]
-    raw = _gemini_image(prompt, cfg) or _pollinations(prompt, cfg)
+    raw = _cloudflare(prompt, cfg) or _gemini_image(prompt, cfg) or _pollinations(prompt, cfg)
     if not raw:
         return None
     im = Image.open(io.BytesIO(raw)).convert("RGB")
@@ -125,7 +152,7 @@ def ensure_photos(names, cfg, per_item=None, max_new=None):
     """Make sure every item has enough AI photos. Only generates what's missing."""
     pc = cfg.get("photos", {})
     if not pc.get("ai_photos", True):
-        return
+        return 0
     per_item = per_item or pc.get("variants_per_item", 3)
     max_new = pc.get("max_new_per_run", 12) if max_new is None else max_new
     made = 0
@@ -135,7 +162,8 @@ def ensure_photos(names, cfg, per_item=None, max_new=None):
             continue
         for v in range(len(files), per_item):
             if made >= max_new:
-                return
+                return made
             if not generate_one(name, cfg, v):
-                return  # API down / quota over → emoji fallback today, try again tomorrow
+                return made  # API down / quota over → emoji fallback today, try again tomorrow
             made += 1
+    return made

@@ -242,8 +242,11 @@ def main():
     elif a.command == "post-now":
         cmd_post_now(cfg, a.format, a.idea, a.item)
     elif a.command == "make-photos":
-        photos.ensure_photos([m["name"] for m in cfg["menu"]] + [i["name"] for i in cfg["weekly_offer"]["free_items"]],
-                             cfg, max_new=200)
+        made = photos.ensure_photos([m["name"] for m in cfg["menu"]] + [i["name"] for i in cfg["weekly_offer"]["free_items"]],
+                                    cfg, max_new=200)
+        print(f"{made} nayi photos bani.")
+        if not made and not any(photos.photos_for(m["name"])[0] for m in cfg["menu"]):
+            raise SystemExit("❌ Ek bhi photo nahi bani. Upar ka error dekho (CF_ACCOUNT_ID / CF_API_TOKEN secrets check karo).")
     elif a.command == "preview-week":
         cmd_preview_week(date, cfg, trends=a.trend)
     else:
