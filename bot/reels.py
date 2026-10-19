@@ -358,7 +358,7 @@ def _encode(scenes, out_path, seed, mood=None):
             i += 1
     total = i / FPS
     music = pick_music(seed, mood)
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "%05d.jpg")]
+    cmd = [R.ffmpeg_bin(), "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "%05d.jpg")]
     if music:
         cmd += ["-stream_loop", "-1", "-i", music, "-map", "0:v", "-map", "1:a",
                 "-af", f"afade=t=in:d=0.4,afade=t=out:st={max(0, total - 1.5)}:d=1.5", "-c:a", "aac", "-b:a", "160k"]

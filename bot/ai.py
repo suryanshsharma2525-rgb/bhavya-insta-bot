@@ -181,22 +181,60 @@ def _prompt(fmt_key, cfg, ctx):
     return "\n\n".join(parts)
 
 
+_MODEL_CACHE = {}
+
+
+def _pick_model(key, wanted):
+    """Config wala model na mile (Google naam badalta rehta hai) to available 'flash' text model khud dhundo."""
+    if "model" in _MODEL_CACHE:
+        return _MODEL_CACHE["model"]
+    try:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"key": key, "pageSize": 200},
+                         timeout=30)
+        r.raise_for_status()
+        models = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
+                  if "generateContent" in m.get("supportedGenerationMethods", [])]
+    except Exception as e:
+        print("Model list failed:", e)
+        models = []
+    if wanted in models:
+        choice = wanted
+    else:
+        def score(n):
+            bad = any(x in n for x in ("image", "tts", "audio", "live", "embedding", "vision", "thinking", "exp"))
+            return (bad, "flash" not in n, "lite" in n, "preview" in n, "latest" not in n, [-ord(c) for c in n])
+        cands = sorted(models, key=score)
+        choice = cands[0] if cands else "gemini-flash-latest"
+        print(f"Model '{wanted}' nahi mila → '{choice}' use kar rahe hain")
+    _MODEL_CACHE["model"] = choice
+    return choice
+
+
 def _gemini(prompt, cfg):
     key = os.environ.get("GEMINI_API_KEY")
-    if not key:
+    if not key or _MODEL_CACHE.get("dead"):
         return None
-    model = cfg.get("ai", {}).get("model", "gemini-2.5-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    wanted = cfg.get("ai", {}).get("model", "gemini-flash-latest")
+    model = _MODEL_CACHE.get("model", wanted)
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseMimeType": "application/json", "temperature": 1.0}}
-    for attempt in range(3):
+    for attempt in range(4):
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
         try:
             r = requests.post(url, params={"key": key}, json=body, timeout=90)
+            if r.status_code == 404:  # model ka naam badal gaya
+                _MODEL_CACHE.pop("model", None)
+                model = _pick_model(key, "__none__" if model == wanted else wanted)
+                continue
             r.raise_for_status()
+            _MODEL_CACHE["model"] = model
             txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             return json.loads(txt)
         except Exception as e:
-            print(f"Gemini attempt {attempt + 1} failed: {e}")
+            print(f"Gemini attempt {attempt + 1} failed: {str(e)[:200]}")
+            if "429" in str(e):
+                import time
+                time.sleep(20)
     return None
 
 

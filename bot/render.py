@@ -139,6 +139,18 @@ def block(img, s, kind, box, gold=False, fill=None, start=90, minimum=34, spacin
         y += lh
 
 
+def ffmpeg_bin():
+    """System ffmpeg, warna pip wala (imageio-ffmpeg) — GitHub ke naye server pe ffmpeg pehle se nahi hota."""
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        raise SystemExit("ffmpeg nahi mila. requirements.txt me 'imageio-ffmpeg' hona chahiye.")
+
+
 def _emoji_name(ch):
     cps = [f"{ord(c):x}" for c in ch]
     if "200d" not in cps:
@@ -652,7 +664,7 @@ def render_reel(post, cfg, out_path, seed):
     dur = len(frames) / 12
     from .reels import pick_music
     music = pick_music(seed, "game")
-    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", os.path.join(tmp, "%04d.jpg")]
+    cmd = [ffmpeg_bin(), "-y", "-loglevel", "error", "-framerate", "12", "-i", os.path.join(tmp, "%04d.jpg")]
     if music:
         cmd += ["-stream_loop", "-1", "-i", music, "-map", "0:v", "-map", "1:a",
                 "-af", f"afade=t=out:st={dur - 1.5}:d=1.5", "-c:a", "aac", "-b:a", "160k"]
