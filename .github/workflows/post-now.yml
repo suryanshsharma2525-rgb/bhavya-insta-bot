@@ -3,8 +3,16 @@ name: POST NOW (abhi turant post karo)
 on:
   workflow_dispatch:
     inputs:
+      type:
+        description: "Photo ya Video? (auto = bot khud chunega)"
+        type: choice
+        default: auto
+        options:
+          - auto
+          - video
+          - image
       format:
-        description: "Kaisa post? (auto = bot khud chunega)"
+        description: "Kaunsa format? (auto = bot khud chunega)"
         type: choice
         default: auto
         options:
@@ -24,14 +32,35 @@ on:
           - zoom_read
           - swipe_twist
           - this_or_that
+          - product_spotlight
+          - mood_quote
+          - fact_carousel
+          - reel_meme
+          - reel_pov
+          - reel_top5
+          - reel_this_or_that
+          - reel_pause_game
+          - reel_showcase
+          - reel_freestyle
           - offer_flash_reel
           - offer_zoom_code
+      theme:
+        description: "Colour theme"
+        type: choice
+        default: auto
+        options:
+          - auto
+          - classic_gold
+          - emerald
+          - maroon
+          - midnight
+          - kulhad
       idea:
-        description: "Aapka idea / announcement (optional) — jaise: 'Aaj baarish hai, Kulhad Chai special' ya 'Fest week me cafe raat 1 baje tak open'"
+        description: "Aapka idea / announcement (optional) — jaise: 'Aaj baarish hai, Kulhad Chai special'"
         required: false
         default: ""
       item:
-        description: "Kaunsa item dikhana hai? (optional) — jaise: Kulhad Pizza, Potato Twister"
+        description: "Kaunsa item dikhana hai? (optional) — jaise: Kulhad Pizza"
         required: false
         default: ""
 
@@ -61,7 +90,9 @@ jobs:
           IN_FORMAT: ${{ inputs.format }}
           IN_IDEA: ${{ inputs.idea }}
           IN_ITEM: ${{ inputs.item }}
-        run: python -m bot.main post-now --format "$IN_FORMAT" --idea "$IN_IDEA" --item "$IN_ITEM"
+          IN_TYPE: ${{ inputs.type }}
+          IN_THEME: ${{ inputs.theme }}
+        run: python -m bot.main post-now --format "$IN_FORMAT" --idea "$IN_IDEA" --item "$IN_ITEM" --type "$IN_TYPE" --theme "$IN_THEME"
 
       - name: Images save karo
         run: |
