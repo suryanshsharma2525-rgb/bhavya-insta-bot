@@ -141,8 +141,9 @@ def _build_once(date, cfg, out_dir, history, trends, fmt_key=None, idea=None, fo
     wanted += [x.get("item") for x in post.get("shots", []) + post.get("scenes", []) if isinstance(x, dict)]
     if offer_item:
         wanted += [i["name"] for i in all_items]
-    wanted += [m["name"] for m in cfg["menu"]]
-    photos.ensure_photos([w for w in wanted if w], cfg)
+    # sirf is post ke items (poore menu ki library ka kaam "Make AI food photos" karta hai — post fast bane)
+    photos.ensure_photos([w for w in wanted if w], cfg, max_new=cfg.get("photos", {}).get("max_new_per_post", 3),
+                         allow_stock=False)
     seed = f"{date.isoformat()}-{fmt_key}{seed_extra}"
     files, owner_note = [], ""
     kind = fmt["kind"]

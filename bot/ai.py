@@ -216,27 +216,34 @@ def _pick_model(key, wanted):
 
 
 _LAST = {"t": 0.0, "fails": 0, "down_until": 0.0}
-FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
+_COOL = {}  # model → is time tak use mat karo (limit lagi thi)
+FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-2.5-flash-lite", "gemini-2.5-flash"]
 
 
 def call(parts, cfg, temperature=1.0, timeout=120, json_out=True):
     """Gemini ko ek request — free tier ke hisaab se:
-    - har call ke beech thoda gap (minute me limit cross na ho)
-    - 429 (limit) / 503 (Google busy) pe ruk ke dobara, phir doosra model (alag quota)
-    - lagatar fail ho to 5 minute AI band (run ka time barbaad na ho), bot bina AI ke aage chalta hai"""
+    - har call ke beech thoda gap
+    - kisi model pe limit (429) / busy (503) → us model ko 90 sec side me rakho, turant agla model
+    - sab models thake hon tab hi wait; lagatar fail → 5 min AI band, bot bina AI ke aage chalta hai"""
     import time
     key = os.environ.get("GEMINI_API_KEY")
     if not key or _MODEL_CACHE.get("dead") or time.time() < _LAST["down_until"]:
         return None
-    gap = float(cfg.get("ai", {}).get("min_interval_s", 4.5))
+    gap = float(cfg.get("ai", {}).get("min_interval_s", 4.0))
     wanted = cfg.get("ai", {}).get("model", "gemini-flash-latest")
-    chain = [_MODEL_CACHE.get("model", wanted)] + [m for m in FALLBACK_MODELS if m != _MODEL_CACHE.get("model", wanted)]
+    first = _MODEL_CACHE.get("model", wanted)
+    chain = [first] + [m for m in FALLBACK_MODELS if m != first]
     body = {"contents": [{"parts": parts}], "generationConfig": {"temperature": temperature}}
     if json_out:
         body["generationConfig"]["responseMimeType"] = "application/json"
-    mi, waits = 0, [8, 20, 45]
-    for attempt in range(7):
-        model = chain[min(mi, len(chain) - 1)]
+    for attempt in range(6):
+        now = time.time()
+        ready = [m for m in chain if _COOL.get(m, 0) <= now]
+        if not ready:  # sab models pe limit → sabse jaldi khulne wale ka wait (max 45s)
+            m = min(chain, key=lambda x: _COOL.get(x, 0))
+            time.sleep(min(45, max(1, _COOL[m] - now)))
+            ready = [m]
+        model = ready[0]
         wait = _LAST["t"] + gap - time.time()
         if wait > 0:
             time.sleep(wait)
@@ -244,26 +251,24 @@ def call(parts, cfg, temperature=1.0, timeout=120, json_out=True):
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
         try:
             r = requests.post(url, params={"key": key}, json=body, timeout=timeout)
-            if r.status_code == 404:  # model ka naam badal gaya / nahi hai
-                if model == _MODEL_CACHE.get("model", wanted) and mi == 0:
+            if r.status_code == 404:  # ye model nahi hai
+                if model == first and model == _MODEL_CACHE.get("model", wanted):
                     _MODEL_CACHE.pop("model", None)
-                    chain[0] = _pick_model(key, "__none__" if model == wanted else wanted)
-                else:
-                    mi += 1
+                    new = _pick_model(key, "__none__" if model == wanted else wanted)
+                    chain[0] = first = new
+                _COOL[model] = time.time() + 3600
                 continue
             if r.status_code in (429, 500, 503):
-                print(f"Gemini {model}: {r.status_code} ({'limit' if r.status_code == 429 else 'busy'}) — thoda ruk ke")
-                time.sleep(waits[min(attempt // 2, 2)])
-                if attempt % 2 == 1:
-                    mi += 1  # doosra model try (uska quota alag hota hai)
+                _COOL[model] = time.time() + (90 if r.status_code == 429 else 30)
+                print(f"Gemini {model}: {r.status_code} ({'limit' if r.status_code == 429 else 'busy'}) → doosra model")
                 continue
             r.raise_for_status()
             txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
             _LAST["fails"] = 0
             return json.loads(txt) if json_out else txt
         except requests.exceptions.Timeout:
-            print(f"Gemini {model}: timeout")
-            mi += 1
+            _COOL[model] = time.time() + 60
+            print(f"Gemini {model}: timeout → doosra model")
         except Exception as e:
             safe = re.sub(r"key=[^&\s]+", "key=***", str(e))
             print(f"Gemini {model} failed: {safe[:160]}")

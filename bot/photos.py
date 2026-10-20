@@ -188,7 +188,7 @@ def fetch_pixabay(name, cfg, n=5):
     except Exception as e:
         print("Pixabay failed:", str(e)[:200])
         return 0
-    picked = (hits[offset:] + hits[:offset])[:n * 3]  # reject hone pe agli photo try
+    picked = (hits[offset:] + hits[:offset])[:n * 2]  # reject hone pe agli photo try (limit me)
     made = 0
     for i, h in enumerate(picked, 1):
         if made >= n:
@@ -375,7 +375,7 @@ def generate_one(name, cfg, variant):
     return path
 
 
-def ensure_photos(names, cfg, per_item=None, max_new=None):
+def ensure_photos(names, cfg, per_item=None, max_new=None, allow_stock=True):
     """Make sure every item has enough AI photos. Only generates what's missing."""
     pc = cfg.get("photos", {})
     if not pc.get("ai_photos", True):
@@ -387,7 +387,8 @@ def ensure_photos(names, cfg, per_item=None, max_new=None):
         files, kind = photos_for(name)
         if kind == "real":
             continue
-        made += fetch_stock(name, cfg, pc.get("stock_per_item", 5))
+        if allow_stock or not files:  # post banate waqt: stock sirf tab jab item ki ek bhi photo na ho
+            made += fetch_stock(name, cfg, pc.get("stock_per_item", 5))
         files, kind = photos_for(name)
         for _ in range(per_item - len(files)):
             if made >= max_new:
