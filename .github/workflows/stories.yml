@@ -1,0 +1,57 @@
+name: Daily stories
+
+on:
+  schedule:
+    - cron: "40 6 * * *"    # 06:40 UTC = 12:10 PM IST  (lunch stories)
+    - cron: "30 15 * * *"   # 15:30 UTC = 9:00 PM IST   (night stories, daily post ke baad)
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "lunch ya night"
+        default: "lunch"
+
+permissions:
+  contents: write
+
+concurrency: stories
+
+jobs:
+  story:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Slot decide karo
+        id: s
+        run: |
+          if [ -n "${{ github.event.inputs.slot }}" ]; then S="${{ github.event.inputs.slot }}";
+          elif [ "${{ github.event.schedule }}" = "40 6 * * *" ]; then S=lunch; else S=night; fi
+          echo "slot=$S" >> $GITHUB_OUTPUT
+      - name: Stories banao
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m bot.main story --slot ${{ steps.s.outputs.slot }}
+      - name: Repo me save karo
+        run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase || true
+          git add posts data
+          git commit -m "Stories ${{ steps.s.outputs.slot }} $(TZ=Asia/Kolkata date +%F)" || echo "nothing"
+          git push
+          sleep 25
+      - name: Instagram pe daalo
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python -m bot.main publish-story --slot ${{ steps.s.outputs.slot }}
+      - if: always()
+        run: |
+          git add posts data
+          git commit -m "Stories published" || echo "nothing"
+          git pull --rebase || true
+          git push || true
