@@ -1,0 +1,38 @@
+name: Auto reply (comments + DMs)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # har 30 minute (GitHub kabhi thoda late chalata hai)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency: replies
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install requests pyyaml pillow numpy cryptography
+      - name: Comments / DMs ka jawab do
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CUSTOMER_MEMORY_KEY: ${{ secrets.CUSTOMER_MEMORY_KEY }}
+        run: python -m bot.replies
+      - name: Yaad save karo (encrypted)
+        if: always()
+        run: |
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          for f in data/replied.json data/customers.enc data/owner_inbox.csv; do [ -f "$f" ] && git add "$f"; done
+          git commit -m "replies" -q || exit 0
+          git pull --rebase -q || true
+          git push -q || true
