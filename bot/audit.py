@@ -47,28 +47,9 @@ def machine_photo_check(im, min_side=900, min_sharp=100.0):
 
 # ---------------------------------------------------------------- Gemini vision
 def _vision(parts, cfg):
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        return None
     from . import ai
-    import requests
-    model = ai._MODEL_CACHE.get("model") or ai._pick_model(key, cfg.get("ai", {}).get("model", "gemini-flash-latest"))
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    body = {"contents": [{"parts": parts}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.1}}
-    for attempt in range(2):
-        try:
-            r = requests.post(url, params={"key": key}, json=body, timeout=150)
-            if r.status_code == 429 and attempt == 0:
-                import time
-                time.sleep(20)
-                continue
-            r.raise_for_status()
-            d = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
-            return d if isinstance(d, dict) else (d[0] if isinstance(d, list) and d else None)
-        except Exception as e:
-            print("Auditor (Gemini) failed:", str(e)[:200])
-            return None
-    return None
+    d = ai.call(parts, cfg, temperature=0.1, timeout=150)
+    return d if isinstance(d, dict) else (d[0] if isinstance(d, list) and d and isinstance(d[0], dict) else None)
 
 
 def _img_part(im, maxside=1280, q=88):
@@ -81,8 +62,10 @@ def _img_part(im, maxside=1280, q=88):
 
 def photo_check(im, item, cfg, source="stock"):
     """Library me photo aane se pehle. Return (ok, report)."""
-    issues, sh = machine_photo_check(im, min_side=900 if source != "ai" else 800)
-    rep = {"sharpness": round(sh), "issues": issues, "source": source}
+    # AI photos me background jaan-boojh ke soft (bokeh) hota hai → unke liye blur limit kam
+    issues, sh = machine_photo_check(im, min_side=900 if source != "ai" else 800,
+                                     min_sharp={"ai": 55.0, "stock": 80.0}.get(source, 0.0))
+    rep = {"sharpness": round(sh), "issues": issues, "source": source, "ai_checked": False}
     if issues:
         return False, rep
     prompt = (
@@ -96,7 +79,8 @@ def photo_check(im, item, cfg, source="stock"):
     )
     d = _vision([{"text": prompt}, _img_part(im, 1024)], cfg)
     if not d:
-        return True, rep  # AI nahi chala → sirf machine check
+        return True, rep  # AI nahi chala → sirf machine check (baad me AI se dobara check hogi)
+    rep["ai_checked"] = True
     rep.update({k: d.get(k) for k in ("is_item", "sharp_hd", "clean", "whole_dish", "appetizing", "premium_look", "problems")})
     ok = (d.get("is_item") is not False and d.get("sharp_hd") is not False and d.get("clean") is not False
           and (d.get("appetizing") or 0) >= 7 and (d.get("premium_look") or 0) >= 6)
@@ -122,6 +106,7 @@ def audit_library(cfg, delete_bad=True):
     from . import photos as P
     cache = _photo_cache()
     removed = flagged = 0
+    ai_budget = int(cfg.get("audit", {}).get("library_ai_per_run", 20))  # free limit bachao: ek run me itni hi
     for folder, src in ((P.STOCK_DIR, "stock"), (P.AI_DIR, "ai"), (P.REAL_DIR, "real")):
         if not os.path.isdir(folder):
             continue
@@ -132,9 +117,15 @@ def audit_library(cfg, delete_bad=True):
             rel = os.path.relpath(path, ROOT)
             if rel in cache:
                 continue
+            if ai_budget <= 0:
+                break
             item = P.item_from_file(f, cfg)
             ok, rep = photo_check(Image.open(path).convert("RGB"), item, cfg, src)
-            remember_photo(path, ok, rep)
+            if rep.get("ai_checked"):
+                ai_budget -= 1
+                remember_photo(path, ok, rep)  # sirf poori tarah check hui photo yaad rakho
+            elif ok:
+                continue  # AI busy tha → agle run me check hogi
             if ok:
                 continue
             if src == "real":

@@ -108,6 +108,10 @@ def fetch_stock(name, cfg, n=5):
     if os.environ.get("PIXABAY_API_KEY", "").strip():
         return fetch_pixabay(name, cfg, n)
     key = os.environ.get("PEXELS_API_KEY", "").strip()
+    if not key and "_nokey" not in _DEAD:
+        _DEAD.add("_nokey")
+        print("⚠️ PIXABAY_API_KEY nahi mila — stock photos skip. (GitHub Secret ka naam check karo, aur workflow file me "
+              "'PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}' line honi chahiye.)")
     s = slug(name)
     marker = os.path.join(STOCK_DIR, f".done_{s}")
     queries = {**STOCK_QUERY, **{k.lower(): v for k, v in (cfg.get("photos", {}).get("stock_queries") or {}).items()}}

@@ -66,19 +66,8 @@ def describe(card):
 
 # ---------------------------------------------------------------- reference analysis (Gemini vision)
 def _gemini_media(parts, cfg):
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        return None
-    model = ai._MODEL_CACHE.get("model") or ai._pick_model(key, cfg.get("ai", {}).get("model", "gemini-flash-latest"))
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    body = {"contents": [{"parts": parts}], "generationConfig": {"responseMimeType": "application/json", "temperature": 0.4}}
-    try:
-        r = requests.post(url, params={"key": key}, json=body, timeout=180)
-        r.raise_for_status()
-        return json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
-    except Exception as e:
-        print("Gemini reference analysis failed:", str(e)[:200])
-        return None
+    d = ai.call(parts, cfg, temperature=0.4, timeout=180)
+    return d if isinstance(d, dict) else None
 
 
 def _palette_from_image(path):

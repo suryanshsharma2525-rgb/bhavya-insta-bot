@@ -215,32 +215,69 @@ def _pick_model(key, wanted):
     return choice
 
 
-def _gemini(prompt, cfg):
+_LAST = {"t": 0.0, "fails": 0, "down_until": 0.0}
+FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
+
+
+def call(parts, cfg, temperature=1.0, timeout=120, json_out=True):
+    """Gemini ko ek request — free tier ke hisaab se:
+    - har call ke beech thoda gap (minute me limit cross na ho)
+    - 429 (limit) / 503 (Google busy) pe ruk ke dobara, phir doosra model (alag quota)
+    - lagatar fail ho to 5 minute AI band (run ka time barbaad na ho), bot bina AI ke aage chalta hai"""
+    import time
     key = os.environ.get("GEMINI_API_KEY")
-    if not key or _MODEL_CACHE.get("dead"):
+    if not key or _MODEL_CACHE.get("dead") or time.time() < _LAST["down_until"]:
         return None
+    gap = float(cfg.get("ai", {}).get("min_interval_s", 4.5))
     wanted = cfg.get("ai", {}).get("model", "gemini-flash-latest")
-    model = _MODEL_CACHE.get("model", wanted)
-    body = {"contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"responseMimeType": "application/json", "temperature": 1.0}}
-    for attempt in range(4):
+    chain = [_MODEL_CACHE.get("model", wanted)] + [m for m in FALLBACK_MODELS if m != _MODEL_CACHE.get("model", wanted)]
+    body = {"contents": [{"parts": parts}], "generationConfig": {"temperature": temperature}}
+    if json_out:
+        body["generationConfig"]["responseMimeType"] = "application/json"
+    mi, waits = 0, [8, 20, 45]
+    for attempt in range(7):
+        model = chain[min(mi, len(chain) - 1)]
+        wait = _LAST["t"] + gap - time.time()
+        if wait > 0:
+            time.sleep(wait)
+        _LAST["t"] = time.time()
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
         try:
-            r = requests.post(url, params={"key": key}, json=body, timeout=90)
-            if r.status_code == 404:  # model ka naam badal gaya
-                _MODEL_CACHE.pop("model", None)
-                model = _pick_model(key, "__none__" if model == wanted else wanted)
+            r = requests.post(url, params={"key": key}, json=body, timeout=timeout)
+            if r.status_code == 404:  # model ka naam badal gaya / nahi hai
+                if model == _MODEL_CACHE.get("model", wanted) and mi == 0:
+                    _MODEL_CACHE.pop("model", None)
+                    chain[0] = _pick_model(key, "__none__" if model == wanted else wanted)
+                else:
+                    mi += 1
+                continue
+            if r.status_code in (429, 500, 503):
+                print(f"Gemini {model}: {r.status_code} ({'limit' if r.status_code == 429 else 'busy'}) — thoda ruk ke")
+                time.sleep(waits[min(attempt // 2, 2)])
+                if attempt % 2 == 1:
+                    mi += 1  # doosra model try (uska quota alag hota hai)
                 continue
             r.raise_for_status()
-            _MODEL_CACHE["model"] = model
             txt = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(txt)
+            _LAST["fails"] = 0
+            return json.loads(txt) if json_out else txt
+        except requests.exceptions.Timeout:
+            print(f"Gemini {model}: timeout")
+            mi += 1
         except Exception as e:
-            print(f"Gemini attempt {attempt + 1} failed: {str(e)[:200]}")
-            if "429" in str(e):
-                import time
-                time.sleep(20)
+            safe = re.sub(r"key=[^&\s]+", "key=***", str(e))
+            print(f"Gemini {model} failed: {safe[:160]}")
+            if attempt >= 2:
+                break
+    _LAST["fails"] += 1
+    if _LAST["fails"] >= 3:
+        _LAST["down_until"] = time.time() + 300
+        print("Gemini abhi lagatar busy hai — agle 5 minute AI ke bina chal rahe hain.")
     return None
+
+
+def _gemini(prompt, cfg):
+    return call([{"text": prompt}], cfg, temperature=1.0, timeout=90)
 
 
 def write_post(fmt_key, cfg, ctx):
