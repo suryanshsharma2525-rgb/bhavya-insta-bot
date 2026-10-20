@@ -43,5 +43,15 @@
   "music": null,
   "item": "Tandoori Burger",
   "strategy": "experiment"
+ },
+ {
+  "date": "2026-10-20",
+  "format": "rate_combo",
+  "headline": "Viva me jo bhi hua, yahan sab theek ho jaayega",
+  "style": "calm_luxury/light/champagne/editorial",
+  "design": null,
+  "music": "jazz_cafe_100bpm.mp3",
+  "item": "Potato Twister",
+  "strategy": "experiment"
  }
 ]

@@ -2,3 +2,5 @@ time,post,attempt,format,design,item,ok,score,issues
 2026-10-20 11:54,2026-10-20_now_1724,1,versus,,Tandoori Burger,False,5,Overlapping text at the top: '2 AM CANTEEN' and 'THE BHAVYA STANDARD' collide heavily in the center | Missing menu price for Tandoori Burger (should be 70)
 2026-10-20 11:54,2026-10-20_now_1724,2,versus,,Tandoori Burger,False,5,Overlapping header texts at the top of the comparison boxes (Hostel Canteen vs Bhavya Cafe Burger) | Sub-optimal heading hierarchy and spacing
 2026-10-20 11:55,2026-10-20_now_1724,3,versus,,Tandoori Burger,True,8,
+2026-10-20 12:00,2026-10-20_now_1729,1,rate_combo,,Potato Twister,False,8,"Potato Twister price is not explicitly shown in the combo breakdown, though the item is featured."
+2026-10-20 12:01,2026-10-20_now_1729,2,rate_combo,,Potato Twister,True,8,

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "format": "rate_combo",
+  "kind": "reel",
+  "theme": "light-champagne-monochrome-791",
+  "style": {
+    "vibe": "calm_luxury",
+    "mode": "light",
+    "accent": "champagne",
+    "harmony": "monochrome",
+    "font_pack": "editorial",
+    "backgrounds": [
+      "bokeh",
+      "grain"
+    ],
+    "text_anims": [
+      "rise",
+      "words",
+      "track"
+    ],
+    "transitions": [
+      "fade",
+      "sweep",
+      "zoom"
+    ],
+    "layouts": [
+      "editorial",
+      "card"
+    ],
+    "source": "gemini"
+  },
+  "design": null,
+  "music": "jazz_cafe_100bpm.mp3",
+  "files": [
+    "reel.mp4",
+    "reel_cover.jpg"
+  ],
+  "featured_item": "Potato Twister",
+  "caption": "Best student combo in Roorkee? Rate karo 🌪️🧋🍮\n\nDoctor ne nahi, seniors ne prescribe kiya hai 😌\n\n1 se 10 me rate karo comments me 👇\n\n📍 Bhavya Cafe, near IIT Roorkee\nCafe in Roorkee · Near IIT Roorkee · Potato Twister in Roorkee · Roorkee food\n\n#Roorkee #IITRoorkee #BhavyaCafe #StreetFoodIndia #CafeVibes",
+  "alt_text": "rate combo post by Bhavya Cafe Roorkee",
+  "headline": "Viva me jo bhi hua, yahan sab theek ho jaayega",
+  "owner_note": "",
+  "text_source": "sample",
+  "trends_used": [],
+  "strategy": "experiment",
+  "audit": {
+    "ok": true,
+    "score": 8,
+    "issues": [],
+    "source": "gemini+machine",
+    "detail": {
+      "food_fully_visible": true,
+      "cutout_clean": true,
+      "photo_quality": 8,
+      "text_ok": true,
+      "prices_ok": true,
+      "design": 8,
+      "overall": 8
+    }
+  }
+}
