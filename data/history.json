@@ -53,5 +53,15 @@
   "music": "jazz_cafe_100bpm.mp3",
   "item": "Potato Twister",
   "strategy": "experiment"
+ },
+ {
+  "date": "2026-10-20",
+  "format": "rate_combo",
+  "headline": "Viva me jo bhi hua, yahan sab theek ho jaayega",
+  "style": "desi_warm/rich/copper/royal",
+  "design": null,
+  "music": "desi_groove_dholak_98bpm.mp3",
+  "item": "Potato Twister",
+  "strategy": "experiment"
  }
 ]

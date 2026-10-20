@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-20",
+  "format": "rate_combo",
+  "kind": "reel",
+  "theme": "rich-copper-analogous-446",
+  "style": {
+    "vibe": "desi_warm",
+    "mode": "rich",
+    "accent": "copper",
+    "harmony": "analogous",
+    "font_pack": "royal",
+    "backgrounds": [
+      "spotlight",
+      "grain"
+    ],
+    "text_anims": [
+      "rise",
+      "words",
+      "scale"
+    ],
+    "transitions": [
+      "sweep",
+      "fade",
+      "zoom"
+    ],
+    "layouts": [
+      "card",
+      "editorial"
+    ],
+    "source": "gemini"
+  },
+  "design": null,
+  "music": "desi_groove_dholak_98bpm.mp3",
+  "files": [
+    "reel.mp4",
+    "reel_cover.jpg"
+  ],
+  "featured_item": "Potato Twister",
+  "caption": "Best student combo in Roorkee? Rate karo 🌪️🧋🍮\n\nDoctor ne nahi, seniors ne prescribe kiya hai 😌\n\n1 se 10 me rate karo comments me 👇\n\n📍 Bhavya Cafe, near IIT Roorkee\nCafe in Roorkee · Near IIT Roorkee · Potato Twister in Roorkee · Roorkee food\n\n#Roorkee #IITRoorkee #BhavyaCafe #IITRoorkeeLife #StreetFoodIndia",
+  "alt_text": "rate combo post by Bhavya Cafe Roorkee",
+  "headline": "Viva me jo bhi hua, yahan sab theek ho jaayega",
+  "owner_note": "",
+  "text_source": "sample",
+  "trends_used": [],
+  "strategy": "experiment",
+  "audit": {
+    "ok": false,
+    "score": 8,
+    "issues": [
+      "Potato Twister, Cold Coffee, and Kesar Pista Kheer images are a bit small and lack close-up detail across all frames."
+    ],
+    "source": "gemini+machine",
+    "detail": {
+      "food_fully_visible": true,
+      "cutout_clean": true,
+      "photo_quality": 8,
+      "text_ok": true,
+      "prices_ok": true,
+      "design": 9,
+      "overall": 8
+    }
+  }
+}
