@@ -1,70 +1,38 @@
-name: POST NOW (abhi turant post karo)
+name: POST NOW (Pinterest design + idea)
 
 on:
+  push:
+    paths:
+      - "inbox/**"          # inbox/ me Pinterest image daalte hi apne aap post + reel
   workflow_dispatch:
     inputs:
-      type:
-        description: "Photo ya Video? (auto = bot khud chunega)"
-        type: choice
-        default: auto
-        options:
-          - auto
-          - video
-          - image
-      format:
-        description: "Kaunsa format? (auto = bot khud chunega)"
-        type: choice
-        default: auto
-        options:
-          - auto
-          - poster
-          - poster_reel
-          - meme_card
-          - relatable_exam
-          - local_roorkee
-          - trend_twist
-          - versus
-          - comment_battle
-          - tag_friend
-          - rate_combo
-          - weekend_plan
-          - spot_difference
-          - hidden_item
-          - count_items
-          - zoom_read
-          - swipe_twist
-          - this_or_that
-          - product_spotlight
-          - mood_quote
-          - fact_carousel
-          - reel_meme
-          - reel_pov
-          - reel_top5
-          - reel_this_or_that
-          - reel_pause_game
-          - reel_showcase
-          - reel_freestyle
-          - offer_flash_reel
-          - offer_zoom_code
-      theme:
-        description: "Colour theme"
-        type: choice
-        default: auto
-        options:
-          - auto
-          - classic_gold
-          - emerald
-          - maroon
-          - midnight
-          - kulhad
       idea:
-        description: "Aapka idea / announcement (optional) — jaise: 'Aaj baarish hai, Kulhad Chai special'"
+        description: "Aapka idea (jaise: Baarish wali shaam, garma garam momos)"
         required: false
         default: ""
       item:
-        description: "Kaunsa item dikhana hai? (optional) — jaise: Kulhad Pizza"
+        description: "Item (optional) — jaise Kulhad Pizza"
         required: false
         default: ""
+      type:
+        description: "Kya chahiye? (reel = video, image = photo post, both = dono)"
+        type: choice
+        default: reel
+        options: [reel, image, both]
+      preset:
+        description: "Post ka type"
+        type: choice
+        default: auto
+        options: [auto, offer, combo, visit_now, new_item, weekend, rainy, exam, festival, late_night]
+      offer:
+        description: "Offer / combo ka text (optional) — jaise: Vada Pav + Cold Coffee ₹130"
+        required: false
+        default: ""
+      style:
+        description: "Kaunsa saved Pinterest design? (latest = sabse naya, random = baari-baari)"
+        type: choice
+        default: latest
+        options: [latest, random]
 
 permissions:
   contents: write
@@ -72,7 +40,7 @@ permissions:
 concurrency: daily-post
 
 jobs:
-  post-now:
+  post:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,50 +48,52 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ~/.u2net
+          key: rembg-models-v1
       - run: pip install -r requirements.txt
 
-      - name: Naye references/music padho
-        continue-on-error: true
+      - name: Post / reel banao
+        id: make
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python -m bot.main references
-
-      - name: Post banao
-        id: gen
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          POLLINATIONS_KEY: ${{ secrets.POLLINATIONS_KEY }}
-          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          IN_FORMAT: ${{ inputs.format }}
           IN_IDEA: ${{ inputs.idea }}
           IN_ITEM: ${{ inputs.item }}
-          IN_TYPE: ${{ inputs.type }}
-          IN_THEME: ${{ inputs.theme }}
-        run: python -m bot.main post-now --format "$IN_FORMAT" --idea "$IN_IDEA" --item "$IN_ITEM" --type "$IN_TYPE" --theme "$IN_THEME"
+          IN_TYPE: ${{ inputs.type || 'both' }}
+          IN_STYLE: ${{ inputs.style || 'latest' }}
+          IN_PRESET: ${{ inputs.preset || 'auto' }}
+          IN_OFFER: ${{ inputs.offer }}
+        run: |
+          if ls inbox/*.jpg inbox/*.jpeg inbox/*.png inbox/*.webp >/dev/null 2>&1; then
+            python -m pin.main make --type "$IN_TYPE" --idea "$IN_IDEA" --item "$IN_ITEM" --preset "$IN_PRESET" --offer "$IN_OFFER"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python -m pin.main idea --idea "$IN_IDEA" --item "$IN_ITEM" --type "$IN_TYPE" --style "$IN_STYLE" --preset "$IN_PRESET" --offer "$IN_OFFER"
+          else
+            echo "posts=" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Images save karo
+      - name: Repo me save karo
         run: |
           git config user.name "bhavya-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A posts data assets
-          git commit -m "Post now ${{ steps.gen.outputs.post_dir }}" || echo "nothing"
+          git add -A posts data inbox assets
+          git commit -m "Post: ${{ steps.make.outputs.posts }}" || echo "nothing"
           git pull --rebase -X theirs || true
           git push
           sleep 25
 
-      - name: Instagram pe publish karo
+      - name: Instagram pe daalo
+        if: steps.make.outputs.posts != ''
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: python -m bot.main publish --dir "${{ steps.gen.outputs.post_dir }}"
+        run: python -m pin.main publish --dir "${{ steps.make.outputs.posts }}"
 
-      - name: Post link save karo
+      - name: Link save karo
         if: always()
         run: |
-          git add posts data
-          git commit -m "Published ${{ steps.gen.outputs.post_dir }}" || echo "nothing to commit"
+          git add -A posts data
+          git commit -m "Published" || echo "nothing"
           git pull --rebase -X theirs || true
           git push || true
