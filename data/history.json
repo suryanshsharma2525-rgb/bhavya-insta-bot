@@ -33,5 +33,15 @@
   "date": "2026-10-20",
   "format": "reel_top5",
   "headline": "Top 5 Tuesday Evening Study Resets"
+ },
+ {
+  "date": "2026-10-20",
+  "format": "versus",
+  "headline": "The Burger Upgrade",
+  "style": "festive/rich/saffron/desi_bold",
+  "design": null,
+  "music": null,
+  "item": "Tandoori Burger",
+  "strategy": "experiment"
  }
 ]

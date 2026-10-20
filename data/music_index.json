@@ -88,5 +88,41 @@
   "best_start": 26.55,
   "seconds": 48.0,
   "sig": "1153611"
+ },
+ "desi_groove_dholak.mp3": {
+  "bpm": 78,
+  "energy": 0.12,
+  "brightness": 789,
+  "mood": "desi",
+  "best_start": 23.18,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "game_tension_beat.mp3": {
+  "bpm": 127,
+  "energy": 0.0599,
+  "brightness": 3493,
+  "mood": "game",
+  "best_start": 30.89,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "lofi_chai_evening.mp3": {
+  "bpm": 157,
+  "energy": 0.0507,
+  "brightness": 1808,
+  "mood": "lofi",
+  "best_start": 26.99,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "upbeat_campus_vibes.mp3": {
+  "bpm": 110,
+  "energy": 0.071,
+  "brightness": 3161,
+  "mood": "upbeat",
+  "best_start": 26.55,
+  "seconds": 48.0,
+  "sig": "1153611"
  }
 }

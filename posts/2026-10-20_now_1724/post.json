@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "format": "versus",
+  "kind": "image",
+  "theme": "rich-saffron-complementary-1173",
+  "style": {
+    "vibe": "festive",
+    "mode": "rich",
+    "accent": "saffron",
+    "harmony": "complementary",
+    "font_pack": "desi_bold",
+    "backgrounds": [
+      "rays",
+      "spotlight"
+    ],
+    "text_anims": [
+      "rise",
+      "scale",
+      "bounce"
+    ],
+    "transitions": [
+      "flash",
+      "zoom",
+      "sweep",
+      "circle"
+    ],
+    "layouts": [
+      "split",
+      "card"
+    ],
+    "source": "gemini"
+  },
+  "design": null,
+  "music": null,
+  "files": [
+    "slide1.jpg"
+  ],
+  "featured_item": "Tandoori Burger",
+  "caption": "Best cafe in Roorkee for upgrading your Tuesday evening snack routine.\n\nSome cravings deserve better than a quick fix. Stop by for layers that actually make sense.\n\nTag your favorite burger partner for this week.\n\n📍 Bhavya Cafe, near IIT Roorkee\nCafe in Roorkee · Near IIT Roorkee · Roorkee food\n\n#Roorkee #IITRoorkee #BhavyaCafe #RoorkeeCafe #CafeHopping",
+  "alt_text": "Close-up of a Tandoori Burger at Bhavya Cafe Roorkee.",
+  "headline": "The Burger Upgrade",
+  "owner_note": "",
+  "text_source": "gemini",
+  "trends_used": [],
+  "strategy": "experiment",
+  "audit": {
+    "ok": true,
+    "score": 8,
+    "issues": [],
+    "source": "gemini+machine",
+    "detail": {
+      "food_fully_visible": true,
+      "cutout_clean": true,
+      "photo_quality": 8,
+      "text_ok": true,
+      "prices_ok": true,
+      "design": 8,
+      "overall": 8
+    }
+  }
+}
