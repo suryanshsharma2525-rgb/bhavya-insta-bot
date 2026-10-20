@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-20",
+  "format": "mood_quote",
+  "kind": "image",
+  "theme": "dark-rose_gold-analogous-4114",
+  "style": {
+    "vibe": "cosy",
+    "mode": "dark",
+    "accent": "rose_gold",
+    "harmony": "analogous",
+    "font_pack": "editorial",
+    "backgrounds": [
+      "grain",
+      "bokeh"
+    ],
+    "text_anims": [
+      "blur",
+      "words"
+    ],
+    "transitions": [
+      "fade",
+      "slide_up",
+      "zoom"
+    ],
+    "layouts": [
+      "editorial",
+      "card"
+    ],
+    "source": "gemini"
+  },
+  "design": null,
+  "music": null,
+  "files": [
+    "slide1.jpg"
+  ],
+  "featured_item": "Butterscotch Kheer",
+  "caption": "Roorkee's finest festive pause awaits you at Bhavya Cafe today.\n\nA quiet Dussehra holiday deserves a calm corner and our signature Butterscotch Kheer. Zero deadlines, pure indulgence.\n\nWho are you sharing your holiday dessert moment with today?\n\n📍 Bhavya Cafe, near IIT Roorkee\nCafe in Roorkee · Near IIT Roorkee · Butterscotch Kheer in Roorkee · Roorkee food\n\n#Roorkee #IITRoorkee #BhavyaCafe #RoorkeeCafe #RoorkeeFood",
+  "alt_text": "A bowl of Butterscotch Kheer on a wooden table at Bhavya Cafe Roorkee",
+  "headline": "Festive quietude, zero deadlines, and a bowl of golden sweetness.",
+  "owner_note": "",
+  "text_source": "gemini",
+  "trends_used": [],
+  "strategy": "experiment",
+  "audit": {
+    "ok": true,
+    "score": 8,
+    "issues": [],
+    "source": "gemini+machine",
+    "detail": {
+      "food_fully_visible": true,
+      "cutout_clean": true,
+      "photo_quality": 8,
+      "text_ok": true,
+      "prices_ok": true,
+      "design": 8,
+      "overall": 8
+    }
+  }
+}

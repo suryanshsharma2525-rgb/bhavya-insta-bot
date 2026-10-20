@@ -63,5 +63,15 @@
   "music": "desi_groove_dholak_98bpm.mp3",
   "item": "Potato Twister",
   "strategy": "experiment"
+ },
+ {
+  "date": "2026-10-20",
+  "format": "mood_quote",
+  "headline": "Festive quietude, zero deadlines, and a bowl of golden sweetness.",
+  "style": "cosy/dark/rose_gold/editorial",
+  "design": null,
+  "music": null,
+  "item": "Butterscotch Kheer",
+  "strategy": "experiment"
  }
 ]
