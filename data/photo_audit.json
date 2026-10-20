@@ -1,0 +1,1138 @@
+{
+ "assets/photos_ai/aloo_tikki_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 237,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "background is a bit plain and dark",
+   "dip is partially out of focus"
+  ]
+ },
+ "assets/photos_ai/aloo_tikki_burger_2.jpg": {
+  "ok": true,
+  "sharpness": 388,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/bun_makkhan_1.jpg": {
+  "ok": true,
+  "sharpness": 117,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Butter looks a bit artificial or overly smooth like cream cheese",
+   "Background is completely dark and plain"
+  ]
+ },
+ "assets/photos_ai/bun_makkhan_2.jpg": {
+  "ok": true,
+  "sharpness": 123,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Butter slices look a bit too stiff and artificial rather than meltingly rich",
+   "Lighting is slightly dark/moody for a vibrant cafe aesthetic"
+  ]
+ },
+ "assets/photos_ai/butterscotch_kheer_2.jpg": {
+  "ok": true,
+  "sharpness": 118,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Lighting is a bit dark and moody for a cafe hero shot",
+   "Spoon looks slightly worn"
+  ]
+ },
+ "assets/photos_ai/cheese_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 285,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Side portion of fries is very sparse",
+   "Background lighting is a bit dark and moody"
+  ]
+ },
+ "assets/photos_ai/cheese_burger_2.jpg": {
+  "ok": true,
+  "sharpness": 162,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/cheese_burst_samosa_1.jpg": {
+  "ok": true,
+  "sharpness": 177,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Filling looks slightly dry, lacks visible oozing cheese burst effect",
+   "Lighting is a bit dark and moody for a cafe hero shot"
+  ]
+ },
+ "assets/photos_ai/cheese_burst_samosa_2.jpg": {
+  "ok": true,
+  "sharpness": 327,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "Samosa shape is a bit unusual and distorted",
+   "Chutney placement directly touching the samosa could be cleaner"
+  ]
+ },
+ "assets/photos_ai/cheese_sweet_corn_momos_1.jpg": {
+  "ok": true,
+  "sharpness": 194,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Sauce pouring effect looks slightly unnatural or AI-generated"
+  ]
+ },
+ "assets/photos_ai/cheese_sweet_corn_momos_2.jpg": {
+  "ok": true,
+  "sharpness": 222,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Background is a bit too dark and moody, lacking context of a cafe setting",
+   "Melting cheese visual could be more prominent"
+  ]
+ },
+ "assets/photos_ai/cold_coffee_1.jpg": {
+  "ok": true,
+  "sharpness": 166,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/cold_coffee_2.jpg": {
+  "ok": true,
+  "sharpness": 242,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/corn_chips_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 337,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/corn_chips_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 317,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": []
+ },
+ "assets/photos_ai/hot_coffee_1.jpg": {
+  "ok": true,
+  "sharpness": 190,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Background is slightly too dark and minimalist, lacking ambient warmth"
+  ]
+ },
+ "assets/photos_ai/hot_coffee_2.jpg": {
+  "ok": true,
+  "sharpness": 130,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Background is very dark, creating high contrast and hiding edge details"
+  ]
+ },
+ "assets/photos_ai/kesar_pista_kheer_1.jpg": {
+  "ok": true,
+  "sharpness": 308,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/kesar_pista_kheer_2.jpg": {
+  "ok": true,
+  "sharpness": 181,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/kulhad_pizza_1.jpg": {
+  "ok": true,
+  "sharpness": 270,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_stock/aloo_tikki_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 788,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Patty texture looks slightly unconventional for a traditional aloo tikki",
+   "Top bun lighting is slightly uneven"
+  ]
+ },
+ "assets/photos_stock/tandoori_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 248,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "The burger is cropped slightly on the right side",
+   "Background is plain black, lacking atmospheric cafe lighting"
+  ]
+ },
+ "assets/photos_stock/tandoori_burger_2.jpg": {
+  "ok": true,
+  "sharpness": 423,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Burger is tightly cropped on the left and bottom",
+   "Background wood texture is plain and unstyled for a premium aesthetic",
+   "Sauce distribution looks a bit messy"
+  ]
+ },
+ "assets/photos_stock/tandoori_burger_3.jpg": {
+  "ok": true,
+  "sharpness": 181,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly distracting background blur",
+   "Basil leaves are unusually large for a standard burger presentation"
+  ]
+ },
+ "assets/photos_stock/tandoori_burger_4.jpg": {
+  "ok": true,
+  "sharpness": 805,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "Background bokeh is slightly artificial looking",
+   "Lighting could be warmer to better suit an Indian cafe aesthetic"
+  ]
+ },
+ "assets/photos_stock/cheese_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 733,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "Unusually tall stacked burger structure may be difficult to eat practically",
+   "Patties appear slightly overcooked or dark"
+  ]
+ },
+ "assets/photos_stock/cheese_burger_2.jpg": {
+  "ok": true,
+  "sharpness": 281,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 7,
+  "problems": [
+   "Background is slightly cluttered with other dishes and drinks",
+   "Condiment bottle in background draws attention away from the hero item"
+  ]
+ },
+ "assets/photos_stock/cheese_burger_3.jpg": {
+  "ok": true,
+  "sharpness": 748,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "Contains bacon which may not be suitable for all Indian cafe customers",
+   "Bottom patty meat texture looks slightly unusual"
+  ]
+ },
+ "assets/photos_stock/cheese_burger_4.jpg": {
+  "ok": true,
+  "sharpness": 252,
+  "issues": [],
+  "ai_checked": false
+ },
+ "assets/photos_stock/cheese_burger_5.jpg": {
+  "ok": true,
+  "sharpness": 1310,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Patty appears slightly overcooked and dry",
+   "Bun texture looks a bit wrinkled rather than freshly baked",
+   "Melted cheese is not visibly distinct for a cheese burger"
+  ]
+ },
+ "assets/photos_stock/cheese_burst_samosa_1.jpg": {
+  "ok": true,
+  "sharpness": 94,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 7,
+  "problems": [
+   "Samosas are piled on top of each other, obscuring individual shapes",
+   "Lack of visible cheese pull or melting cheese to emphasize the 'Cheese Burst' aspect"
+  ]
+ },
+ "assets/photos_stock/cheese_burst_samosa_2.jpg": {
+  "ok": true,
+  "sharpness": 1198,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "does not explicitly show the cheese burst inside"
+  ]
+ },
+ "assets/photos_stock/cheese_burst_samosa_3.jpg": {
+  "ok": true,
+  "sharpness": 148,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Looks like standard aloo samosa rather than cheese burst samosa",
+   "Generic stock photo aesthetic",
+   "Missing visible melted cheese element for the specific variant"
+  ]
+ },
+ "assets/photos_stock/cheese_burst_samosa_4.jpg": {
+  "ok": true,
+  "sharpness": 405,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Lighting is a bit harsh and flat",
+   "Composition is slightly cluttered with cutlery and background elements"
+  ]
+ },
+ "assets/photos_stock/cheese_burst_samosa_5.jpg": {
+  "ok": true,
+  "sharpness": 398,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Baked/pastry appearance rather than typical fried samosa",
+   "No visible cheese burst element to confirm the specific variant"
+  ]
+ },
+ "assets/photos_stock/bun_makkhan_1.jpg": {
+  "ok": true,
+  "sharpness": 190,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Setting in snow feels unconventional for a standard cafe hero shot",
+   "Bun appears to have sugar crystals or crumble topping rather than classic melting butter visible on top",
+   "Background is entirely snow, lacking warm cafe ambiance"
+  ]
+ },
+ "assets/photos_stock/loaded_chips_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 324,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 7,
+  "problems": [
+   "Lighting is a bit flat",
+   "Background is plain and slightly distracting"
+  ]
+ },
+ "assets/photos_stock/loaded_chips_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 260,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "Dish is tightly cropped, missing the edges of the plate",
+   "Focus falls off quickly towards the background and foreground edges"
+  ]
+ },
+ "assets/photos_stock/loaded_chips_chaat_3.jpg": {
+  "ok": true,
+  "sharpness": 861,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "dish is cropped closely, missing the bottom and sides of the bowl",
+   "lighting is a bit harsh creating strong reflections on the glass"
+  ]
+ },
+ "assets/photos_stock/nachos_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 260,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "extreme close-up crops off the edges of the plate",
+   "slight Mexican fusion look rather than distinct Indian chaat plating"
+  ]
+ },
+ "assets/photos_stock/nachos_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 324,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Toppings look more like bacon bits than traditional chaat toppings",
+   "Lighting is a bit flat for a premium cafe hero shot",
+   "Background is distracting and dark"
+  ]
+ },
+ "assets/photos_stock/veg_momos_1.jpg": {
+  "ok": true,
+  "sharpness": 1184,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Random liquid splatters on the plate look slightly messy rather than intentional",
+   "Empty space on the right side of the plate could be better balanced"
+  ]
+ },
+ "assets/photos_stock/veg_momos_2.jpg": {
+  "ok": true,
+  "sharpness": 1078,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly dark ambient lighting",
+   "Bamboo steamer is partially cropped out on the right edge"
+  ]
+ },
+ "assets/photos_stock/veg_momos_3.jpg": {
+  "ok": true,
+  "sharpness": 1021,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_stock/veg_momos_4.jpg": {
+  "ok": true,
+  "sharpness": 2886,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Dough texture looks slightly dry on a few pieces",
+   "Missing accompanying dipping sauce in frame"
+  ]
+ },
+ "assets/photos_stock/veg_momos_5.jpg": {
+  "ok": true,
+  "sharpness": 1681,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_stock/paneer_momos_1.jpg": {
+  "ok": true,
+  "sharpness": 2886,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "top left momo is partially cut off at the edge"
+  ]
+ },
+ "assets/photos_stock/paneer_momos_2.jpg": {
+  "ok": true,
+  "sharpness": 1184,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_stock/paneer_momos_3.jpg": {
+  "ok": true,
+  "sharpness": 1078,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Steamer basket is slightly cropped on the right edge"
+  ]
+ },
+ "assets/photos_stock/paneer_momos_4.jpg": {
+  "ok": true,
+  "sharpness": 991,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "Uncooked momos shown rather than the prepared dish",
+   "Flour dusting obscures some of the texture"
+  ]
+ },
+ "assets/photos_stock/paneer_momos_5.jpg": {
+  "ok": true,
+  "sharpness": 232,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly tight crop on the edges of the bowl",
+   "Cream sauce pooling could look slightly more refined"
+  ]
+ },
+ "assets/photos_stock/cheese_sweet_corn_momos_1.jpg": {
+  "ok": true,
+  "sharpness": 2886,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 8,
+  "problems": [
+   "composition is slightly tight at the top left edge",
+   "filling is not visible to confirm cheese and corn content visually"
+  ]
+ },
+ "assets/photos_stock/cheese_sweet_corn_momos_2.jpg": {
+  "ok": true,
+  "sharpness": 322,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Bamboo steamer lid partially obstructs the top left view of the plate"
+  ]
+ },
+ "assets/photos_stock/cheese_sweet_corn_momos_3.jpg": {
+  "ok": true,
+  "sharpness": 157,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Steamer lid partially cuts off the top right view",
+   "Lighting is a bit flat and could be more dramatic for a premium look"
+  ]
+ },
+ "assets/photos_stock/butterscotch_kheer_1.jpg": {
+  "ok": true,
+  "sharpness": 254,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Extreme close-up crops out most of the bowl, not showing the whole dish",
+   "Red berry topping makes it look more like rice pudding with fruit compote rather than a classic butterscotch kheer"
+  ]
+ },
+ "assets/photos_stock/butterscotch_kheer_2.jpg": {
+  "ok": true,
+  "sharpness": 2994,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Plating is a bit gimmicky with the heart shape",
+   "Scattered toppings look messy rather than intentional",
+   "Lighting is a bit flat"
+  ]
+ },
+ "assets/photos_stock/butterscotch_kheer_3.jpg": {
+  "ok": true,
+  "sharpness": 596,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "background surface is a bit plain and worn",
+   "lighting is somewhat flat"
+  ]
+ },
+ "assets/photos_stock/hot_coffee_1.jpg": {
+  "ok": true,
+  "sharpness": 558,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Text visible in the background book distracts slightly from the main subject"
+  ]
+ },
+ "assets/photos_stock/hot_coffee_2.jpg": {
+  "ok": true,
+  "sharpness": 2602,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "cup is slightly cropped at the right edge",
+   "background text distracts slightly from the hero dish"
+  ]
+ },
+ "assets/photos_stock/hot_coffee_3.jpg": {
+  "ok": true,
+  "sharpness": 409,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Coffee cup is cut off at the edge of the frame",
+   "Composition is heavily off-center with too much empty wooden table space"
+  ]
+ },
+ "assets/photos_stock/hot_coffee_4.jpg": {
+  "ok": true,
+  "sharpness": 103,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Background person is distracting",
+   "Shallow depth of field blurs the tray and cookies"
+  ]
+ },
+ "assets/photos_stock/hot_coffee_5.jpg": {
+  "ok": true,
+  "sharpness": 652,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly grainy texture in the background",
+   "Lighting is a bit dark and muted"
+  ]
+ },
+ "assets/photos_stock/cold_coffee_1.jpg": {
+  "ok": true,
+  "sharpness": 212,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_stock/cold_coffee_2.jpg": {
+  "ok": true,
+  "sharpness": 772,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "Depicts black coffee/pour-over rather than a classic creamy Indian cafe Cold Coffee"
+  ]
+ },
+ "assets/photos_stock/cold_coffee_3.jpg": {
+  "ok": true,
+  "sharpness": 275,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 8,
+  "problems": [
+   "top of the pouring vessel is awkwardly cropped out",
+   "lighting is a bit flat for a hero shot"
+  ]
+ },
+ "assets/photos_stock/cold_coffee_4.jpg": {
+  "ok": true,
+  "sharpness": 252,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Metal straw cutting through the top frame awkwardly",
+   "Background is too busy and distracting",
+   "Lighting is a bit flat"
+  ]
+ },
+ "assets/photos_stock/cold_coffee_5.jpg": {
+  "ok": true,
+  "sharpness": 701,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Extreme macro crop only shows the surface, missing the full glass and context of an Indian-style thick cold coffee"
+  ]
+ },
+ "assets/photos_stock/mocha_shake_1.jpg": {
+  "ok": true,
+  "sharpness": 235,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": false,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Top of the glass and straw are slightly cropped out",
+   "Messy chocolate sprinkles on the surface look a bit unrefined for a premium cafe"
+  ]
+ },
+ "assets/photos_stock/mocha_shake_2.jpg": {
+  "ok": true,
+  "sharpness": 199,
+  "issues": [],
+  "ai_checked": false
+ },
+ "assets/photos_stock/mocha_shake_3.jpg": {
+  "ok": true,
+  "sharpness": 1219,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "chocolate syrup is dripping messily down the side of the cup",
+   "spoon is placed inside the drink rather than beside it"
+  ]
+ },
+ "assets/photos_stock/matcha_shake_1.jpg": {
+  "ok": true,
+  "sharpness": 83,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": []
+ },
+ "assets/photos_stock/matcha_shake_2.jpg": {
+  "ok": true,
+  "sharpness": 110,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "Distracting smartphone in the frame",
+   "Background is dark and unpolished",
+   "Lighting is uneven and slightly dim"
+  ]
+ },
+ "assets/photos_stock/matcha_shake_3.jpg": {
+  "ok": true,
+  "sharpness": 412,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Red saucer clashes slightly with the earthy green matcha tone for a premium aesthetic",
+   "Latte art foam texture is slightly uneven around the edges"
+  ]
+ },
+ "assets/photos_stock/matcha_shake_4.jpg": {
+  "ok": true,
+  "sharpness": 293,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Background is a bit dull/industrial",
+   "Lighting could be more dramatic"
+  ]
+ },
+ "assets/photos_stock/matcha_shake_5.jpg": {
+  "ok": true,
+  "sharpness": 727,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Red saucer color clashes slightly with the earthy green tone of matcha",
+   "Surface foam has some uneven bubbling"
+  ]
+ }
+}
