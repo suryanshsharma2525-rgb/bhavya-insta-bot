@@ -29,11 +29,12 @@ class IG:
     def _wait(self, cid, timeout=600):
         start = time.time()
         while time.time() - start < timeout:
-            st = self._req("GET", cid, fields="status_code,status").get("status_code")
+            d = self._req("GET", cid, fields="status_code,status")
+            st = d.get("status_code")
             if st == "FINISHED":
                 return
             if st in ("ERROR", "EXPIRED"):
-                raise RuntimeError(f"Media container {cid} failed: {st}")
+                raise RuntimeError(f"Media container {cid} failed: {st} — {d.get('status')}")
             time.sleep(8)
         raise RuntimeError("Instagram took too long to process the media")
 
@@ -118,10 +119,11 @@ class IG:
     def post_reel(self, video_urls, caption, cover_url=None):
         """Instagram public link se video uthata hai. Pehla link fail ho to agla try karte hain."""
         last = None
-        for vurl in video_urls:
+        tries = [(v, cover_url) for v in video_urls] + ([(video_urls[0], None)] if cover_url else [])
+        for vurl, cov in tries:  # aakhri koshish bina cover ke (cover ki galti se reel na ruke)
             params = dict(media_type="REELS", video_url=vurl, caption=caption, share_to_feed="true")
-            if cover_url:
-                params["cover_url"] = cover_url
+            if cov:
+                params["cover_url"] = cov
             try:
                 cid = self._req("POST", f"{self.uid}/media", **params)["id"]
                 return self._publish(cid)

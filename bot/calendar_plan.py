@@ -22,7 +22,8 @@ CAL_ICS = os.path.join(DATA, "content_calendar.ics")
 LOG_CSV = os.path.join(DATA, "posts_log.csv")
 OCC_CSV = os.path.join(DATA, "occasions.csv")
 
-CAL_COLS = ["date", "day", "occasion", "strategy", "format", "featured_item", "idea", "status", "instagram_link"]
+CAL_COLS = ["date", "day", "occasion", "type", "preset", "offer", "featured_item", "idea", "strategy", "format", "status",
+            "instagram_link"]
 LOG_COLS = ["post_id", "date", "time_ist", "source", "format", "type", "featured_item", "headline",
             "caption_first_line", "hashtags", "owner_note", "status", "instagram_link",
             "reach", "views", "likes", "comments", "saved", "shares"]
@@ -201,10 +202,15 @@ def _write_ics(rows):
     for r in rows:
         d = dt.date.fromisoformat(r["date"])
         tick = ("✅ " if r.get("status") == "posted" else "📸 ") + ("🔥 " if "winner" in (r.get("strategy") or "") else "")
-        title = tick + FORMAT_LABEL.get(r.get("format"), r.get("format", "Post")) + f" – {r.get('featured_item', '')}"
+        if r.get("type"):  # naya Pinterest-design system: Reel/Post + preset
+            kind = "🎬 Reel" if r["type"] == "reel" else ("🎬+🖼 Dono" if r["type"] == "both" else "🖼 Post")
+            pre = (r.get("preset") or "auto").replace("_", " ").title()
+            title = tick + f"{kind} · {pre} – {r.get('featured_item', '')}"
+        else:
+            title = tick + FORMAT_LABEL.get(r.get("format"), r.get("format", "Post")) + f" – {r.get('featured_item', '')}"
         if r.get("occasion"):
             title += f" ({r['occasion']})"
-        desc = f"Idea: {r.get('idea', '')}\nStatus: {r.get('status', '')}"
+        desc = f"Idea: {r.get('idea', '')}\nStatus: {r.get('status', '')}" + (f"\nOffer: {r['offer']}" if r.get("offer") else "")
         if r.get("instagram_link"):
             desc += f"\nPost: {r['instagram_link']}"
         lines += ["BEGIN:VEVENT", f"UID:bhavya-{r['date']}@instabot", f"DTSTAMP:{now}",
