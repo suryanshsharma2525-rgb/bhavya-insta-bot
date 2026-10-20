@@ -6,8 +6,10 @@
 brand:
   name: "Bhavya Cafe"
   location_line: "📍 Bhavya Cafe, near IIT Roorkee"
+  handle: "@bhavya_cafe"
   # Instagram "location tag" ka ID (optional). Kaise nikaalna hai — README dekho.
   location_id: ""
+  hours: ""             # jaise "Open 11 AM – 11 PM" (stories me dikhega; khaali = nahi dikhega)
 
 # Roz post kab hoga — time .github/workflows/daily-post.yml me set hai
 # (default: shaam 6:30 baje IST).
@@ -61,10 +63,10 @@ weekly_offer:
 # ---------------- HASHTAGS (Instagram max 5) ----------------
 hashtags:
   always: ["#Roorkee", "#IITRoorkee", "#BhavyaCafe"]     # ye 3 har post me
-  rotate: ["#RoorkeeFood", "#RoorkeeCafe", "#FoodiesOfRoorkee",
-           "#RoorkeeDiaries", "#StudentLife", "#MomosLover",
-           "#ColdCoffee", "#UttarakhandFood",
-           "#KulhadPizza", "#KulhadChai"]             # inme se 2 AI chunega
+  rotate: ["#RoorkeeFood", "#RoorkeeCafe", "#FoodiesOfRoorkee", "#RoorkeeDiaries", "#RoorkeeFoodies",
+           "#IITRoorkeeLife", "#CafeHopping", "#FoodReels", "#StudentLife", "#UttarakhandFood",
+           "#HaridwarFood", "#DehradunFoodies", "#MomosLover", "#ColdCoffee", "#KulhadPizza",
+           "#KulhadChai", "#StreetFoodIndia", "#CafeVibes", "#FoodPhotography", "#DesiFood"]             # inme se 2 AI chunega
 
 # ---------------- TREND SHEET (optional) ----------------
 # Google Sheet → File → Share → Publish to web → CSV ka link yahan daalo.
@@ -76,6 +78,13 @@ trend_sheet_csv_url: ""
 themes: [classic_gold, emerald, maroon, midnight, kulhad]
 theme_mode: rotate        # rotate = har din alag theme | fixed = hamesha pehli wali
 
+# AI Art Director: har post ka look (unlimited colours, 8 font packs, 10 animations, 11 transitions,
+# 8 backgrounds, 6 layouts) AI khud chunta hai. ai: false = bina AI ke smart random.
+art_director:
+  ai: true
+# Product posts me kitne % Pinterest-style designer posters hon (references wale designs)
+designer_share: 0.7
+
 # ---------------- AI ----------------
 ai:
   model: "gemini-flash-latest"        # text (naam badle to bot khud naya model dhundh lega)
@@ -86,9 +95,38 @@ ai:
 # assets/photos/ me tumhari ASLI photo ho to wahi lagegi (AI se pehle).
 photos:
   ai_photos: true
-  variants_per_item: 2      # har item ki kitni alag photos
-  max_new_per_run: 12       # ek din me max kitni nayi photos banengi
+  variants_per_item: 5      # har item ki kitni alag photos (stock + AI milake)
+  stock_per_item: 5         # Pexels (free license) se har item ki kitni HD photos
+  max_new_per_run: 20       # ek din me max kitni nayi photos banengi
 
 # ---------------- INSTAGRAM ----------------
 instagram:
   api_base: "https://graph.instagram.com/v23.0"
+
+# AI Auditor: har photo aur har post publish se pehle check hota hai
+audit:
+  enabled: true
+  photos: true          # sirf HD + sharp + sahi dish + bina watermark wali photos library me aayengi
+  min_score: 7          # post ko 10 me se kam se kam itne number chahiye
+  max_retries: 2        # fail hua to naye design/photo se itni baar dobara banega
+  hard_min_score: 5     # sabse achha version bhi isse kam ho (ya khana chhupa ho) to post NAHI hoga
+
+# Stories: roz 2 baar (time .github/workflows/stories.yml me)
+stories:
+  enabled: true
+  slots:
+    lunch: [special, question]      # dopahar: aaj ka special + "A ya B?" sawaal (DM me jawab → auto-reply)
+    night: [new_post, mood]         # raat: aaj ke post ka teaser + mood line
+
+# Growth brain: Instagram insights se seekhna
+growth:
+  exploit_share: 0.35   # 35% din "🔥 winner" (jo sabse zyada chala uska system), 65% naye experiments
+
+# Auto-reply (comments + DMs) — har 30 minute (.github/workflows/replies.yml)
+replies:
+  enabled: true
+  max_per_run: 25         # ek baar me max itne jawab (spam jaisa na lage)
+  media_to_check: 10      # aakhri kitne posts ke comments dekhne hain
+  private_replies: true   # comment pe price/location poocha → ek DM bhi (Advanced Access chahiye)
+  dm_replies: true        # DMs ka jawab (Advanced Access chahiye — README dekho)
+  invite_perk: ""         # jaise "Counter pe bolo 'Insta se aaya' — chai pe special smile 😄" (khaali = kuch promise nahi)

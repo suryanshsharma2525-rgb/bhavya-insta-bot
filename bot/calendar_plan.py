@@ -22,9 +22,10 @@ CAL_ICS = os.path.join(DATA, "content_calendar.ics")
 LOG_CSV = os.path.join(DATA, "posts_log.csv")
 OCC_CSV = os.path.join(DATA, "occasions.csv")
 
-CAL_COLS = ["date", "day", "occasion", "format", "featured_item", "idea", "status", "instagram_link"]
+CAL_COLS = ["date", "day", "occasion", "strategy", "format", "featured_item", "idea", "status", "instagram_link"]
 LOG_COLS = ["post_id", "date", "time_ist", "source", "format", "type", "featured_item", "headline",
-            "caption_first_line", "hashtags", "owner_note", "status", "instagram_link"]
+            "caption_first_line", "hashtags", "owner_note", "status", "instagram_link",
+            "reach", "views", "likes", "comments", "saved", "shares"]
 
 FORMAT_LABEL = {
     "meme_card": "Meme", "relatable_exam": "Exam/IIT life meme", "local_roorkee": "Roorkee local meme",
@@ -35,11 +36,12 @@ FORMAT_LABEL = {
     "offer_flash_reel": "OFFER: Pause karo reel", "offer_zoom_code": "OFFER: Zoom code",
     "reel_meme": "Meme reel", "reel_pov": "POV reel", "reel_top5": "Top 5 reel", "reel_this_or_that": "This or That reel",
     "reel_pause_game": "Pause game reel", "reel_freestyle": "AI concept reel (new idea)", "reel_showcase": "Cinematic food reel",
-    "product_spotlight": "Product spotlight", "mood_quote": "Mood / aesthetic post", "fact_carousel": "Did-you-know carousel",
+    "product_spotlight": "Product spotlight", "poster": "Designer poster (reference style)",
+    "poster_reel": "Designer poster reel (reference style)", "mood_quote": "Mood / aesthetic post", "fact_carousel": "Did-you-know carousel",
 }
 # occasions pe kaunse formats best hain
-FESTIVE = ["reel_showcase", "product_spotlight", "mood_quote", "reel_freestyle", "local_roorkee", "tag_friend", "reel_pov"]
-EXAM = ["relatable_exam", "reel_pov", "reel_top5", "mood_quote", "zoom_read", "reel_freestyle", "product_spotlight"]
+FESTIVE = ["poster", "poster_reel", "reel_showcase", "product_spotlight", "mood_quote", "reel_freestyle", "local_roorkee", "tag_friend", "reel_pov"]
+EXAM = ["poster", "poster_reel", "relatable_exam", "reel_pov", "reel_top5", "mood_quote", "zoom_read", "reel_freestyle", "product_spotlight"]
 
 
 # ---------------------------------------------------------------- csv helpers
@@ -85,6 +87,8 @@ def save_calendar(cal):
 
 def plan_calendar(cfg, start, days=30):
     """Aage ke din plan karo. Jo din pehle se plan hain (ya tumne edit kiye) unhe chhoda jaata hai."""
+    from . import growth
+    gperf = growth.load()
     cal = load_calendar()
     menu = [m["name"] for m in cfg["menu"]]
     recent_items = [r.get("featured_item") for k, r in sorted(cal.items())][-10:]
@@ -106,11 +110,16 @@ def plan_calendar(cfg, start, days=30):
             fmt = random.Random(key).choice([p for p in FORMATS if p != prev and not FORMATS[p].get("needs_trend")])
         rng = random.Random("item" + key)
         item = rng.choice([m for m in menu if m not in recent_items] or menu)
+        win = growth.is_winner_day(d, cfg, gperf)
+        rec = gperf.get("recipe", {})
+        if win and rec.get("item") in menu and rec["item"] not in recent_items[-3:]:
+            item = rec["item"]
         if fmt.startswith("offer_"):
             item, _ = planner.offer_item(d, cfg)
             item = item["name"]
         recent_items = (recent_items + [item])[-10:]
         row = {"date": key, "day": d.strftime("%a"), "occasion": " + ".join(o[0] for o in occ),
+               "strategy": "🔥 winner" if win else "🧪 experiment",
                "format": fmt, "featured_item": item, "idea": "", "status": "planned", "instagram_link": "",
                "_hints": "; ".join(o[1] for o in occ if o[1])}
         cal[key] = row
@@ -128,12 +137,18 @@ def _fill_ideas(rows, cfg):
     """Gemini se har din ka idea (batch me, ek hi call). Key na ho to simple template idea."""
     menu = ", ".join(f"{m['name']} (₹{m['price']})" for m in cfg["menu"] if m.get("price"))
     spec = [{"date": r["date"], "day": r["day"], "occasion": r["occasion"], "occasion_hint": r["_hints"],
-             "format": r["format"], "format_hint": ALL_FORMATS[r["format"]]["hint"], "featured_item": r["featured_item"]}
+             "format": r["format"], "format_hint": ALL_FORMATS[r["format"]]["hint"], "featured_item": r["featured_item"],
+             "strategy": r.get("strategy", "")}
             for r in rows]
+    from . import growth
+    gp = growth.load()
+    brief = growth.winner_brief(gp)
+    brief = ("\n\nFor days with strategy '🔥 winner' follow this proven system (new content, same type):\n" + brief +
+             "\nFor '🧪 experiment' days try something genuinely new. " + growth.avoid_brief(gp)) if brief else ""
     prompt = (ai.STYLE_RULES + f"\n\nMENU: {menu}\n\nYou are planning the Instagram content calendar. For EACH day below "
               "write one specific, funny, ready-to-execute post idea in Hinglish (max 25 words) that fits the format, "
               "the occasion (if any) and features the item. Think like a viral Indian meme page for IIT Roorkee students "
-              "and Roorkee locals. During UG winter vacation target locals and families. Make every idea different.\n\n"
+              "and Roorkee locals. During UG winter vacation target locals and families. Make every idea different." + brief + "\n\n"
               "DAYS:\n" + json.dumps(spec, ensure_ascii=False, indent=1) +
               '\n\nReturn ONLY JSON: {"ideas": [{"date": "...", "idea": "..."}]}')
     data = ai._gemini(prompt, cfg)
@@ -185,7 +200,7 @@ def _write_ics(rows):
              "METHOD:PUBLISH", "X-WR-CALNAME:Bhavya Cafe – Instagram Plan", "X-WR-TIMEZONE:Asia/Kolkata"]
     for r in rows:
         d = dt.date.fromisoformat(r["date"])
-        tick = "✅ " if r.get("status") == "posted" else "📸 "
+        tick = ("✅ " if r.get("status") == "posted" else "📸 ") + ("🔥 " if "winner" in (r.get("strategy") or "") else "")
         title = tick + FORMAT_LABEL.get(r.get("format"), r.get("format", "Post")) + f" – {r.get('featured_item', '')}"
         if r.get("occasion"):
             title += f" ({r['occasion']})"
@@ -217,4 +232,14 @@ def log_post(post_id, meta, source, status, link=""):
     if link:
         row["instagram_link"] = link
         row["time_ist"] = now.strftime("%H:%M")
+    _write(LOG_CSV, rows, LOG_COLS)
+
+
+def log_stats(post_id, st):
+    rows = _read(LOG_CSV)
+    for r in rows:
+        if r["post_id"] == post_id:
+            for k in ("reach", "views", "likes", "comments", "saved", "shares"):
+                if k in st:
+                    r[k] = st[k]
     _write(LOG_CSV, rows, LOG_COLS)

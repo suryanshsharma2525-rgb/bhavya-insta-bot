@@ -1,0 +1,407 @@
+[
+ {
+  "id": "gerard_cozy",
+  "ref": "Gerard cozy grid",
+  "template": "cozy_minimal",
+  "vibe": "cozy",
+  "mood": "lofi",
+  "palette": {
+   "bg": "#3b2618",
+   "panel": "#6b4a30",
+   "text": "#f3e6d6",
+   "word": "#e9d2b0"
+  },
+  "fonts": {
+   "script": [
+    "GreatVibes.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ],
+   "italic": [
+    "PlayfairItalic.ttf",
+    "Italic"
+   ]
+  }
+ },
+ {
+  "id": "chago_pastel",
+  "ref": "CHAGO green-pink",
+  "template": "pedestal",
+  "vibe": "fresh_day",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#e9aab5",
+   "panel": "#24543f",
+   "panel2": "#2f6b51",
+   "text": "#f7efe9",
+   "word": "#1f4a37",
+   "halo": "#f6d3d9"
+  },
+  "fonts": {
+   "serif": [
+    "DMSerifDisplay.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ]
+  }
+ },
+ {
+  "id": "insta_mockup",
+  "ref": "Indian Room insta mockup",
+  "template": "insta_mockup",
+  "vibe": "calm_luxury",
+  "mood": "lofi",
+  "palette": {
+   "bg": "#6b6158",
+   "text": "#ffffff",
+   "word": "#1b4d3e",
+   "panel": "#6b6158"
+  },
+  "fonts": {
+   "script": [
+    "GreatVibes.ttf",
+    null
+   ]
+  }
+ },
+ {
+  "id": "weekend_doodle",
+  "ref": "Weekend vibes doodles",
+  "template": "doodle",
+  "vibe": "playful",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#5a3b26",
+   "text": "#ffffff",
+   "panel": "#5a3b26",
+   "word": "#ffffff"
+  },
+  "fonts": {
+   "hand": [
+    "Caveat.ttf",
+    "Bold"
+   ]
+  }
+ },
+ {
+  "id": "three_flavours",
+  "ref": "Three flavours one obsession",
+  "template": "diagonal_split",
+  "vibe": "playful",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#6f7d2a",
+   "panel": "#e8a6b3",
+   "word": "#5a2f1e",
+   "text": "#ffffff",
+   "bands": [
+    "#6f7d2a",
+    "#e8a6b3",
+    "#5a2f1e"
+   ]
+  },
+  "fonts": {
+   "script": [
+    "GreatVibes.ttf",
+    null
+   ],
+   "serif": [
+    "AbrilFatface.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ]
+  }
+ },
+ {
+  "id": "its_a_mood",
+  "ref": "it's a mood",
+  "template": "editorial_mood",
+  "vibe": "calm_luxury",
+  "mood": "lofi",
+  "light": true,
+  "palette": {
+   "bg": "#efe3d6",
+   "panel": "#e4d3c1",
+   "word": "#9a4f2a",
+   "text": "#7a4a30"
+  },
+  "fonts": {
+   "serif": [
+    "DMSerifDisplay.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ]
+  }
+ },
+ {
+  "id": "lemonade_giant",
+  "ref": "LEMONADE",
+  "template": "giant_vertical",
+  "vibe": "energetic",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#f4a07c",
+   "panel": "#c8231f",
+   "word": "#f6ead7",
+   "text": "#8f1d18",
+   "text2": "#5c120f"
+  },
+  "fonts": {
+   "display": [
+    "Anton.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "SemiBold"
+   ]
+  }
+ },
+ {
+  "id": "thali_giant",
+  "ref": "THALI",
+  "template": "giant_vertical",
+  "vibe": "desi_warm",
+  "mood": "desi",
+  "params": {
+   "texture": true,
+   "panel": 0.46
+  },
+  "palette": {
+   "bg": "#7d1420",
+   "panel": "#68101a",
+   "word": "#ead7c9",
+   "text": "#f5e6dc",
+   "text2": "#f5e6dc"
+  },
+  "fonts": {
+   "display": [
+    "BebasNeue.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ]
+  }
+ },
+ {
+  "id": "brunch_editorial",
+  "ref": "a good BRUNCH",
+  "template": "editorial_overlay",
+  "vibe": "calm_luxury",
+  "mood": "lofi",
+  "palette": {
+   "bg": "#3a2a20",
+   "text": "#ffffff",
+   "panel": "#3a2a20",
+   "word": "#ffffff"
+  },
+  "fonts": {
+   "italic": [
+    "PlayfairItalic.ttf",
+    "Italic"
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "Black"
+   ]
+  }
+ },
+ {
+  "id": "hibiscus_light",
+  "ref": "HIBISCUS light",
+  "template": "repeat_text",
+  "vibe": "fresh_day",
+  "mood": "upbeat",
+  "light": true,
+  "palette": {
+   "bg": "#f2c9cf",
+   "panel": "#e9b7bf",
+   "word": "#5a1a2a",
+   "text": "#5a1a2a"
+  },
+  "fonts": {
+   "display": [
+    "Anton.ttf",
+    null
+   ],
+   "italic": [
+    "PlayfairItalic.ttf",
+    "Italic"
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "SemiBold"
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "ExtraBold"
+   ]
+  }
+ },
+ {
+  "id": "hibiscus_dark",
+  "ref": "HIBISCUS dark",
+  "template": "repeat_text",
+  "vibe": "calm_luxury",
+  "mood": "lofi",
+  "palette": {
+   "bg": "#4a1424",
+   "panel": "#5d1c30",
+   "word": "#f2c0c8",
+   "text": "#f2c0c8"
+  },
+  "fonts": {
+   "display": [
+    "Anton.ttf",
+    null
+   ],
+   "italic": [
+    "PlayfairItalic.ttf",
+    "Italic"
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "SemiBold"
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "ExtraBold"
+   ]
+  }
+ },
+ {
+  "id": "monday_teal",
+  "ref": "MONDAY Coffee",
+  "template": "script_bold",
+  "vibe": "fresh_day",
+  "mood": "upbeat",
+  "params": {
+   "features": false
+  },
+  "palette": {
+   "bg": "#5fa6ab",
+   "panel": "#4f9196",
+   "text": "#ffffff",
+   "word": "#ffffff"
+  },
+  "fonts": {
+   "script": [
+    "Pacifico.ttf",
+    null
+   ],
+   "display": [
+    "Montserrat.ttf",
+    "Black"
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "Bold"
+   ]
+  }
+ },
+ {
+  "id": "new_dishes_flyer",
+  "ref": "NEW DISHES flyer",
+  "template": "menu_flyer",
+  "vibe": "energetic",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#f07a1a",
+   "panel": "#f8a24a",
+   "panel2": "#fbe7cf",
+   "word": "#6a2d10",
+   "text": "#fff4e6"
+  },
+  "fonts": {
+   "display": [
+    "ArchivoBlack.ttf",
+    null
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "ExtraBold"
+   ]
+  }
+ },
+ {
+  "id": "burger_curve",
+  "ref": "Cheesy Crunchy BURGER",
+  "template": "curve_split",
+  "vibe": "energetic",
+  "mood": "upbeat",
+  "palette": {
+   "bg": "#f6b37f",
+   "panel": "#8f2414",
+   "word": "#f8cfa6",
+   "text": "#8f2414",
+   "text2": "#7a1d10"
+  },
+  "fonts": {
+   "display": [
+    "BebasNeue.ttf",
+    null
+   ],
+   "script": [
+    "Pacifico.ttf",
+    null
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "Bold"
+   ]
+  }
+ },
+ {
+  "id": "ultimate_dark",
+  "ref": "The Ultimate BURGER",
+  "template": "script_bold",
+  "vibe": "energetic",
+  "mood": "upbeat",
+  "params": {
+   "diagonal": true,
+   "features": true
+  },
+  "palette": {
+   "bg": "#0d0d0d",
+   "panel": "#5cc22b",
+   "text": "#ffffff",
+   "word": "#6ad12e"
+  },
+  "fonts": {
+   "script": [
+    "GreatVibes.ttf",
+    null
+   ],
+   "display": [
+    "RubikDirt.ttf",
+    null
+   ],
+   "sans": [
+    "Montserrat.ttf",
+    "Medium"
+   ],
+   "sans_bold": [
+    "Montserrat.ttf",
+    "Bold"
+   ]
+  }
+ }
+]

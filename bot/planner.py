@@ -30,16 +30,35 @@ def week_plan(date, cfg, has_trend=False):
     offer_day = offer.get("weekday", "Wednesday") if offer.get("enabled", True) else None
     normal_days = [d for d in DAYS if d != offer_day]
     plan, used = {}, set()
+    from . import growth
+    gperf = growth.load()
+    monday = date - dt.timedelta(days=date.weekday())
     for i, d in enumerate(normal_days):
+        day_date = monday + dt.timedelta(days=DAYS.index(d))
+        rf = gperf.get("recipe", {}).get("format")
+        if (growth.is_winner_day(day_date, cfg, gperf) and rf in FORMATS and rf not in used
+                and (has_trend or not FORMATS[rf].get("needs_trend")) and not rf.startswith("offer_")):
+            plan[d] = rf  # 🔥 winner din: jo format sabse zyada chala
+            used.add(rf)
+            continue
         cat, kind = SLOTS[i % len(SLOTS)]
         cands = [k for k, f in FORMATS.items() if f.get("cat") == cat
                  and (kind == "any" or (f["kind"] == "reel") == (kind == "reel"))
                  and (has_trend or not f.get("needs_trend")) and k not in used]
+        share = float(cfg.get("designer_share", 0.7))
+        designer = "poster_reel" if kind == "reel" else "poster"
         if cat == "story" and "reel_freestyle" in cands:
             pick = "reel_freestyle"  # har hafte ek bilkul naya AI concept reel
+        elif cat == "product" and designer in cands and random.Random(f"{year}-{week}-{d}").random() < share:
+            pick = designer  # Pinterest-style designer posters ko priority
         else:
             pool = _pool(year, cands, f"{cat}-{kind}")
             pick = pool[week % len(pool)] if pool else "meme_card"
+            perf = _perf().get("formats", {})
+            if perf and pool:  # experiment din: jo bilkul nahi chala usse bacho, baaki naya try
+                fresh = [k for k in pool if perf.get(k, 0) > -0.25]
+                if pick not in fresh and fresh:
+                    pick = fresh[week % len(fresh)]
         plan[d] = pick
         used.add(pick)
     if has_trend and "trend_twist" not in plan.values():
@@ -49,6 +68,16 @@ def week_plan(date, cfg, has_trend=False):
     if offer_day:
         plan[offer_day] = "offer_flash_reel" if week % 2 else "offer_zoom_code"
     return {d: plan[d] for d in DAYS}
+
+
+def _perf():
+    import json
+    import os
+    p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "performance.json")
+    try:
+        return json.load(open(p, encoding="utf-8"))
+    except Exception:
+        return {}
 
 
 def offer_item(date, cfg):

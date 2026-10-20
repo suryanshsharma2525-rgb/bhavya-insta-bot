@@ -175,6 +175,11 @@ def _prompt(fmt_key, cfg, ctx):
         parts.append("OWNER'S IDEA FOR THIS POST (follow it closely, keep the same style rules): " + ctx["idea"])
     if ctx.get("focus_item"):
         parts.append(f"FEATURE THIS MENU ITEM in the post: {ctx['focus_item']}")
+    if ctx.get("design"):
+        parts.append("DESIGN STYLE for this post: " + ctx["design"] +
+                     ". Write copy that suits this design (luxury → elegant, energetic → bold & punchy, playful → fun).")
+    if ctx.get("growth_brief"):
+        parts.append(ctx["growth_brief"])
     if ctx.get("recent"):
         parts.append("RECENT POSTS (do not repeat): " + " || ".join(ctx["recent"][-30:]))
     parts.append("Return ONLY a JSON object with these keys:\n" + json.dumps(fields, ensure_ascii=False, indent=1))
@@ -243,14 +248,46 @@ def write_post(fmt_key, cfg, ctx):
     source = "gemini"
     if not data or not _valid(fmt_key, data, cfg):
         print("Using built-in sample text for", fmt_key)
-        data = json.loads(json.dumps(SAMPLES[fmt_key], ensure_ascii=False))
+        data = poster_sample(cfg, ctx) if fmt_key.startswith("poster") else json.loads(json.dumps(SAMPLES[fmt_key], ensure_ascii=False))
         source = "sample"
     data["_source"] = source
     return _finalise(fmt_key, data, cfg, ctx)
 
 
+def poster_sample(cfg, ctx):
+    import random as _r
+    rng = _r.Random(str(ctx.get("date")) + str(ctx.get("week")))
+    menu = [m["name"] for m in cfg["menu"]]
+    item = ctx.get("focus_item") or rng.choice(menu)
+    items = [item] + rng.sample([m for m in menu if m != item], 4)
+    word = item.split()[-1].upper()[:9]
+    return {"item": item, "items": items, "word": word, "script": rng.choice(["a good", "The Ultimate", "Made for you", "Simply"]),
+            "headline_lines": rng.choice([["THE BEST", "IS HERE", "AT BHAVYA"], ["FRESH", "& WARM"], ["MADE", "WITH LOVE"]]),
+            "sub": "Fresh, warm and made to order", "sub_lines": ["For the best experience", "eat it hot"],
+            "small_caps": "HOT  /  FRESH  /  DELICIOUS", "notes": ["So good!", "Fresh!", "Yum!", "Must try!", "Hot & fresh!"],
+            "tail_lines": ["EAT &", "ENJOY"], "note_lines": [item, "near IIT Roorkee"],
+            "features": ["Fresh ingredients", "Freshly made", "Real flavour"], "button": "Visit Today",
+            "caption_hook": f"{item} near IIT Roorkee, made fresh at Bhavya Cafe",
+            "caption_body": "Some cravings deserve the real thing. Come hungry.",
+            "cta": "Save this for your next cafe plan."}
+
+
 def _valid(fmt_key, d, cfg):
     names = {m["name"].lower() for m in cfg["menu"]}
+    if fmt_key.startswith("poster"):
+        canon = {m["name"].lower(): m["name"] for m in cfg["menu"]}
+        it = canon.get(str(d.get("item", "")).lower())
+        if not it:
+            return False
+        d["item"] = it
+        d["items"] = [canon[x.lower()] for x in (d.get("items") or []) if isinstance(x, str) and x.lower() in canon]
+        if it not in d["items"]:
+            d["items"] = [it] + d["items"]
+        for k in ("headline_lines", "sub_lines", "notes", "tail_lines", "note_lines", "features"):
+            if not isinstance(d.get(k), list):
+                d.pop(k, None)
+        d["word"] = str(d.get("word") or it.split()[-1]).upper()[:10]
+        return all(d.get(k) for k in ("caption_hook", "caption_body", "cta"))
     need = list(ALL_FORMATS[fmt_key]["fields"]) + ["caption_hook", "caption_body", "cta"]
     if any(k not in d or d[k] in ("", None, []) for k in need):
         return False
@@ -300,6 +337,12 @@ def _finalise(fmt_key, d, cfg, ctx):
         if k in d:
             d[k] = strip_emoji(d[k])
     d["pov_lines"] = [strip_emoji(x) for x in d.get("pov_lines", [])] or d.get("pov_lines")
+    for k in ("headline_lines", "sub_lines", "notes", "tail_lines", "note_lines", "features"):
+        if isinstance(d.get(k), list):
+            d[k] = [strip_emoji(str(x)) for x in d[k] if str(x).strip()]
+    for k in ("word", "script", "sub", "small_caps", "button"):
+        if d.get(k):
+            d[k] = strip_emoji(str(d[k]))
     for x in d.get("shots", []):
         x["line"] = strip_emoji(x.get("line"))
     for x in d.get("scenes", []):
@@ -321,6 +364,8 @@ def _finalise(fmt_key, d, cfg, ctx):
     d["alt_text"] = d.get("alt_text") or f"{fmt_key.replace('_', ' ')} post by Bhavya Cafe Roorkee"
     if "roorkee" not in d["alt_text"].lower():
         d["alt_text"] += " – Bhavya Cafe Roorkee"
+    feat = d.get("item") or ctx.get("focus_item") or (d.get("items") or [None])[0]
+    seo = "Cafe in Roorkee · Near IIT Roorkee" + (f" · {feat} in Roorkee" if feat else "") + " · Roorkee food"
     d["caption"] = "\n\n".join([hook, d["caption_body"].strip(), d["cta"].strip(),
-                                cfg["brand"]["location_line"], " ".join(tags)])
+                                cfg["brand"]["location_line"] + "\n" + seo, " ".join(tags)])
     return d

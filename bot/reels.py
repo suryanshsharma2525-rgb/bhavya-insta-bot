@@ -12,6 +12,7 @@ import tempfile
 
 from PIL import Image, ImageDraw
 
+from . import motion  # noqa: F401  (main.py yahan se motion use karta hai)
 from . import render as R
 
 W, H = 1080, 1920
@@ -256,7 +257,8 @@ def reel_freestyle(p, cfg, seed):
     for i, sc in enumerate(sc_list):
         style = sc.get("style", "hook")
         it, em = sc.get("item"), sc.get("emoji")
-        has_visual = bool(it or em)
+        em = None  # premium look: freestyle reels me emoji nahi
+        has_visual = bool(it)
         box = (80, 250, 1000, 760) if has_visual else (80, 520, 1000, 1300)
         kind = {"punch": "impact", "reveal": "impact", "question": "bold", "list": "med"}.get(style, "bold")
         gold = style in ("punch", "reveal", "question")
@@ -284,28 +286,6 @@ def reel_freestyle(p, cfg, seed):
         scenes.append((2.4 if style != "list" else 2.0, f))
     scenes.append((2.2, end_card(cfg, p.get("end_line") or "Comment karo")))
     return scenes
-
-
-def images_to_reel(images, cfg, out_path, seed):
-    """Koi bhi image / carousel post → music wala video (slow zoom + slide transition)."""
-    base = _bg(footer=None)
-    slides = [im.convert("RGB") for im in images]
-    per = 6.5 if len(slides) == 1 else 2.8
-
-    def mk(sl, i):
-        def f(t):
-            fr = base.copy()
-            z = 1.0 + 0.06 * t
-            w, h = int(1000 * z), int(1250 * z)
-            im = sl.resize((w, h), Image.LANCZOS)
-            k = ease(t * 5) if len(slides) > 1 else 1
-            x = int(W / 2 - w / 2 + (1 - k) * 600)
-            fr.paste(im, (x, int(H / 2 - h / 2)))
-            return fr.convert("RGBA")
-        return f
-    scenes = [(per, mk(sl, i)) for i, sl in enumerate(slides)]
-    scenes.append((1.8, end_card(cfg, "Follow karo, roz naya post")))
-    return _encode(scenes, out_path, seed)
 
 
 def reel_showcase(p, cfg, seed):
@@ -370,7 +350,77 @@ def _encode(scenes, out_path, seed, mood=None):
     return out_path
 
 
+def build_spec(fmt_renderer, p, cfg, rng):
+    """Har reel format → motion engine ke scenes. Layout/animation/transition engine khud vary karta hai."""
+    menu = [m["name"] for m in cfg["menu"]]
+    hooks = ["IIT ROORKEE KE PAAS", "BHAVYA CAFE", "ROORKEE", "NEAR IIT ROORKEE", "FRESH . WARM . YOURS"]
+    K = lambda lines, **kw: dict(type="kinetic", lines=lines, **kw)
+    if fmt_renderer == "reel_showcase":
+        sh = p["shots"][:3]
+        spec = [K([p["opening_line"]], font=rng.choice(["serif", "impact"]), kicker=rng.choice(hooks), size=130)]
+        spec += [dict(type="product", item=x["item"], tagline=x["line"], index=i + 1, total=len(sh)) for i, x in enumerate(sh)]
+        spec += [dict(type="logo", tagline=p.get("closing_line"), cta="Visit us today")]
+    elif fmt_renderer == "reel_meme":
+        spec = [K([p["hook"]], font="bold", size=96, accent=-1, anim="words"),
+                K([p["punchline"]], size=120, accent=0, ghost=p["item"].split()[0]),
+                dict(type="product", item=p["item"], tagline=rng.choice(["Iska ilaaj yahi hai", "Problem solved", "Mood fixed"])),
+                dict(type="logo", cta=p.get("cta_short") or "Tag karo us dost ko")]
+    elif fmt_renderer == "reel_pov":
+        ls = p["pov_lines"][:3]
+        spec = [K([ls[0]], font="bold", size=92, kicker="POV", accent=-1, anim="words"),
+                K([ls[1]], font="bold", size=92, kicker="POV", accent=-1, anim="words"),
+                dict(type="product", item=p["item"], tagline=ls[2]),
+                dict(type="logo", cta="Relatable? Share karo")]
+    elif fmt_renderer == "reel_top5":
+        its = [i for i in p["items"] if i in menu][:5]
+        spec = [K(["TOP 5", p["title"]], accent=0, ghost="TOP", kicker="BHAVYA CAFE")]
+        spec += [dict(type="product", item=n, kicker=f"#{len(its) - i}", index=i + 1, total=len(its), beats=3)
+                 for i, n in enumerate(its)]
+        spec += [dict(type="logo", cta="Tumhara #1 kaunsa? Comment karo")]
+    elif fmt_renderer == "reel_this_or_that":
+        spec = [K(["THIS", "OR THAT"], accent=1, kicker="3 SECOND ME CHOOSE KARO")]
+        spec += [dict(type="split", a=x["a"], b=x["b"], title=f"Round {i + 1}") for i, x in enumerate(p["pairs"][:3])]
+        spec += [dict(type="logo", cta="Comment karo: A B A")]
+    elif fmt_renderer == "reel_pause_game":
+        its = rng.sample(menu, min(8, len(menu)))
+        spec = [K(["PAUSE", "KARO"], accent=1, kicker=p["headline"], anim="scale"),
+                dict(type="flash", items=its),
+                dict(type="logo", cta="Kya aaya? Comment karo")]
+    elif fmt_renderer == "offer_flash_reel":
+        its = [i["name"] for i in p["_all_free_items"]]
+        spec = [K(["PAUSE KARO", "JO AAYE WO FREE"], accent=1, kicker="WEEKLY OFFER", anim="scale"),
+                dict(type="flash", items=its * 4, badge="FREE"),
+                dict(type="stat", big="FREE", sub="Screenshot lo, counter pe dikhao"),
+                dict(type="logo", cta=cfg["weekly_offer"]["terms"])]
+    else:  # reel_freestyle (unlimited AI concepts)
+        spec = []
+        if p.get("concept_title"):
+            spec.append(K([p["concept_title"]], font=rng.choice(["serif", "impact", "bold"]), size=120,
+                          kicker=rng.choice(hooks)))
+        sc = p["scenes"][:6]
+        for i, x in enumerate(sc):
+            if x.get("item"):
+                spec.append(dict(type="product", item=x["item"], tagline=x["text"],
+                                 index=(i + 1) if p.get("numbered") else None, total=len(sc) if p.get("numbered") else None))
+            elif x.get("style") in ("punch", "reveal") and len(x["text"]) <= 14:
+                spec.append(dict(type="stat", big=x["text"].upper(), sub=""))
+            else:
+                spec.append(K([x["text"]], font="bold", size=100, accent=0 if x.get("style") in ("punch", "question") else -1,
+                              anim=rng.choice(["words", "rise", "blur", "scale"])))
+        spec.append(dict(type="logo", cta=p.get("end_line") or "Comment karo"))
+    return spec
+
+
 def render_reel(fmt_renderer, post, cfg, out_path, seed):
-    scenes = REELS[fmt_renderer](post, cfg, seed)
-    mood = {"reel_pause_game": "game", "reel_showcase": "lofi", "reel_top5": "upbeat"}.get(fmt_renderer)
-    return _encode(scenes, out_path, seed, mood)
+    from . import motion
+    rng = random.Random(seed)
+    spec = build_spec(fmt_renderer, post, cfg, rng)
+    mood = {"reel_pause_game": "game", "offer_flash_reel": "game"}.get(fmt_renderer) or motion.STYLE_POOL.get("mood")
+    return motion.render(spec, cfg, out_path, seed, mood)
+
+
+def images_to_reel(images, cfg, out_path, seed):
+    from . import motion
+    spec = [dict(type="poster", image=im, beats=10 if len(images) == 1 else 5) for im in images]
+    spec.append(dict(type="logo", cta="Follow karo, roz naya post"))
+    return motion.render(spec, cfg, out_path, seed, motion.STYLE_POOL.get("mood"))

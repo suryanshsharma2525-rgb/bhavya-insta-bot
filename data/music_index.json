@@ -1,0 +1,92 @@
+{
+ "acoustic_morning_cafe_92bpm.mp3": {
+  "bpm": 92,
+  "energy": 0.0477,
+  "brightness": 4089,
+  "mood": "lofi",
+  "best_start": 25.58,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "bollywood_desi_pop_104bpm.mp3": {
+  "bpm": 104,
+  "energy": 0.0989,
+  "brightness": 2998,
+  "mood": "desi",
+  "best_start": 11.9,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "chill_house_upbeat_120bpm.mp3": {
+  "bpm": 120,
+  "energy": 0.055,
+  "brightness": 4135,
+  "mood": "upbeat",
+  "best_start": 7.49,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "cinematic_piano_luxury_72bpm.mp3": {
+  "bpm": 72,
+  "energy": 0.0944,
+  "brightness": 782,
+  "mood": "cinematic",
+  "best_start": 11.67,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "desi_groove_dholak_98bpm.mp3": {
+  "bpm": 98,
+  "energy": 0.12,
+  "brightness": 789,
+  "mood": "desi",
+  "best_start": 23.18,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "game_tension_beat_128bpm.mp3": {
+  "bpm": 128,
+  "energy": 0.0599,
+  "brightness": 3493,
+  "mood": "game",
+  "best_start": 30.89,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "hiphop_lofi_study_88bpm.mp3": {
+  "bpm": 88,
+  "energy": 0.0252,
+  "brightness": 2306,
+  "mood": "lofi",
+  "best_start": 37.67,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "jazz_cafe_100bpm.mp3": {
+  "bpm": 100,
+  "energy": 0.0667,
+  "brightness": 1797,
+  "mood": "lofi",
+  "best_start": 9.09,
+  "seconds": 50.0,
+  "sig": "1201885"
+ },
+ "lofi_chai_evening_84bpm.mp3": {
+  "bpm": 84,
+  "energy": 0.0507,
+  "brightness": 1808,
+  "mood": "lofi",
+  "best_start": 26.99,
+  "seconds": 48.0,
+  "sig": "1153611"
+ },
+ "upbeat_campus_vibes_112bpm.mp3": {
+  "bpm": 112,
+  "energy": 0.071,
+  "brightness": 3161,
+  "mood": "upbeat",
+  "best_start": 26.55,
+  "seconds": 48.0,
+  "sig": "1153611"
+ }
+}

@@ -154,6 +154,34 @@ PREMIUM_IMAGE_FORMATS = {
 }
 FORMATS.update(PREMIUM_IMAGE_FORMATS)
 
+# Pinterest-style designer posters (aapke reference designs ke style cards se)
+POSTER_FIELDS = {
+    "item": "main exact menu item",
+    "items": "list of 3-5 exact menu items (used by multi-item layouts; first = main item)",
+    "word": "ONE big display word (max 9 letters), e.g. PIZZA, MOMOS, MONDAY, CHAI",
+    "script": "2-3 word elegant script line, e.g. 'a good', 'The Ultimate', 'Three flavours'",
+    "headline_lines": "list of 2-3 very short headline lines (max 3 words each)",
+    "sub": "short sub line (max 7 words)",
+    "sub_lines": "list of 1-2 short italic lines (max 5 words each)",
+    "small_caps": "tiny top label, max 4 words, e.g. 'HOT / FRESH / DELICIOUS'",
+    "notes": "list of 5 short handwritten doodle notes about the dish (max 3 words each, playful)",
+    "tail_lines": "list of 2 tiny closing words, e.g. ['EAT &', 'DRINK']",
+    "note_lines": "list of 2 tiny side-note lines (max 4 words each)",
+    "features": "list of 3 two-word brand promises, e.g. 'Freshly made'",
+    "button": "2-3 word button text, e.g. 'Visit Today'",
+}
+FORMATS["poster"] = {
+    "renderer": "poster", "kind": "image", "cat": "product",
+    "hint": "Designer poster (Pinterest-quality) for ONE hero item in the chosen DESIGN STYLE. Short, punchy, premium copy.",
+    "fields": POSTER_FIELDS,
+}
+FORMATS["poster_reel"] = {
+    "renderer": "poster_reel", "kind": "reel", "cat": "product",
+    "hint": ("Animated designer-poster REEL: 3 slides in the SAME design style, each slide a different item "
+             "(items list = the 3 slide items). Short premium copy that fits every slide."),
+    "fields": POSTER_FIELDS,
+}
+
 OFFER_FORMATS = {
     "offer_flash_reel": {
         "renderer": "flashreel", "kind": "reel",

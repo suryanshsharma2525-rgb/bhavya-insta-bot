@@ -36,13 +36,23 @@ THEMES = {
 THEME = "classic_gold"
 
 
+LIGHT = False
+
+
+def set_theme_dict(name, t):
+    THEMES[name] = t
+    return set_theme(name)
+
+
 def set_theme(name):
-    global THEME, BG, CARD, PANEL, LINE, ALT, GOLD, GOLD_STOPS, CREAM, MUTED
+    global THEME, BG, CARD, PANEL, LINE, ALT, GOLD, GOLD_STOPS, CREAM, MUTED, LIGHT, FONTPACK, ACCENT2
     name = name if name in THEMES else "classic_gold"
     t = THEMES[name]
     THEME = name
+    LIGHT = bool(t.get("light"))
     BG, CARD, PANEL, LINE, ALT = t["bg"], t["card"], t["panel"], t["line"], t["alt"]
     GOLD, GOLD_STOPS, CREAM, MUTED = t["gold"], t["stops"], t["cream"], t["muted"]
+    ACCENT2 = tuple(t.get("accent2") or t["alt"])
     _gradient.cache_clear()
     return name
 
@@ -59,7 +69,25 @@ def font(name, size, var=None):
     return f
 
 
+FONTPACK = None  # style.py set karta hai (AI Art Director)
+_ROLE = {"impact": "display", "bold": "head", "serif": "serif", "script": "italic", "med": "body", "reg": "body2"}
+
+
+@lru_cache(None)
+def has_rupee(f):
+    try:
+        from fontTools.ttLib import TTFont
+        return 0x20B9 in TTFont(A("fonts", f), lazy=True).getBestCmap()
+    except Exception:
+        return True
+
+
 def F(kind, size):
+    if FONTPACK:
+        f, v = FONTPACK[_ROLE[kind]]
+        if kind in ("bold", "med", "reg") and not has_rupee(f):  # price (₹) kabhi dabba na bane
+            return font("Montserrat.ttf", size, {"bold": "ExtraBold", "med": "SemiBold", "reg": "Regular"}[kind])
+        return font(f, size, v)
     return {"serif": lambda: font("PlayfairDisplay.ttf", size, "Bold"),
             "bold": lambda: font("Poppins-Bold.ttf", size),
             "med": lambda: font("Poppins-Medium.ttf", size),
@@ -241,8 +269,11 @@ def item_visual(img, cfg, name, cx, cy, size, rng=random):
             ImageDraw.Draw(img).ellipse((cx - size / 2 - 6, cy - size / 2 - 6, cx + size / 2 + 6, cy + size / 2 + 6),
                                         outline=GOLD, width=7)
     else:
-        glow(img, cx, cy, size * 0.62, 60)
-        paste_c(img, emoji(menu_emoji(cfg, name), int(size * 0.82)), cx, cy)
+        # Photo nahi mili → emoji nahi, Bhavya ka gold logo (premium look)
+        glow(img, cx, cy, size * 0.62, 55)
+        lg = _brand("logo.png").copy()
+        lg.thumbnail((int(size * 0.8), int(size * 0.8)), Image.LANCZOS)
+        img.paste(lg, (int(cx - lg.width / 2), int(cy - lg.height / 2)), lg)
 
 
 # ---------------------------------------------------------------- frame

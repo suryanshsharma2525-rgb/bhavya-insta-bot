@@ -21,7 +21,13 @@ Har hafte: **3 reels + 3 posts + 1 offer**.
 - Lagbhag 30% samajhdar humour: mature, clever, bina cringe ke.
 - Lagbhag 20% interactive posts, aur 10% offers.
 - **Har hafte ek "AI concept reel"** aata hai, jisme AI har baar bilkul naya idea sochta hai. Is format ki variety ki koi limit nahi.
-- **5 colour themes** rotate hoti hain: classic_gold, emerald, maroon, midnight, kulhad. Logo hamesha gold rehta hai. Badalni ho to `config.yaml` → `themes`.
+- **AI Art Director** har post ka look khud chunta hai:
+  - colours har baar naye banate hain: dark, rich aur light, 8 accent colours ke saath
+  - 8 font packs
+  - 10 text animations aur 11 transitions
+  - 8 background styles aur 6 product layouts
+  - vibe din aur occasion ke hisaab se badalta hai: luxury, cosy, festive, energetic, fresh-day, playful, desi
+- **Photos ki library:** sabse pehle `assets/photos/` (aapki asli photos) use hoti hai. Phir Pexels (`PEXELS_API_KEY` secret) aur AI. Photo na mile to logo lagta hai, emoji kabhi nahi.
 - **Music:** `assets/music/` me 4 original tracks hain (lo-fi, upbeat, desi dholak, game beat). Ye copyright-free hain. Apne `.mp3` bhi daal sakte ho.
 
 ## Formats
@@ -79,6 +85,16 @@ Repo → **Settings → Secrets and variables → Actions → New repository sec
 |---|---|
 | `GEMINI_API_KEY` | Step 3 wali key |
 | `IG_ACCESS_TOKEN` | Step 2 wala token |
+| `CF_ACCOUNT_ID`, `CF_API_TOKEN` | Cloudflare (AI food photos) |
+| `PIXABAY_API_KEY` | pixabay.com/api/docs (free HD stock photos + background videos) |
+| `CUSTOMER_MEMORY_KEY` | koi bhi lamba password (auto-reply ki encrypted customer memory ke liye) |
+
+> 🔒 Koi bhi key / token **kabhi chat, WhatsApp ya kisi file me paste mat karo**. Sirf yahan Secrets me.
+> Galti se kahin paste ho gaya ho to us site pe jaake key **regenerate** kar lo aur nayi wali secret me daalo.
+
+**Reach / likes data (learning ke liye):** Meta app → Instagram → API setup → permissions me
+`instagram_business_manage_insights` bhi tick karo → **Generate token** dobara → naya token `IG_ACCESS_TOKEN` me update karo.
+Iske bina bot post karega, par ye nahi seekh payega ki kaunsa design zyada chala.
 
 Phir **Settings → Actions → General → Workflow permissions → "Read and write permissions"** → Save.
 
@@ -173,15 +189,114 @@ Jab bhi koi viral meme ya trend dikhe, use ek Google Sheet me daal do. Agla post
 
 Sirf pichhle 14 din ke trends use hote hain.
 
-### Asli food photos (optional)
-Kisi item ki asli photo ho to `assets/photos/` me daal do. Us item ke liye AI photo ki jagah wahi lagegi. Naam item ke naam se shuru hona chahiye:
+### 📸 Asli food photos (sabse zaroori): `assets/photos/`
+Asli photo hamesha AI aur stock photo se upar priority leti hai (asli → Pixabay → AI). Kisi item ki asli photo ho to `assets/photos/` me daal do.
+Photo **saaf aur bright honi chahiye, kam se kam 1080px**. Plain background ho to aur achha, kyunki bot dish ko kaat ke design me lagata hai. Us item ke liye AI photo ki jagah wahi lagegi. Naam item ke naam se shuru hona chahiye:
 `momos_1.jpg`, `momos_2.jpg`, `cold_coffee_1.jpg`, `vada_pav_1.jpg`, `chilli_paneer_1.jpg` …
 
 
 
-### Music (offer reel ke liye)
-`assets/music/` me 3–4 royalty-free `.mp3` daal do. Ye **Pixabay Music** ya **YouTube Audio Library** se free me milte hain. Bot har reel me inme se koi ek gaana lagayega.
-Instagram ka trending audio automation se nahi lagta. Kabhi chaho to app me reel pe trending audio khud bhi laga sakte ho.
+### 🎵 Music folder: `assets/music/`
+10 copyright-free tracks pehle se hain. Aur daalne ho to **pixabay.com/music** ya **YouTube Audio Library** se `.mp3` download karke yahan upload kar do.
+- Naam me mood likh doge to AI Director aur sahi chunega: `lofi_chill_cafe.mp3`, `desi_dhol_party.mp3`, `cinematic_piano.mp3`, `upbeat_pop_fun.mp3`.
+- Bot khud har gaane ka BPM, energy aur **sabse catchy hissa (chorus/drop)** nikaalta hai, aur reel ke vibe ke hisaab se gaana + start point chunta hai. Cuts beat pe hote hain, aur whoosh/pop/boom/shimmer sound effects sahi moment pe lagte hain.
+- Bollywood / trending film gaane mat daalna. Copyright ki wajah se reel mute ya delete ho sakti hai.
+
+### 🎨 Design references: `assets/references/images/`
+Pinterest/Instagram pe koi design pasand aaye to uska **screenshot** yahan upload kar do. Agle run me:
+1. AI uske colours, fonts aur layout padh ke ek **style card** banata hai (`data/reference_styles.json`).
+2. Uske baad bot usi style me **apne cafe ka original post** banata hai: same colours aur text style, par content, photo aur logo apne.
+3. Screenshot repo se apne aap delete ho jaata hai (repo public hai, dusre brand ki file nahi rakhni).
+
+Abhi aapke bheje designs se **15 style cards** bane hue hain. Ek hi design lagatar 4 posts me repeat nahi hota, aur jo design zyada reach laata hai uska chance badh jaata hai.
+
+### 🎬 Reference videos: `assets/references/videos/`
+Koi reel ka editing style pasand aaye to `.mp4` (19 MB se chhoti) yahan daal do. AI uski speed, transitions aur text animation samajh ke ek **motion preset** banata hai. Video bhi analysis ke baad delete ho jaati hai.
+
+### 🕵️ AI Auditor (quality check, publish se pehle)
+**1. Photo check:** koi bhi nayi photo (Pixabay / Pexels / AI) library me tabhi aati hai jab ye sab sahi ho:
+- HD ho (kam se kam 900px) aur blur na ho. Blur machine se naapa jaata hai.
+- Gemini dekhta hai ki photo usi dish ki hai, saaf aur sharp hai, aur usme koi watermark, logo ya text nahi hai.
+- Tasty dikhne me kam se kam 7/10 aur premium look me kam se kam 6/10 number aaye.
+
+Kharab photo reject ho jaati hai aur bot agli photo try karta hai. **Make AI food photos** chalane pe purani kharab stock/AI photos bhi hat jaati hain. Aapki asli photos kabhi delete nahi hoti, sirf log me warning aati hai.
+
+**2. Layout Guard (har design me, bina AI ke):** bot naapta hai ki khana kisi box, text ya badge ke peeche to nahi chhup raha, aur frame se kat to nahi raha. Aisa ho to dish ko khud chhota karke ya khiska ke sahi jagah rakhta hai. Background hatate waqt glass ke andar jo chhed ban jaate hain (jaise cold coffee me), wo bhi bhar diye jaate hain.
+
+**3. Post check:** final post (ya reel ke 6 frames) Gemini ek creative director ki tarah dekhta hai:
+- khana poora dikh raha hai
+- cut-out saaf hai
+- photo HD hai
+- text padhne layak hai aur spelling sahi hai
+- price menu se match karta hai
+- design premium lagta hai
+
+7/10 se kam aaye to bot **naye design aur nayi photo** se dobara banata hai (max 2 baar), aur sabse achha version hi post hota hai. Teeno koshish ke baad bhi 5/10 se kam aaye, ya khana chhupa ho, to **post nahi hota**. Kharab post daalne se ek din chhodna behtar hai.
+
+Har check ka record `data/audit_log.csv` me hai: score aur problem kya thi. Settings `config.yaml` → `audit:` me hain.
+
+### 🎨 Colour wheel + fonts
+AI Art Director har post ke rang **colour wheel ke niyam** se chunta hai:
+- **Complementary:** bilkul opposite rang, jaise gold + navy ya coral + teal. Sabse zyada pop karta hai.
+- **Split-complementary:** opposite ke dono padosi rang. Contrast rehta hai, par thoda soft.
+- **Triadic:** wheel pe 120° door teen rang. Playful aur energetic.
+- **Analogous:** paas-paas ke rang. Calm, cosy, warm.
+- **Monochrome:** ek hi rang ke shades. Luxury aur minimal.
+
+Vibe ke hisaab se harmony chuni jaati hai, aur text hamesha padhne layak rehta hai (contrast ≥ 7:1, machine se check).
+Fonts me 5 naye styles hain: **boutique, bold_modern, retro_diner, desi_bold** (Hindi bhi) aur **royal**. ₹ kabhi dabba ya galat nahi dikhta.
+
+### 📈 Growth brain: jo chal raha hai, uska system (35%)
+Roz bot pichhle posts ke insights padhta hai: reach, likes, comments, saves, shares, views. Phir har post ka "DNA" naapta hai: format, design, vibe, colour harmony, font, music mood, item aur din. Format ka asar alag karke naapa jaata hai, taaki item aur design ka asli asar dikhe.
+- Isse **winning recipe** banti hai, jaise "poster_reel + Kulhad Pizza + complementary colours".
+- **~35% din 🔥 WINNER:** usi system pe naya content banta hai. Same type hota hai, copy kabhi nahi.
+- **~65% din 🧪 EXPERIMENT:** naye formats aur designs try hote hain, taaki naya winner mile aur feed boring na ho.
+- Gemini best aur worst posts compare karke likhta hai: kya kaam karta hai, kya avoid karna hai, aur agle idea kya ho sakte hain.
+- Calendar me nayi column **strategy** hai (🔥 winner / 🧪 experiment), aur Google Calendar me winner din pe 🔥 dikhta hai.
+- Percentage `config.yaml` → `growth.exploit_share` me badal sakte ho.
+- Data `data/performance.json` me hai. Iske liye `instagram_business_manage_insights` permission chahiye.
+
+### 📱 Stories (roz 2 baar, apne aap)
+`.github/workflows/stories.yml`:
+- **Dopahar 12:10:** aaj ka special (photo + price) aur ek **"A ya B?"** sawaal, jiska jawab log DM me dete hain aur auto-reply unhe cafe bulata hai.
+- **Raat 9:00:** aaj ke post ka teaser aur ek mood line.
+- **Offer wale din:** offer reminder bhi (sirf config ka approved offer).
+
+Instagram API se poll, link ya question **sticker nahi lagte** (Meta allow nahi karta), isliye sawaal ka jawab DM me maanga jaata hai.
+`config.yaml` → `brand.hours` me timing likh doge (jaise "Open 11 AM – 11 PM") to stories me dikhegi.
+
+### 💬 Auto-reply: comments + DMs (personal touch se cafe bulana)
+`.github/workflows/replies.yml` har 30 minute chalta hai:
+- **Comments:** har naye comment ka jawab, naam lekar aur unki baat pe. Har jawab me ek specific item aur aane ki ek wajah hoti hai.
+  - Price ya location poochhne wale ko ek DM bhi jaata hai. Iske liye Advanced Access chahiye, neeche dekho.
+- **Yaad rakhta hai:** naam, pasandida item, chhoti baatein (jaise "exam week", "dosto ke saath aata hai"). Agli baar baat wahin se shuru hoti hai.
+- **Shikayat:** public me maafi aur "DM karo", bechne ki koshish nahi. Ye `data/owner_inbox.csv` me aapke liye flag ho jaati hai.
+- **DM me shikayat ya booking:** bot jawab **nahi** deta. Message unread rehta hai, taaki aap khud dekho. Bot kabhi table, delivery ya stock confirm nahi karta.
+- **Spam ya gaali:** koi jawab nahi.
+- **Sach:** koi "bot ho?" pooche to sach batata hai.
+- **Sirf asli cheezein:** menu ke asli prices aur approved offer. Koi naya discount ya promise kabhi nahi.
+- **Privacy:** customer memory **encrypted** rehti hai (`data/customers.enc`). Logs me sirf ginti aati hai, kisi ka naam ya message nahi.
+
+**Setup:**
+1. GitHub Secrets me naya secret `CUSTOMER_MEMORY_KEY` banao. Value me koi bhi lamba password likho (20+ letters) aur use kahin likh ke rakh lo. Badloge to purani yaadein nahi khulengi.
+2. Meta app → Instagram → API setup → permissions me **`instagram_business_manage_comments`** aur **`instagram_business_manage_messages`** tick karo → **Generate token** → naya token `IG_ACCESS_TOKEN` me daalo.
+3. **Comments ke jawab** isi se shuru ho jayenge.
+4. **DM ke jawab** ke liye Meta ka niyam hai ki app ko **Advanced Access** chahiye. Uske liye:
+   - (a) **Business Verification:** Meta Business Suite → Settings → Business info → Verify. Cafe ka GST ya registration certificate aur bijli ka bill/address proof lagta hai.
+   - (b) **App Review:** app dashboard → App Review → `instagram_business_manage_messages` → chhota screen-recording video aur use case likh ke submit.
+   - Approval me aam taur pe kuch din se 2–3 hafte lagte hain. Tab tak bot sirf comments ka jawab dega, aur DM wala hissa approval milte hi apne aap chal padega.
+5. Kisi offer ya perk ka zikr karwana ho to `config.yaml` → `replies.invite_perk` me likho. Khaali chhodoge to bot kuch promise nahi karega.
+
+### 🔁 Repeat nahi hota
+- Ek photo **image post me 21 din tak dobara nahi** lagti.
+- Reels me ek photo **max 3 baar** use hoti hai. Record `data/photo_usage.json` me rehta hai.
+
+### 📈 Bot khud seekhta hai
+Roz post se pehle bot purane posts ki reach, likes, saves aur shares padhta hai (`data/performance.json`). Jo format, design aur vibe zyada chale, unka chance badhta hai (60%). Baaki 40% me naye experiments hote rehte hain.
+
+### #️⃣ Hashtags + SEO
+Instagram ab har post pe **max 5 hashtags** allow karta hai, isliye bot 3 fixed + 2 rotating tags lagata hai.
+Reach ke liye caption me SEO line bhi jaati hai: *Cafe in Roorkee · Near IIT Roorkee · <item> in Roorkee*. Instagram search ab caption ke words bhi padhta hai.
 
 ---
 
@@ -210,4 +325,4 @@ Har Sunday subah ek preview ban jaata hai. Actions → **Preview next week** →
 Isme formats aur design wahi honge jo hafte bhar aayenge. Jokes asli din pe naye likhe jaate hain.
 
 ## Credits
-Emoji graphics: Twemoji (CC-BY 4.0). Fonts: Playfair Display, Poppins, Anton, Dancing Script (Google Fonts, OFL).
+Fonts: Google Fonts (OFL): Fraunces, Bricolage Grotesque, Unbounded, Outfit, Righteous, Shrikhand, Yeseva One, Marcellus, Josefin Sans, Sacramento, Rozha One, Baloo 2, Space Grotesk, Lobster, Playfair Display, Poppins, Anton, Dancing Script, Bebas Neue, Montserrat, Cormorant, DM Serif Display, Archivo Black, Oswald, Abril Fatface, Syne, Caveat, Pacifico, Great Vibes, Kalam, Rubik Dirt. Stock photos: Pixabay (credits in `data/photo_credits.csv`). Background removal: rembg (MIT).

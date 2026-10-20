@@ -35,6 +35,14 @@ def today_ist():
     return dt.datetime.now(IST).date()
 
 
+def _perf():
+    try:
+        with open(os.path.join(ROOT, "data", "performance.json"), encoding="utf-8") as fh:
+            return json.load(fh)
+    except Exception:
+        return {}
+
+
 def pick_theme(cfg, date, seed):
     import random as _r
     themes = [t for t in (cfg.get("themes") or ["classic_gold"]) if t in render.THEMES] or ["classic_gold"]
@@ -51,8 +59,48 @@ def load_history():
 
 
 def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None, focus_item=None, seed_extra="",
-               as_video=False, theme=None):
+               as_video=False, theme=None, audit_on=True):
+    """Post banao → AI Auditor check → fail ho to naye design/photo se dobara (max 2 baar) → sabse achha version rakho."""
+    from . import audit
+    ac = cfg.get("audit", {})
     trends = planner.recent_trends(cfg, date) if trends is None else trends
+    if not (audit_on and ac.get("enabled", True)):
+        return _build_once(date, cfg, out_dir, history, trends, fmt_key, idea, focus_item, seed_extra, as_video, theme)
+    tries = 1 + int(ac.get("max_retries", 2))
+    results = []
+    for a in range(tries):
+        d = f"{out_dir}__try{a}"
+        shutil.rmtree(d, ignore_errors=True)
+        meta = _build_once(date, cfg, d, history, trends, fmt_key, idea, focus_item,
+                           seed_extra + (f"-r{a}" if a else ""), as_video, theme, no_cut=(a >= 2))
+        rep = audit.post_check(d, meta, cfg, meta.pop("_guard", None))
+        audit.log(os.path.basename(out_dir), a + 1, meta, rep)
+        meta["audit"] = rep
+        print(f"AUDIT try {a + 1}: ok={rep['ok']} score={rep.get('score')} issues={rep.get('issues')}")
+        results.append((d, meta))
+        if rep["ok"]:
+            break
+        fmt_key = fmt_key or meta["format"]  # retry me format wahi, design/photo naya
+    rank = lambda r: (bool(r[1]["audit"]["ok"]), r[1]["audit"].get("score") or 0, -len(r[1]["audit"].get("issues") or []))
+    best_dir, best = max(results, key=rank)
+    r = best["audit"]
+    hard_min = ac.get("hard_min_score", 5)
+    det = r.get("detail") or {}
+    if not r["ok"] and ((r.get("score") is not None and r["score"] < hard_min) or det.get("food_fully_visible") is False):
+        r["blocked"] = True
+        print(f"⛔ AUDITOR: {tries} koshish ke baad bhi post premium level ka nahi bana — publish nahi hoga. "
+              f"Wajah: {r.get('issues')}")
+    shutil.rmtree(out_dir, ignore_errors=True)
+    shutil.move(best_dir, out_dir)
+    for d, _ in results:
+        shutil.rmtree(d, ignore_errors=True)
+    with open(os.path.join(out_dir, "post.json"), "w", encoding="utf-8") as fh:
+        json.dump(best, fh, ensure_ascii=False, indent=2)
+    return best
+
+
+def _build_once(date, cfg, out_dir, history, trends, fmt_key=None, idea=None, focus_item=None, seed_extra="",
+                as_video=False, theme=None, no_cut=False):
     day = date.strftime("%A")
     fmt_key = fmt_key or planner.week_plan(date, cfg, has_trend=bool(trends))[day]
     fmt = ALL_FORMATS[fmt_key]
@@ -65,6 +113,27 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
         offer_item, all_items = planner.offer_item(date, cfg)
         ctx["offer_item"] = offer_item
 
+    # ---- Growth brain: 🔥 winner din (jo chal raha hai uska system) ya 🧪 experiment din
+    from . import growth
+    gperf = growth.load()
+    winner = growth.is_winner_day(date, cfg, gperf)
+    recipe = gperf.get("recipe", {}) if winner else {}
+    ctx["strategy"] = "winner" if winner else "experiment"
+    ctx["growth_brief"] = growth.winner_brief(gperf) if winner else growth.avoid_brief(gperf)
+    if winner and not focus_item and recipe.get("item") and recipe["item"] not in [h.get("item") for h in history[-3:]]:
+        ctx["focus_item"] = focus_item = recipe["item"]
+    if winner:
+        print("🔥 WINNER DIN — recipe:", recipe)
+    card, tctx = None, None
+    if fmt_key.startswith("poster"):
+        from . import designs
+        perf = _perf().get("designs", {})
+        card = designs.choose(history, f"{date}{seed_extra}", perf=perf, prefer=recipe.get("design") if not seed_extra.endswith(("-r1", "-r2")) else None)
+        if card:
+            ctx["design"] = designs.describe(card)
+            print("Design (reference style):", ctx["design"])
+        else:
+            fmt_key, fmt = "product_spotlight", ALL_FORMATS["product_spotlight"]
     post = ai.write_post(fmt_key, cfg, ctx)
     os.makedirs(out_dir, exist_ok=True)
     # AI food photos: pehle aaj ke post ke items, phir baaki menu (library dheere-dheere poori ho jaati hai)
@@ -76,8 +145,33 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
     photos.ensure_photos([w for w in wanted if w], cfg)
     seed = f"{date.isoformat()}-{fmt_key}{seed_extra}"
     files, owner_note = [], ""
-    theme = render.set_theme(theme if theme and theme != "auto" else pick_theme(cfg, date, seed))
     kind = fmt["kind"]
+    # ---- AI Art Director: is post ka poora look (colours, fonts, animation, transitions, layouts)
+    from . import style as style_mod, motion
+    occ = ", ".join(o[0] for o in calendar_plan.occasions_on(date))
+    look = style_mod.choose(cfg, seed, dict(format=fmt_key, occasion=occ, idea=idea, date=date.isoformat(),
+                                            recent_styles=[h.get("style") for h in history[-6:] if h.get("style")]),
+                            use_ai=cfg.get("art_director", {}).get("ai", True) and not recipe,
+                            force={k: recipe[k] for k in ("vibe", "harmony", "font_pack", "mode") if recipe.get(k)})
+    if theme and theme != "auto" and theme in render.THEMES:  # POST NOW me theme chuna ho to wahi
+        look["palette_name"], look["palette"] = theme, render.THEMES[theme]
+    style_mod.apply(look)
+    if card:  # designer poster: poore reel (logo card samet) me reference wale hi colours
+        from .templates import C as _C
+        cp = card["palette"]
+        render.set_theme_dict("card-" + card["id"], dict(
+            bg=_C(cp["bg"]), card=_C(cp.get("panel", cp["bg"])), panel=_C(cp.get("panel", cp["bg"])),
+            line=_C(cp.get("panel", cp["bg"])), alt=_C(cp.get("panel", cp["bg"])), gold=_C(cp.get("word", cp["text"])),
+            stops=[(0, _C(cp.get("word", cp["text"]))), (1, _C(cp.get("word", cp["text"])))],
+            cream=_C(cp["text"]), muted=_C(cp.get("text2", cp["text"])), light=bool(card.get("light"))))
+        look["palette_name"] = "card-" + card["id"]
+    theme = look["palette_name"]
+    motion.STYLE_POOL.update(anims=look["text_anims"], transitions=look["transitions"], layouts=look["layouts"],
+                             backgrounds=look["backgrounds"], mood=(card or {}).get("mood") or look["mood"],
+                             vibe=(card or {}).get("vibe") or look["vibe"], used=[],
+                             recent_music=[h.get("music") for h in history[-4:] if h.get("music")],
+                             left_align=0.35 if look["font_pack"] in ("editorial", "minimal", "luxe") else 0.12)
+    print("Art Director:", style_mod.describe(look))
 
     if fmt_key.startswith("offer_"):
         valid_till = date + dt.timedelta(days=cfg["weekly_offer"].get("valid_days", 7) - 1)
@@ -86,13 +180,47 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
                                                   terms + "\n\n" + cfg["brand"]["location_line"])
     if fmt_key == "offer_flash_reel":
         post["_all_free_items"] = all_items
-        path = render.render_reel(post, cfg, os.path.join(out_dir, "reel.mp4"), seed)
+        path = reels.render_reel("offer_flash_reel", post, cfg, os.path.join(out_dir, "reel.mp4"), seed)
         files = [os.path.basename(path), "reel_cover.jpg"]
         owner_note = (f"FLASH OFFER: jo bhi item ka screenshot dikhaye ({', '.join(i['name'] for i in all_items)}) "
                       f"wo free — valid till {valid_till:%d %b}. Terms: {cfg['weekly_offer']['terms']}")
+    elif card is not None:  # ---- Pinterest-style designer poster (image / reel)
+        from . import templates as TT
+        tctx = dict(seed=seed, cfg=cfg, today=date, used=[], guard_log=[], no_cut=no_cut)
+        content = dict(post, handle=cfg["brand"].get("handle", "@bhavya_cafe"),
+                       price=next((m.get("price") for m in cfg["menu"] if m["name"] == post["item"]), None))
+        if kind == "image" and not as_video:
+            tctx["mode"] = "image"
+            im = TT.compose(TT.layout(card, content, 1080, 1350, tctx), 1080, 1350).convert("RGB")
+            im.save(os.path.join(out_dir, "slide1.jpg"), quality=94, optimize=True)
+            files = ["slide1.jpg"]
+            photos.record_use(tctx["used"], "image", date)
+        else:
+            tctx["mode"] = "reel"
+            slides = (post.get("items") or [post["item"]]) if fmt_key == "poster_reel" else [post["item"]]
+            has_ph = lambda n: bool(photos.photos_for(n)[0])
+            slides = [x for x in slides if has_ph(x)] or slides  # jinki photo hai wahi slides me
+            if fmt_key == "poster_reel" and len(slides) < 3:
+                slides += [m["name"] for m in cfg["menu"] if has_ph(m["name"]) and m["name"] not in slides][:3 - len(slides)]
+            slides = slides[:3]
+            spec = []
+            for i, it in enumerate(slides):
+                ci = dict(content, item=it, word=(post["word"] if i == 0 else it.split()[-1].upper()[:10]),
+                          price=next((m.get("price") for m in cfg["menu"] if m["name"] == it), None))
+                if i:
+                    for k in ("note_lines", "notes", "title_lines"):
+                        ci.pop(k, None)
+                spec.append(dict(type="tpl", size=(1080, 1350),
+                                 layers=TT.layout(card, ci, 1080, 1350, {**tctx, "seed": f"{seed}{i}"}),
+                                 beats=8 if len(slides) > 1 else 12))
+            spec.append(dict(type="logo", cta=post.get("button") or "Visit Today"))
+            reels.motion.render(spec, cfg, os.path.join(out_dir, "reel.mp4"), seed, (card or {}).get("mood"))
+            photos.record_use(tctx["used"], "reel", date)
+            files, kind = ["reel.mp4", "reel_cover.jpg"], "reel"
     elif kind == "reel":
         path = reels.render_reel(fmt["renderer"], post, cfg, os.path.join(out_dir, "reel.mp4"), seed)
         files = ["reel.mp4", "reel_cover.jpg"]
+        photos.record_use(motion.STYLE_POOL.get("used", []), "reel", date)
     else:
         if fmt_key == "offer_zoom_code":
             post["_offer_item"] = offer_item
@@ -116,14 +244,17 @@ def build_post(date, cfg, out_dir, history, trends=None, fmt_key=None, idea=None
                 or post.get("combo_name") or (post.get("slides") or [{}])[0].get("big") or fmt_key)
     featured = (focus_item or post.get("item") or post.get("right_item") or post.get("a_item")
                 or (post.get("items") or [None])[0] or (offer_item or {}).get("name") or "")
-    meta = {"date": date.isoformat(), "format": fmt_key, "kind": kind, "theme": theme, "files": files, "featured_item": featured,
+    meta = {"date": date.isoformat(), "format": fmt_key, "kind": kind, "theme": theme, "style": style_mod.describe(look), "design": (card or {}).get("id"),
+            "music": motion.STYLE_POOL.get("last_music") if kind == "reel" else None, "files": files, "featured_item": featured,
             "caption": post["caption"], "alt_text": post["alt_text"], "headline": headline,
-            "owner_note": owner_note, "text_source": post["_source"], "trends_used": trends}
+            "owner_note": owner_note, "text_source": post["_source"], "trends_used": trends,
+            "strategy": ctx.get("strategy")}
     with open(os.path.join(out_dir, "post.json"), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, ensure_ascii=False, indent=2)
     print(f"[{date} {day}] {fmt_key} → {out_dir}  ({post['_source']})")
     if owner_note:
         print("OWNER NOTE:", owner_note)
+    meta["_guard"] = (tctx or {}).get("guard_log") if card is not None else None
     return meta
 
 
@@ -140,7 +271,10 @@ def cmd_generate(date, cfg):
 
 
 def _save_history(history, meta):
-    history.append({"date": meta["date"], "format": meta["format"], "headline": meta["headline"]})
+    history.append({"date": meta["date"], "format": meta["format"], "headline": meta["headline"],
+                    "style": "{vibe}/{mode}/{accent}/{font_pack}".format(**meta["style"]) if meta.get("style") else None,
+                    "design": meta.get("design"), "music": meta.get("music"), "item": meta.get("featured_item"),
+                    "strategy": meta.get("strategy")})
     os.makedirs(os.path.dirname(HISTORY), exist_ok=True)
     with open(HISTORY, "w", encoding="utf-8") as fh:
         json.dump(history[-120:], fh, ensure_ascii=False, indent=1)
@@ -204,6 +338,11 @@ def cmd_publish(date, cfg, dirname=None):
     if meta.get("permalink"):
         print("Already published:", meta["permalink"])
         return
+    if (meta.get("audit") or {}).get("blocked"):
+        print("⛔ AI Auditor ne is post ko rok diya (quality kam thi):", meta["audit"].get("issues"))
+        print("   POST NOW se dobara banwa lo, ya assets/photos me achhi asli photos daal do.")
+        calendar_plan.log_post(dirname, meta, "audit", "blocked")
+        return
     repo = os.environ["GITHUB_REPOSITORY"]
     branch = os.environ.get("GITHUB_REF_NAME", "main")
     url = lambda f: f"https://raw.githubusercontent.com/{repo}/{branch}/posts/{dirname}/{f}"
@@ -223,11 +362,48 @@ def cmd_publish(date, cfg, dirname=None):
     else:
         link = ig.post_image(url(meta["files"][0]), meta["caption"], meta["alt_text"])
     meta["permalink"] = link
+    meta["media_id"] = getattr(ig, "last_media_id", None)
     with open(os.path.join(d, "post.json"), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, ensure_ascii=False, indent=2)
     calendar_plan.log_post(dirname, meta, "post-now" if "_now_" in dirname else "daily", "published", link)
     if "_now_" not in dirname:
         calendar_plan.mark_posted(dirname, link)
+
+
+def cmd_learn(cfg):
+    """Pichhle posts ki reach/saves/shares padho → data/performance.json (AI Director isse seekhta hai)."""
+    import glob as _g
+    from .instagram import IG
+    try:
+        ig = IG(cfg)
+    except Exception as e:
+        print("Learn skip:", e)
+        return
+    today = today_ist()
+    rows = []
+    for pj in sorted(_g.glob(os.path.join(ROOT, "posts", "*", "post.json")))[-60:]:
+        with open(pj, encoding="utf-8") as fh:
+            m = json.load(fh)
+        if not m.get("media_id"):
+            continue
+        age = (today - dt.date.fromisoformat(m["date"])).days
+        if age < 1:
+            continue
+        if age <= 14 or "stats" not in m:  # 2 hafte tak roz update, phir freeze
+            st = ig.insights(m["media_id"])
+            if st:
+                m["stats"] = st
+                with open(pj, "w", encoding="utf-8") as fh:
+                    json.dump(m, fh, ensure_ascii=False, indent=2)
+                calendar_plan.log_stats(os.path.basename(os.path.dirname(pj)), st)
+        if m.get("stats"):
+            m["_dir"] = os.path.basename(os.path.dirname(pj))
+            rows.append(m)
+    if not rows:
+        print("Abhi seekhne layak data nahi hai.")
+        return
+    from . import growth
+    growth.learn(rows, cfg)
 
 
 def cmd_preview_week(date, cfg, trends=None):
@@ -237,7 +413,8 @@ def cmd_preview_week(date, cfg, trends=None):
     history, thumbs = [], []
     for i in range(7):
         d = monday + dt.timedelta(days=i)
-        meta = build_post(d, cfg, os.path.join(out, f"{i + 1}_{d:%a}_{d.isoformat()}"), history, trends=trends)
+        meta = build_post(d, cfg, os.path.join(out, f"{i + 1}_{d:%a}_{d.isoformat()}"), history, trends=trends,
+                          audit_on=False)
         history.append({"headline": meta["headline"]})
         first = os.path.join(out, f"{i + 1}_{d:%a}_{d.isoformat()}",
                              "reel_cover.jpg" if meta["kind"] == "reel" else meta["files"][0])
@@ -258,7 +435,9 @@ def cmd_preview_week(date, cfg, trends=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["generate", "publish", "post-now", "plan-calendar", "preview-week", "refresh-token", "make-photos"])
+    ap.add_argument("command", choices=["generate", "publish", "post-now", "plan-calendar", "preview-week", "refresh-token", "make-photos", "learn", "references",
+                                        "story", "publish-story", "replies"])
+    ap.add_argument("--slot", default="lunch", help="story: lunch | night")
     ap.add_argument("--date", help="YYYY-MM-DD (default: today IST)")
     ap.add_argument("--trend", action="append", help="preview ke liye trend test karna ho to")
     ap.add_argument("--format", help="post-now: format ka naam ya 'auto'")
@@ -275,14 +454,36 @@ def main():
         cmd_generate(date, cfg)
     elif a.command == "publish":
         cmd_publish(date, cfg, a.dir)
+    elif a.command == "learn":
+        cmd_learn(cfg)
+    elif a.command == "story":
+        from . import stories
+        if (cfg.get("stories") or {}).get("enabled", True):
+            stories.build(a.slot, cfg, date)
+    elif a.command == "publish-story":
+        from . import stories
+        stories.publish(a.slot, cfg, date)
+    elif a.command == "replies":
+        from . import replies
+        replies.run(cfg)
+    elif a.command == "references":
+        from . import designs, audio
+        print("Naye references:", designs.analyze_new_references(cfg))
+        audio.index()
     elif a.command == "plan-calendar":
         calendar_plan.plan_calendar(cfg, date, a.days)
     elif a.command == "post-now":
         cmd_post_now(cfg, a.format, a.idea, a.item, a.type, a.theme)
     elif a.command == "make-photos":
+        from . import audit
+        audit.audit_library(cfg)  # purani blur/galat/watermark wali photos hatao (asli photos kabhi nahi)
         made = photos.ensure_photos([m["name"] for m in cfg["menu"]] + [i["name"] for i in cfg["weekly_offer"]["free_items"]],
                                     cfg, max_new=200)
         print(f"{made} nayi photos bani.")
+        print("Background videos:", photos.fetch_bg_videos())
+        for m in cfg["menu"]:  # cut-outs pehle se bana ke rakho (reels fast banenge)
+            for pth in photos.photos_for(m["name"])[0][:5]:
+                photos.cutout(pth)
         if not made and not any(photos.photos_for(m["name"])[0] for m in cfg["menu"]):
             raise SystemExit("❌ Ek bhi photo nahi bani. Upar ka error dekho (CF_ACCOUNT_ID / CF_API_TOKEN secrets check karo).")
     elif a.command == "preview-week":
