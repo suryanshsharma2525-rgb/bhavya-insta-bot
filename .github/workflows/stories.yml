@@ -3,7 +3,7 @@ name: Daily stories
 on:
   schedule:
     - cron: "40 6 * * *"    # 06:40 UTC = 12:10 PM IST  (lunch stories)
-    - cron: "30 15 * * *"   # 15:30 UTC = 9:00 PM IST   (night stories, daily post ke baad)
+    - cron: "30 15 * * *"   # 15:30 UTC = 9:00 PM IST   (night stories)
   workflow_dispatch:
     inputs:
       slot:
@@ -24,6 +24,10 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ~/.u2net
+          key: rembg-models-v1
       - run: pip install -r requirements.txt
       - name: Slot decide karo
         id: s
@@ -34,7 +38,7 @@ jobs:
       - name: Stories banao
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python -m bot.main story --slot ${{ steps.s.outputs.slot }}
+        run: python -m pin.main story --slot ${{ steps.s.outputs.slot }}
       - name: Repo me save karo
         run: |
           git config user.name "bhavya-bot"
@@ -48,7 +52,7 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: python -m bot.main publish-story --slot ${{ steps.s.outputs.slot }}
+        run: python -m pin.main publish-story --slot ${{ steps.s.outputs.slot }}
       - if: always()
         run: |
           git add posts data
