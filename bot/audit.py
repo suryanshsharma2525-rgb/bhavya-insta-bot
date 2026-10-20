@@ -63,7 +63,7 @@ def _img_part(im, maxside=1280, q=88):
 def photo_check(im, item, cfg, source="stock"):
     """Library me photo aane se pehle. Return (ok, report)."""
     # AI photos me background jaan-boojh ke soft (bokeh) hota hai → unke liye blur limit kam
-    issues, sh = machine_photo_check(im, min_side=900 if source != "ai" else 800,
+    issues, sh = machine_photo_check(im, min_side=820 if source != "ai" else 800,
                                      min_sharp={"ai": 55.0, "stock": 80.0}.get(source, 0.0))
     rep = {"sharpness": round(sh), "issues": issues, "source": source, "ai_checked": False}
     if issues:
