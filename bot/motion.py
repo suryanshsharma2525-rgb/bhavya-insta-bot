@@ -909,8 +909,8 @@ def render(spec, cfg, out_path, seed, mood=None):
     audio.mix(total, music, start, events, wav)
     cmd = [R.ffmpeg_bin(), "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "%05d.jpg"),
            "-i", wav, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k",
-           "-r", "30", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-crf", "17",
-           "-preset", "medium", "-movflags", "+faststart", "-t", f"{total:.3f}", out_path]
+           "-r", "30", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-profile:v", "high", "-crf", "19",
+           "-preset", "medium", "-maxrate", "5M", "-bufsize", "10M", "-g", "60", "-ar", "48000", "-movflags", "+faststart", "-t", f"{total:.3f}", out_path]
     subprocess.run(cmd, check=True)
     (cover or Image.open(os.path.join(tmp, "00000.jpg"))).save(out_path.replace(".mp4", "_cover.jpg"), quality=92)
     shutil.rmtree(tmp)
