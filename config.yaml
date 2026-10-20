@@ -1,4 +1,4 @@
-# ============================================================
+f# ============================================================
 #  Bhavya Cafe – Instagram Auto-Post Bot : SETTINGS
 #  Sirf yahi file edit karni hai. Code ko haath lagane ki zarurat nahi.
 # ============================================================
@@ -9,7 +9,7 @@ brand:
   handle: "@bhavya_cafe"
   # Instagram "location tag" ka ID (optional). Kaise nikaalna hai — README dekho.
   location_id: ""
-  hours: ""             # jaise "Open 11 AM – 11 PM" (stories me dikhega; khaali = nahi dikhega)
+  hours: "Open 11 AM – 12 PM"             # jaise "Open 11 AM – 11 PM" (stories me dikhega; khaali = nahi dikhega)
 
 # Roz post kab hoga — time .github/workflows/daily-post.yml me set hai
 # (default: shaam 6:30 baje IST).
