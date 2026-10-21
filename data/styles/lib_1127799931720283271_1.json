@@ -1,0 +1,130 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#e1643c"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "text_lemonade",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Impact",
+   "font_category": "display_heavy",
+   "weight": "black",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": -90,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#FEE4D6",
+   "z": 2,
+   "box": [
+    -0.016,
+    0.1717171717171717,
+    0.45,
+    0.9629629629629629
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "photo_drink",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Strawberry Lemonade with ice, fresh strawberries, and lemon slices in a plastic cup",
+   "z": 3,
+   "box": [
+    0.217,
+    0.028058361391694726,
+    0.96,
+    0.9719416386083053
+   ]
+  },
+  {
+   "id": "text_best_is_here",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "extrabold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#972717",
+   "z": 4,
+   "box": [
+    0.606,
+    0.05387205387205387,
+    0.953,
+    0.17620650953984288
+   ],
+   "ref_shape": "HHH HHHH\nHH HHHH"
+  },
+  {
+   "id": "text_at_dave_drinks",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#a2321d",
+   "z": 4,
+   "box": [
+    0.631,
+    0.18855218855218855,
+    0.941,
+    0.22222222222222224
+   ],
+   "ref_shape": "HH HHHH HHHHHH"
+  },
+  {
+   "id": "text_details",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#b85935",
+   "z": 4,
+   "box": [
+    0.597,
+    0.23793490460157127,
+    0.95,
+    0.30303030303030304
+   ],
+   "ref_shape": "Hxxpx Hhxxxhxxxp Hxxxxxhx\n\u20a688.888 / Hxxhh \u20a688.888"
+  }
+ ],
+ "food": "Strawberry Lemonade",
+ "mood": "Vibrant, refreshing, modern, fruity cafe drink advertisement with warm red and peach tones"
+}

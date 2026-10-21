@@ -1,0 +1,150 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#eee2d3"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "brand_text",
+   "type": "text",
+   "color": "#9f856e",
+   "z": 1,
+   "role": "brand",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "box": [
+    0.332,
+    0.028026905829596414,
+    0.65,
+    0.06390134529147982
+   ],
+   "ref_shape": "Hxhxxhxxx HHHH"
+  },
+  {
+   "id": "headline_1",
+   "type": "text",
+   "color": "#95502d",
+   "z": 2,
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "bold",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "box": [
+    0.12,
+    0.15582959641255606,
+    0.894,
+    0.3553811659192825
+   ],
+   "ref_shape": "xh'x x\nxxxh."
+  },
+  {
+   "id": "arrow_1",
+   "type": "icon",
+   "color": "#a1745a",
+   "z": 3,
+   "icon": "arrow",
+   "box": [
+    0.116,
+    0.3239910313901346,
+    0.201,
+    0.4114349775784753
+   ]
+  },
+  {
+   "id": "badge_bg",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#924823",
+   "z": 4,
+   "box": [
+    0.169,
+    0.5325112107623319,
+    0.371,
+    0.6816143497757847
+   ]
+  },
+  {
+   "id": "logo_icon",
+   "type": "icon",
+   "color": "#ebd8c7",
+   "z": 5,
+   "icon": "logo",
+   "box": [
+    0.214,
+    0.5482062780269059,
+    0.336,
+    0.6625560538116592
+   ]
+  },
+  {
+   "id": "main_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "iced latte coffee in glass on cork coaster",
+   "z": 6,
+   "box": [
+    0.208,
+    0.3026905829596413,
+    0.796,
+    0.9719730941704036
+   ]
+  },
+  {
+   "id": "tagline_text",
+   "type": "text",
+   "color": "#a38c79",
+   "z": 7,
+   "role": "tagline",
+   "font_name": "Poppins",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.01,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "box": [
+    0.775,
+    0.47085201793721976,
+    0.971,
+    0.5134529147982063
+   ],
+   "ref_shape": "Hxhhx xx\nxxh x hxxxh"
+  },
+  {
+   "id": "arrow_2",
+   "type": "icon",
+   "color": "#ae9a86",
+   "z": 8,
+   "icon": "arrow",
+   "box": [
+    0.822,
+    0.5302690582959642,
+    0.856,
+    0.6008968609865469
+   ]
+  }
+ ],
+ "food": "Iced latte in a glass on a cork coaster",
+ "mood": "Minimalist, aesthetic, warm, modern cafe poster with earthy tones"
+}
