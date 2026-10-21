@@ -1,0 +1,326 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#888637"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "green_card_shape",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#6a7a1c",
+   "z": 3,
+   "box": [
+    0.073,
+    0.042,
+    0.461,
+    0.386
+   ]
+  },
+  {
+   "id": "pink_card_shape",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#e2b8b7",
+   "z": 4,
+   "box": [
+    0.513,
+    0.272,
+    0.999,
+    0.725
+   ]
+  },
+  {
+   "id": "brown_card_shape",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#4f2a1c",
+   "z": 5,
+   "box": [
+    0.071,
+    0.63,
+    0.541,
+    1.0
+   ]
+  },
+  {
+   "id": "photo_matcha",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Matcha smoothie with whipped cream",
+   "z": 6,
+   "box": [
+    0.093,
+    0.018,
+    0.453,
+    0.386
+   ]
+  },
+  {
+   "id": "photo_strawberry",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Strawberry shake with whipped cream and strawberries",
+   "z": 7,
+   "box": [
+    0.536,
+    0.296,
+    0.959,
+    0.725
+   ]
+  },
+  {
+   "id": "photo_chocolate",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Chocolate shake with whipped cream and chocolate syrup",
+   "z": 8,
+   "box": [
+    0.107,
+    0.637,
+    0.513,
+    1.0
+   ]
+  },
+  {
+   "id": "text_three_flavours",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Caveat",
+   "font_category": "handwritten",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#bb2b23",
+   "z": 9,
+   "box": [
+    0.065,
+    0.409,
+    0.417,
+    0.493
+   ],
+   "ref_shape": "Hhxxx hhxxxxxx"
+  },
+  {
+   "id": "text_one_obsession",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Fredoka One",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#af2e25",
+   "z": 10,
+   "box": [
+    0.085,
+    0.492,
+    0.483,
+    0.601
+   ],
+   "ref_shape": "Hxx\nxhxxxxxxx"
+  },
+  {
+   "id": "pill_matcha",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#78852c",
+   "z": 11,
+   "box": [
+    0.506,
+    0.14,
+    0.737,
+    0.233
+   ]
+  },
+  {
+   "id": "text_matcha_smoothies",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Poppins",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d8deae",
+   "z": 12,
+   "box": [
+    0.545,
+    0.155,
+    0.693,
+    0.218
+   ],
+   "ref_shape": "Hxhxhx\nHxxxhhxxx"
+  },
+  {
+   "id": "icon_arrow_1",
+   "type": "icon",
+   "name": "arrow",
+   "color": "#d8dbb2",
+   "z": 13,
+   "box": [
+    0.449,
+    0.108,
+    0.577,
+    0.148
+   ]
+  },
+  {
+   "id": "pill_strawberry",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#d0878e",
+   "z": 14,
+   "box": [
+    0.453,
+    0.588,
+    0.706,
+    0.642
+   ]
+  },
+  {
+   "id": "text_strawberry_shake",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Poppins",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c7828a",
+   "z": 15,
+   "box": [
+    0.471,
+    0.595,
+    0.629,
+    0.638
+   ],
+   "ref_shape": "Hhxxxhxxxp\nHhxhx"
+  },
+  {
+   "id": "icon_arrow_2",
+   "type": "icon",
+   "name": "arrow",
+   "color": "#d3949a",
+   "z": 16,
+   "box": [
+    0.517,
+    0.521,
+    0.646,
+    0.563
+   ]
+  },
+  {
+   "id": "pill_chocolate",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#5b3625",
+   "z": 17,
+   "box": [
+    0.543,
+    0.859,
+    0.759,
+    0.921
+   ]
+  },
+  {
+   "id": "text_chocolate_shake",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Poppins",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d8c8bb",
+   "z": 18,
+   "box": [
+    0.584,
+    0.87,
+    0.719,
+    0.908
+   ],
+   "ref_shape": "Hhxxxhxhx\nHhxhx"
+  },
+  {
+   "id": "icon_arrow_3",
+   "type": "icon",
+   "name": "arrow",
+   "color": "#d2c3b8",
+   "z": 19,
+   "box": [
+    0.523,
+    0.784,
+    0.653,
+    0.822
+   ]
+  },
+  {
+   "id": "logo_badge",
+   "type": "icon",
+   "name": "logo",
+   "color": "#c1c88e",
+   "z": 20,
+   "box": [
+    0.853,
+    0.027,
+    0.963,
+    0.099
+   ]
+  },
+  {
+   "id": "text_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Poppins",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d9deae",
+   "z": 21,
+   "box": [
+    0.876,
+    0.038,
+    0.939,
+    0.084
+   ],
+   "ref_shape": "Hxpx\nhxxx"
+  }
+ ],
+ "food": "Matcha smoothie, strawberry shake, and chocolate shake",
+ "mood": "Vibrant and dynamic multi-flavour milkshakes promotional poster with split colour background panels"
+}

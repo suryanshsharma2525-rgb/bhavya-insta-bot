@@ -1,0 +1,374 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#0a0c0b"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "footer_line_1",
+   "type": "icon",
+   "color": "#6d9730",
+   "z": 2,
+   "box": [
+    0.147,
+    0.939655172413793,
+    0.186,
+    0.9698275862068966
+   ]
+  },
+  {
+   "id": "footer_text_1",
+   "type": "text",
+   "role": "label",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#9a9b9b",
+   "z": 2,
+   "box": [
+    0.213,
+    0.9418103448275862,
+    0.342,
+    0.9676724137931034
+   ],
+   "ref_shape": "HHHHHHH\nHHHHHHHHHHH"
+  },
+  {
+   "id": "footer_sep_1",
+   "type": "icon",
+   "color": "#555555",
+   "z": 2,
+   "box": [
+    0.392,
+    0.9418103448275862,
+    0.395,
+    0.9665948275862069
+   ]
+  },
+  {
+   "id": "footer_line_2",
+   "type": "icon",
+   "color": "#6c962e",
+   "z": 2,
+   "box": [
+    0.45,
+    0.9331896551724137,
+    0.489,
+    0.9730603448275862
+   ]
+  },
+  {
+   "id": "footer_text_2",
+   "type": "text",
+   "role": "label",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#a0a1a1",
+   "z": 2,
+   "box": [
+    0.515,
+    0.9418103448275862,
+    0.597,
+    0.9676724137931034
+   ],
+   "ref_shape": "HHHHHHH\nHHHH"
+  },
+  {
+   "id": "footer_sep_2",
+   "type": "icon",
+   "color": "#010600",
+   "z": 2,
+   "box": [
+    0.651,
+    0.9418103448275862,
+    0.654,
+    0.9665948275862069
+   ]
+  },
+  {
+   "id": "footer_line_3",
+   "type": "icon",
+   "color": "#729a34",
+   "z": 2,
+   "box": [
+    0.711,
+    0.9364224137931034,
+    0.758,
+    0.970905172413793
+   ]
+  },
+  {
+   "id": "footer_text_3",
+   "type": "text",
+   "role": "label",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#999a9b",
+   "z": 2,
+   "box": [
+    0.783,
+    0.9418103448275862,
+    0.872,
+    0.9676724137931034
+   ],
+   "ref_shape": "HHHH\nHHHHHHH"
+  },
+  {
+   "id": "badge_circle",
+   "type": "icon",
+   "color": "#88c137",
+   "z": 3,
+   "box": [
+    0.052,
+    0.38900862068965514,
+    0.217,
+    0.5193965517241379
+   ]
+  },
+  {
+   "id": "badge_text_upto",
+   "type": "text",
+   "role": "small_caps",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d3d3d3",
+   "z": 3,
+   "box": [
+    0.066,
+    0.4084051724137931,
+    0.131,
+    0.42780172413793105
+   ],
+   "ref_shape": "HH HH"
+  },
+  {
+   "id": "badge_text_50",
+   "type": "text",
+   "role": "offer",
+   "font_name": "Impact",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#7ec120",
+   "z": 3,
+   "box": [
+    0.05,
+    0.4170258620689655,
+    0.222,
+    0.48814655172413784
+   ],
+   "ref_shape": "88%"
+  },
+  {
+   "id": "badge_text_off",
+   "type": "text",
+   "role": "small_caps",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#eeeeee",
+   "z": 3,
+   "box": [
+    0.115,
+    0.48599137931034475,
+    0.169,
+    0.5064655172413792
+   ],
+   "ref_shape": "HHH"
+  },
+  {
+   "id": "offer_valid_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "semibold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 2,
+   "align": "right",
+   "rotation": 0,
+   "pill": null,
+   "color": "#9faf89",
+   "z": 3,
+   "box": [
+    0.751,
+    0.34806034482758613,
+    0.96,
+    0.3987068965517241
+   ],
+   "ref_shape": "HHHHH HHHHH HHH\nHHHHHHH HHHH"
+  },
+  {
+   "id": "offer_valid_line",
+   "type": "icon",
+   "color": "#6d9834",
+   "z": 3,
+   "box": [
+    0.753,
+    0.4105603448275862,
+    0.834,
+    0.4148706896551724
+   ]
+  },
+  {
+   "id": "top_tagline",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.3,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#9d9f9e",
+   "z": 3,
+   "box": [
+    0.11,
+    0.026939655172413795,
+    0.506,
+    0.04094827586206897
+   ],
+   "ref_shape": "HHH   /   HHHHH   /   HHHHHHHHH"
+  },
+  {
+   "id": "headline_part1",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Great Vibes",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#acd569",
+   "z": 4,
+   "box": [
+    0.127,
+    0.06357758620689655,
+    0.671,
+    0.18965517241379312
+   ],
+   "ref_shape": "Hhx Hhhxxxhx"
+  },
+  {
+   "id": "headline_giant",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Impact",
+   "font_category": "display_heavy",
+   "weight": "black",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#8ecb2b",
+   "z": 4,
+   "box": [
+    0.132,
+    0.11961206896551725,
+    0.864,
+    0.32974137931034486
+   ],
+   "ref_shape": "HHHHHH"
+  },
+  {
+   "id": "headline_part3",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f1f2f1",
+   "z": 4,
+   "box": [
+    0.546,
+    0.25969827586206895,
+    0.863,
+    0.3254310344827587
+   ],
+   "ref_shape": "HH HHHH"
+  },
+  {
+   "id": "main_burger_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Double crispy chicken burger with cheese, lettuce, sauce, and sesame seed bun",
+   "z": 5,
+   "box": [
+    0.181,
+    0.3933189655172413,
+    0.891,
+    0.8415948275862069
+   ]
+  }
+ ],
+ "food": "Double crispy chicken burger with cheese, lettuce, and sauce",
+ "mood": "Bold, vibrant, modern fast food promotional poster with striking green accent and cutout style burger"
+}
