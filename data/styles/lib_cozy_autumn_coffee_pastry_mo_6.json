@@ -2,7 +2,7 @@
  "background": {
   "type": "solid",
   "colors": [
-   "#603921"
+   "#613a22"
   ],
   "direction": "vertical"
  },
@@ -11,8 +11,8 @@
    "id": "bg_photo",
    "type": "photo",
    "style": "fill",
-   "food": "Cozy living room with coffee cup on table and warm lighting",
-   "color": "#ffffff",
+   "food": "Coffee cup on wooden table with cozy living room background",
+   "color": "#000000",
    "z": 1,
    "box": [
     0.0,
@@ -30,18 +30,18 @@
    "weight": "regular",
    "italic": false,
    "uppercase": false,
-   "tracking": 0.05,
+   "tracking": 0.0,
    "lines": 1,
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#d5bda9",
+   "color": "#cfb5a2",
    "z": 2,
    "box": [
-    0.107,
-    0.075,
-    0.237,
-    0.126
+    0.108,
+    0.085,
+    0.233,
+    0.145
    ],
    "ref_shape": "Hxxxxh"
   },
@@ -49,27 +49,27 @@
    "id": "headline_text",
    "type": "text",
    "role": "headline",
-   "font_name": "Montserrat",
-   "font_category": "sans",
-   "weight": "light",
+   "font_name": "Lora",
+   "font_category": "serif",
+   "weight": "regular",
    "italic": false,
    "uppercase": false,
-   "tracking": 0.02,
+   "tracking": 0.0,
    "lines": 3,
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#b59684",
+   "color": "#b69784",
    "z": 3,
    "box": [
-    0.102,
+    0.106,
     0.267,
-    0.42,
-    0.408
+    0.417,
+    0.403
    ],
    "ref_shape": "Hxxx xx\nxhxxx xxxhxxh\nxxxhx xxhhxx."
   }
  ],
- "food": "Coffee cup",
- "mood": "Warm, cozy, inviting cafe poster with ambient lighting and comfortable interior aesthetic"
+ "food": "Coffee cup on a wooden table in a cozy living room setting",
+ "mood": "Warm, cozy, inviting cafe advertisement with soft interior lighting"
 }

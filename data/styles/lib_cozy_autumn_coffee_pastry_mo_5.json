@@ -2,17 +2,16 @@
  "background": {
   "type": "solid",
   "colors": [
-   "#603f2a"
+   "#331f13"
   ],
   "direction": "vertical"
  },
  "elements": [
   {
-   "id": "photo_1",
-   "type": "photo",
-   "style": "fill",
-   "food": "A\u00e7ai bowl with fresh fruits, granola, and a hand holding the wooden bowl",
-   "color": "#ffffff",
+   "id": "bg_fill",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#382012",
    "z": 1,
    "box": [
     0.0,
@@ -30,23 +29,23 @@
    "weight": "regular",
    "italic": false,
    "uppercase": false,
-   "tracking": 0.05,
+   "tracking": 0,
    "lines": 1,
    "align": "center",
    "rotation": 0,
    "pill": null,
-   "color": "#c9b9ae",
+   "color": "#c4b4a9",
    "z": 2,
    "box": [
-    0.424,
-    0.092,
-    0.574,
-    0.146
+    0.427,
+    0.075,
+    0.572,
+    0.143
    ],
    "ref_shape": "Hxxxxh"
   },
   {
-   "id": "headline_1",
+   "id": "headline_text",
    "type": "text",
    "role": "headline",
    "font_name": "Pacifico",
@@ -54,31 +53,31 @@
    "weight": "regular",
    "italic": false,
    "uppercase": false,
-   "tracking": 0.05,
+   "tracking": 0,
    "lines": 1,
    "align": "center",
    "rotation": 0,
    "pill": null,
-   "color": "#e0d1c2",
+   "color": "#e1d2c3",
    "z": 3,
    "box": [
-    0.312,
-    0.185,
-    0.687,
-    0.286
+    0.332,
+    0.192,
+    0.701,
+    0.281
    ],
    "ref_shape": "Hxxx hxxh"
   },
   {
-   "id": "subheadline_1",
+   "id": "tagline_text",
    "type": "text",
-   "role": "subheadline",
+   "role": "tagline",
    "font_name": "Montserrat",
    "font_category": "sans",
    "weight": "light",
    "italic": false,
    "uppercase": false,
-   "tracking": 0.02,
+   "tracking": 0.05,
    "lines": 1,
    "align": "center",
    "rotation": 0,
@@ -86,14 +85,28 @@
    "color": "#b68b71",
    "z": 4,
    "box": [
-    0.361,
-    0.297,
-    0.638,
-    0.322
+    0.36,
+    0.287,
+    0.639,
+    0.313
    ],
    "ref_shape": "H hxxh hxhh xh xxhxxxxx"
+  },
+  {
+   "id": "main_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Acai bowl in wooden bowl being held, with spoon and scattered granola",
+   "color": "#000000",
+   "z": 5,
+   "box": [
+    0.0,
+    0.343,
+    1.0,
+    1.0
+   ]
   }
  ],
- "food": "A\u00e7a\u00ed bowl",
- "mood": "Warm, earthy, artisanal, cozy cafe promotional poster"
+ "food": "Acai bowl with fruits and granola",
+ "mood": "Warm, earthy, artisanal caf\u00e9 aesthetic with brown monochromatic tones"
 }

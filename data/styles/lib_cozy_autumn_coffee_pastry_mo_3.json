@@ -12,7 +12,7 @@
    "type": "photo",
    "style": "fill",
    "food": "Red velvet cake slice and coffee cup on table with vase",
-   "color": "#4a3528",
+   "color": null,
    "z": 1,
    "box": [
     0.0,
@@ -25,7 +25,7 @@
    "id": "brand_logo",
    "type": "text",
    "role": "brand",
-   "font_name": "Caveat",
+   "font_name": "Pacifico",
    "font_category": "script",
    "weight": "regular",
    "italic": false,
@@ -35,21 +35,23 @@
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#c3a592",
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#c7aa97",
    "z": 2,
    "box": [
-    0.108,
-    0.082,
-    0.202,
-    0.129
+    0.107,
+    0.089,
+    0.192,
+    0.131
    ],
    "ref_shape": "Hxxxxh"
   },
   {
-   "id": "headline_text",
+   "id": "item_title",
    "type": "text",
-   "role": "headline",
-   "font_name": "Caveat",
+   "role": "item_name",
+   "font_name": "Pacifico",
    "font_category": "script",
    "weight": "regular",
    "italic": false,
@@ -59,13 +61,15 @@
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#e0cfbf",
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#e1cfc0",
    "z": 3,
    "box": [
-    0.105,
-    0.438,
-    0.482,
-    0.518
+    0.103,
+    0.44,
+    0.489,
+    0.519
    ],
    "ref_shape": "Hxh xxhxxh"
   },
@@ -74,7 +78,7 @@
    "type": "text",
    "role": "tagline",
    "font_name": "Montserrat",
-   "font_category": "sans_bold",
+   "font_category": "sans",
    "weight": "bold",
    "italic": false,
    "uppercase": true,
@@ -83,17 +87,19 @@
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#c2b0a6",
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#cab8ae",
    "z": 4,
    "box": [
-    0.106,
-    0.539,
-    0.274,
+    0.107,
+    0.546,
+    0.29,
     0.597
    ],
    "ref_shape": "HHH HHHH\nHH HHHHHH"
   }
  ],
- "food": "Red velvet cake slice",
- "mood": "Warm, rustic, cozy cafe poster with earthy tones and elegant script typography."
+ "food": "Red velvet cake",
+ "mood": "Warm, cozy, rustic cafe aesthetic with dark brown tones and elegant script typography"
 }

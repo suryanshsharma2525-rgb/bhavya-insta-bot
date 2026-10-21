@@ -2,11 +2,74 @@
  "background": {
   "type": "solid",
   "colors": [
-   "#110904"
+   "#100803"
   ],
   "direction": "vertical"
  },
- "elements": [],
- "food": "Four cups of coffee in a carrier tray on a car seat",
- "mood": "Warm, cozy, premium cafe lifestyle advertisement"
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Coffee cups in a carrier on a car seat",
+   "color": null,
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Caveat",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b8aea8",
+   "z": 2,
+   "box": [
+    0.134,
+    0.089,
+    0.271,
+    0.14
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "tagline_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#a9816b",
+   "z": 3,
+   "box": [
+    0.312,
+    0.791,
+    0.65,
+    0.901
+   ],
+   "ref_shape": "Hxxxpxxp xxxxpxxx\nhhxxx hxxxxxhx."
+  }
+ ],
+ "food": "Coffee cups in a carrier on a car seat",
+ "mood": "Warm, cozy, premium cafe coffee delivery ad"
 }

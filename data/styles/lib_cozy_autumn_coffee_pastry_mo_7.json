@@ -2,11 +2,74 @@
  "background": {
   "type": "solid",
   "colors": [
-   "#150b06"
+   "#160b06"
   ],
   "direction": "vertical"
  },
- "elements": [],
- "food": "coffee pouring from one paper cup to another",
- "mood": "warm, cozy, elegant coffee poster with dark moody tones"
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Hands pouring and holding coffee cups",
+   "color": "#000000",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Pacifico",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b7b0ac",
+   "z": 2,
+   "box": [
+    0.114,
+    0.075,
+    0.252,
+    0.126
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "tagline_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#827c79",
+   "z": 2,
+   "box": [
+    0.536,
+    0.743,
+    0.903,
+    0.888
+   ],
+   "ref_shape": "Hxxh xxhhxx xhxxxh xx hxppxxxxx hxxhhxh."
+  }
+ ],
+ "food": "Coffee being poured from one paper cup to another",
+ "mood": "Warm, cozy, intimate coffee social poster with rich dark brown tones"
 }

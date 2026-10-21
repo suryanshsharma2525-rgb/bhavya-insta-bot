@@ -2,7 +2,7 @@
  "background": {
   "type": "solid",
   "colors": [
-   "#4e2d1a"
+   "#4e2e1a"
   ],
   "direction": "vertical"
  },
@@ -11,8 +11,8 @@
    "id": "bg_photo",
    "type": "photo",
    "style": "fill",
-   "food": "Supreme lotus croissant on a plate with autumn leaves and vase background",
-   "color": "#ffffff",
+   "food": "Supreme lotus croissant on square plate with vase and leaves background",
+   "color": "#000000",
    "z": 1,
    "box": [
     0.0,
@@ -22,7 +22,7 @@
    ]
   },
   {
-   "id": "brand_logo",
+   "id": "brand_text",
    "type": "text",
    "role": "brand",
    "font_name": "Great Vibes",
@@ -30,31 +30,31 @@
    "weight": "regular",
    "italic": false,
    "uppercase": false,
-   "tracking": 0,
+   "tracking": 0.0,
    "lines": 1,
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#d1bfb1",
+   "color": "#cab8ab",
    "z": 2,
    "box": [
     0.107,
-    0.089,
-    0.218,
-    0.137
+    0.064,
+    0.212,
+    0.126
    ],
    "ref_shape": "Hxxxxh"
   },
   {
-   "id": "item_title",
+   "id": "headline_text",
    "type": "text",
-   "role": "item_name",
-   "font_name": "Playfair Display",
-   "font_category": "serif_italic",
+   "role": "headline",
+   "font_name": "Pacifico",
+   "font_category": "script",
    "weight": "regular",
-   "italic": true,
+   "italic": false,
    "uppercase": false,
-   "tracking": 0.05,
+   "tracking": 0.0,
    "lines": 1,
    "align": "left",
    "rotation": 0,
@@ -62,17 +62,17 @@
    "color": "#d1bfae",
    "z": 3,
    "box": [
-    0.132,
-    0.291,
-    0.665,
-    0.349
+    0.127,
+    0.287,
+    0.667,
+    0.345
    ],
    "ref_shape": "Hxpxxxx hxhxx xxxxxxxxh"
   },
   {
-   "id": "tagline_sub",
+   "id": "sub_text",
    "type": "text",
-   "role": "tagline",
+   "role": "subheadline",
    "font_name": "Montserrat",
    "font_category": "sans",
    "weight": "semibold",
@@ -83,17 +83,17 @@
    "align": "left",
    "rotation": 0,
    "pill": null,
-   "color": "#d0bcad",
+   "color": "#cebaaa",
    "z": 4,
    "box": [
-    0.203,
-    0.36,
-    0.591,
-    0.388
+    0.198,
+    0.356,
+    0.597,
+    0.391
    ],
    "ref_shape": "HHHHHH HH HHHHHHHHHH"
   }
  ],
- "food": "Supreme lotus croissant",
- "mood": "Warm, rustic, autumnal cafe pastry poster with earthy tones and elegant typography."
+ "food": "Supreme lotus croissant on a square plate with autumn aesthetic background",
+ "mood": "Warm, cozy, rustic cafe poster with earthy tones"
 }
