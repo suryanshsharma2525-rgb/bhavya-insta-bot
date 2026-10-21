@@ -7,7 +7,7 @@ X-WR-CALNAME:Bhavya Cafe – Instagram Plan
 X-WR-TIMEZONE:Asia/Kolkata
 BEGIN:VEVENT
 UID:bhavya-2026-10-20@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
 SUMMARY:✅ Mood / aesthetic post – Butterscotch Kheer (Dussehra (IITR holiday))
@@ -16,7 +16,7 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-21@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:✅ OFFER: Pause karo reel – Cheese Burst Samosa
@@ -25,254 +25,263 @@ TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-22@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
-SUMMARY:📸 Zoom karke padho – Veg Momos
+SUMMARY:📸 🖼 Post · New Item – Veg Momos
 DESCRIPTION:Idea: Zoom challenge: hidden line 'Good things come to those who pause' — subtle\, clever\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-23@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-SUMMARY:📸 Product spotlight – Kulhad Pizza
+SUMMARY:📸 🎬 Reel · Late Night – Kulhad Pizza
 DESCRIPTION:Idea: Hero post: Kulhad Pizza — clay-baked\, bubbling cheese\, made to share. ₹70\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-24@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
-SUMMARY:📸 AI concept reel (new idea) – Peshawari Khewani Kheer
+SUMMARY:📸 🖼 Post · Weekend – Peshawari Khewani Kheer
 DESCRIPTION:Idea: AI concept reel: 'Weekend plans in Roorkee\, ranked honestly' — ending at a quiet dessert evening at Bhavya\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-25@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
-SUMMARY:📸 Pause game reel – Nachos Chaat
-DESCRIPTION:Idea: Sunday pause game: jo item pe ruke wahi aaj ka evening snack — comments me batao\nStatus: planned
+SUMMARY:📸 🎬 Reel · Weekend – Potato Twister
+DESCRIPTION:Idea: Spinning into Sunday with our signature crisp potato twister.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-26@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
-SUMMARY:📸 Top 5 reel – Matcha Shake
-DESCRIPTION:Idea: Top 5 for a productive Monday: Kulhad Chai\, Hot Coffee\, Bun Makkhan\, Cold Coffee\, Matcha Shake\nStatus: planned
+SUMMARY:📸 🖼 Post · Auto – Cold Coffee
+DESCRIPTION:Idea: Monday motivation served cold and strong right near campus.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-27@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261028
-SUMMARY:📸 Mess vs Bhavya – Loaded Chips Chaat
-DESCRIPTION:Idea: Expectation vs reality of 'healthy eating from Monday' — clever\, self-aware humour\nStatus: planned
+SUMMARY:📸 🎬 Reel · Combo – Kesar Pista Kheer
+DESCRIPTION:Idea: Pairing royal kesar pista kheer with your favorite evening conversations.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-28@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
-SUMMARY:📸 OFFER: Zoom code – Kulhad Chai
-DESCRIPTION:Idea: Offer: image me hidden code dhundo\, Kulhad Chai on the house\nStatus: planned
+SUMMARY:📸 🎬 Reel · Offer – Cheese Burst Samosa
+DESCRIPTION:Idea: Claim your FREE Cheese Burst Samosa on dine-in orders up to 300.\nStatus: planned\nOffer: FREE Cheese Burst Samosa · Offer applied on orders up to ₹300 · 1 per person · Dine-in only
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-29@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
-SUMMARY:📸 Did-you-know carousel – Vada Pav
+SUMMARY:📸 🎬 Reel · New Item – Vada Pav
 DESCRIPTION:Idea: Did-you-know: Vada Pav ki Mumbai story — mill workers ka sasta\, tez aur filling khana\; ab Roorkee me\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-30@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
-SUMMARY:📸 Product spotlight – Cold Coffee
+SUMMARY:📸 🖼 Post · Late Night – Cold Coffee
 DESCRIPTION:Idea: Spotlight: Cold Coffee — chilled\, creamy\, chocolate drizzle\; perfect after a long lab day\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-10-31@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
-SUMMARY:📸 AI concept reel (new idea) – Mocha Shake (Halloween)
-DESCRIPTION:Idea: Halloween reel: 'Things scarier than horror movies for an IITian' (attendance\, viva\, month-end) — witty\, ends with a Mocha Shake\nStatus: planned
+SUMMARY:📸 🎬 Reel · Weekend – Kulhad Pizza (Halloween)
+DESCRIPTION:Idea: Scary good kulhad pizza to haunt your weekend cravings.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-01@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261101
 DTEND;VALUE=DATE:20261102
-SUMMARY:📸 Mood / aesthetic post – Kulhad Chai (Pre-Diwali week)
-DESCRIPTION:Idea: Diwali week begins: 'Ghar jaane se pehle\, doston ke saath ek aakhri chai' — warm\nStatus: planned
+SUMMARY:📸 🖼 Post · Festival – Peshawari Khewani Kheer (Pre-Diwali week)
+DESCRIPTION:Idea: Take a festive break with our traditional Peshawari khewani kheer.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-02@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261102
 DTEND;VALUE=DATE:20261103
-SUMMARY:📸 Cinematic food reel – Kesar Pista Kheer (Pre-Diwali week)
+SUMMARY:📸 🎬 Reel · Festival – Kesar Pista Kheer (Pre-Diwali week)
 DESCRIPTION:Idea: Cinematic festive reel: Kesar Pista Kheer\, Kulhad Pizza\, Kulhad Chai — 'Celebrations taste better together'\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-03@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261103
 DTEND;VALUE=DATE:20261104
-SUMMARY:📸 Product spotlight – Kesar Pista Kheer (Pre-Diwali week)
+SUMMARY:📸 🖼 Post · Festival – Kesar Pista Kheer (Pre-Diwali week)
 DESCRIPTION:Idea: Festive special spotlight: Kesar Pista Kheer — saffron\, pistachio\, slow-cooked comfort. ₹60\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-04@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261104
 DTEND;VALUE=DATE:20261105
-SUMMARY:📸 OFFER: Pause karo reel – Cheese Burst Samosa (Pre-Diwali week)
-DESCRIPTION:Idea: Diwali week offer reel: pause karo\, festive treat hamari taraf se\nStatus: planned
+SUMMARY:📸 🎬 Reel · Offer – Cheese Burst Samosa (Pre-Diwali week)
+DESCRIPTION:Idea: Enjoy a FREE Cheese Burst Samosa on dine-in orders up to 300.\nStatus: planned\nOffer: FREE Cheese Burst Samosa · Offer applied on orders up to ₹300 · 1 per person · Dine-in only
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-05@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261105
 DTEND;VALUE=DATE:20261106
-SUMMARY:📸 POV reel – Peshawari Khewani Kheer (Pre-Diwali week)
+SUMMARY:📸 🖼 Post · Festival – Peshawari Khewani Kheer (Pre-Diwali week)
 DESCRIPTION:Idea: POV: ghar jaane ki train kal hai\, aaj group ke saath aakhri meetup — ends with kheer at Bhavya\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-06@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261106
 DTEND;VALUE=DATE:20261107
-SUMMARY:📸 Tag your friend – Cheese Burger (Pre-Diwali week)
-DESCRIPTION:Idea: Tag the friend who is staying back in Roorkee this Diwali — treat them to a Cheese Burger\nStatus: planned
+SUMMARY:📸 🎬 Reel · Festival – Cold Coffee (Pre-Diwali week)
+DESCRIPTION:Idea: Pre-Diwali caffeine fix because shopping can wait.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-07@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
-SUMMARY:📸 AI concept reel (new idea) – Butterscotch Kheer (Pre-Diwali week)
-DESCRIPTION:Idea: AI concept reel: 'Diwali packing checklist (honest version)' — witty\, ends at Bhavya\nStatus: planned
+SUMMARY:📸 🖼 Post · Festival – Vada Pav (Pre-Diwali week)
+DESCRIPTION:Idea: Mumbai street classic meets Roorkee festive vibes.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-08@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
-SUMMARY:📸 Mood / aesthetic post – Kesar Pista Kheer (Diwali (IITR holiday))
+SUMMARY:📸 🎬 Reel · Festival – Kesar Pista Kheer (Diwali (IITR holiday))
 DESCRIPTION:Idea: Happy Diwali: 'May your home be bright and your kheer be generous' — elegant festive wishes\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-09@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
-SUMMARY:📸 Cinematic food reel – Matcha Shake (Govardhan Puja (IITR holiday))
-DESCRIPTION:Idea: Post-Diwali reset reel: Matcha Shake\, Cold Coffee\, Veg Momos — 'Back to Roorkee\, back to routine'\nStatus: planned
+SUMMARY:📸 🖼 Post · Festival – Veg Momos (Govardhan Puja (IITR holiday))
+DESCRIPTION:Idea: Post-holiday food coma calls for steaming hot veg momos.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-10@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
-SUMMARY:📸 Exam/IIT life meme – Corn Chips Chaat
-DESCRIPTION:Idea: End-sems approaching: 'Syllabus vs days left' — smart\, relatable\, not dramatic\nStatus: planned
+SUMMARY:📸 🎬 Reel · Combo – Kulhad Pizza
+DESCRIPTION:Idea: The ultimate cheesy crunch baked fresh in a kulhad.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-11@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
-SUMMARY:📸 OFFER: Zoom code – Kulhad Chai (Last teaching day (IITR))
-DESCRIPTION:Idea: Last teaching day offer: hidden code = free Kulhad Chai — 'one chai before the storm'\nStatus: planned
+SUMMARY:📸 🎬 Reel · Offer – Cheese Burst Samosa (Last teaching day (IITR))
+DESCRIPTION:Idea: Get a FREE Cheese Burst Samosa on dine-in orders up to 300 today.\nStatus: planned\nOffer: FREE Cheese Burst Samosa · Offer applied on orders up to ₹300 · 1 per person · Dine-in only
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-12@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
-SUMMARY:📸 Rate the combo – Veg Momos
+SUMMARY:📸 🎬 Reel · New Item – Veg Momos
 DESCRIPTION:Idea: Rate the 'Study Break Combo': Veg Momos + Kulhad Chai — comment 1-10\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-13@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
-SUMMARY:📸 Mood / aesthetic post – Hot Coffee (END-SEM EXAMS (IITR))
-DESCRIPTION:Idea: Exams begin: 'Strong coffee\, stronger you. All the best.' — supportive\, premium\nStatus: planned
+SUMMARY:📸 🖼 Post · Exam – Cold Coffee (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Late night study session fueled by our signature cold coffee.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-14@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
-SUMMARY:📸 AI concept reel (new idea) – Nachos Chaat (END-SEM EXAMS (IITR) + Children's Day)
-DESCRIPTION:Idea: AI concept reel: 'Exam week survival guide' — 5 smart tips\, last tip: take a 20-minute break at Bhavya\nStatus: planned
+SUMMARY:📸 🎬 Reel · Exam – Vada Pav (END-SEM EXAMS (IITR) + Children's Day)
+DESCRIPTION:Idea: Nostalgic bites for the inner child surviving end-sems.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-15@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
-SUMMARY:📸 Product spotlight – Bun Makkhan (END-SEM EXAMS (IITR))
-DESCRIPTION:Idea: Spotlight: Bun Makkhan + chai — the classic late-night study fuel. ₹50\nStatus: planned
+SUMMARY:📸 🖼 Post · Exam – Kulhad Pizza (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Break away from exam stress with a piping hot kulhad pizza.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-16@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261116
 DTEND;VALUE=DATE:20261117
-SUMMARY:📸 Top 5 reel – Mocha Shake (END-SEM EXAMS (IITR))
-DESCRIPTION:Idea: Top 5 exam-night companions: Hot Coffee\, Bun Makkhan\, Kulhad Chai\, Simple Chips Chaat\, Mocha Shake\nStatus: planned
+SUMMARY:📸 🎬 Reel · Exam – Peshawari Khewani Kheer (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Sweet relief for heavy syllabus nights.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-17@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261117
 DTEND;VALUE=DATE:20261118
-SUMMARY:📸 Exam/IIT life meme – Kesar Pista Kheer (END-SEM EXAMS (IITR))
+SUMMARY:📸 🖼 Post · Exam – Kesar Pista Kheer (END-SEM EXAMS (IITR))
 DESCRIPTION:Idea: Exam humour: 'Question: Explain in detail. Me: explains everything except the question' — clever\, light\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
 UID:bhavya-2026-11-18@instabot
-DTSTAMP:20261021T063449Z
+DTSTAMP:20261021T063905Z
 DTSTART;VALUE=DATE:20261118
 DTEND;VALUE=DATE:20261119
-SUMMARY:📸 OFFER: Pause karo reel – Cheese Burst Samosa (END-SEM EXAMS (IITR))
-DESCRIPTION:Idea: Exam week offer reel: pause karo\, paper ke baad ka treat\nStatus: planned
+SUMMARY:📸 🎬 Reel · Offer – Cheese Burst Samosa (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Fuel your revision with a FREE Cheese Burst Samosa on orders up to 300.\nStatus: planned\nOffer: FREE Cheese Burst Samosa · Offer applied on orders up to ₹300 · 1 per person · Dine-in only
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bhavya-2026-11-19@instabot
+DTSTAMP:20261021T063905Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:📸 🖼 Post · Exam – Vada Pav (END-SEM EXAMS (IITR))
+DESCRIPTION:Idea: Quick study break with Roorkee's favorite vada pav.\nStatus: planned
 TRANSP:TRANSPARENT
 END:VEVENT
 END:VCALENDAR
