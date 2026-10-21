@@ -3,7 +3,7 @@ name: Daily stories
 on:
   schedule:
     - cron: "40 6 * * *"    # 06:40 UTC = 12:10 PM IST  (lunch stories)
-    - cron: "30 15 * * *"   # 15:30 UTC = 9:00 PM IST   (night stories)
+    - cron: "30 15 * * *"   # 15:30 UTC = 9:00 PM IST   (night stories, daily post ke baad)
   workflow_dispatch:
     inputs:
       slot:
@@ -44,7 +44,7 @@ jobs:
           git config user.name "bhavya-bot"
           git config user.email "bot@users.noreply.github.com"
           git pull --rebase || true
-          git add posts data
+          git add -A .
           git commit -m "Stories ${{ steps.s.outputs.slot }} $(TZ=Asia/Kolkata date +%F)" || echo "nothing"
           git push
           sleep 25
@@ -55,7 +55,9 @@ jobs:
         run: python -m pin.main publish-story --slot ${{ steps.s.outputs.slot }}
       - if: always()
         run: |
-          git add posts data
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A .
           git commit -m "Stories published" || echo "nothing"
           git pull --rebase || true
           git push || true

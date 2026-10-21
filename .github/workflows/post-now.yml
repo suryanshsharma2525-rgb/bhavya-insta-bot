@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "inbox/**"          # inbox/ me Pinterest image daalte hi apne aap post + reel
+      - "designs/**"        # designs/ me design daalo → library me save (post nahi)
+      - "assets/photos/**"  # photo kisi bhi naam se → bot khud sahi naam deta hai
   workflow_dispatch:
     inputs:
       idea:
@@ -70,14 +72,14 @@ jobs:
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python -m pin.main idea --idea "$IN_IDEA" --item "$IN_ITEM" --type "$IN_TYPE" --style "$IN_STYLE" --preset "$IN_PRESET" --offer "$IN_OFFER"
           else
-            echo "posts=" >> $GITHUB_OUTPUT
+            python -m pin.main housekeeping
           fi
 
       - name: Repo me save karo
         run: |
           git config user.name "bhavya-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A posts data inbox assets
+          git add -A .
           git commit -m "Post: ${{ steps.make.outputs.posts }}" || echo "nothing"
           git pull --rebase -X theirs || true
           git push
@@ -93,7 +95,9 @@ jobs:
       - name: Link save karo
         if: always()
         run: |
-          git add -A posts data
+          git config user.name "bhavya-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A .
           git commit -m "Published" || echo "nothing"
           git pull --rebase -X theirs || true
           git push || true
