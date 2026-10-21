@@ -1,0 +1,231 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#fcaf6a"
+  ]
+ },
+ "elements": [
+  {
+   "id": "band",
+   "type": "shape",
+   "shape": "ellipse",
+   "color": "#7f1a0c",
+   "z": 1,
+   "box": [
+    0.18,
+    0.11055276381909548,
+    2.05,
+    1.5577889447236182
+   ],
+   "hole": [
+    0.47,
+    0.5527638190954774,
+    1.75,
+    1.457286432160804
+   ]
+  },
+  {
+   "id": "title",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Poppins",
+   "font_category": "sans_bold",
+   "weight": "black",
+   "italic": true,
+   "color": "#862910",
+   "lines": 2,
+   "z": 5,
+   "box": [
+    0.25,
+    0.012060301507537688,
+    0.75,
+    0.09045226130653267
+   ],
+   "ref_shape": "Hhxxxp Hxxxxhp\nHxxpxx"
+  },
+  {
+   "id": "g1",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "color": "#7f1a0c",
+   "alt_color": "#fcaf6a",
+   "alt_over": "band",
+   "align": "left",
+   "uppercase": true,
+   "z": 2,
+   "box": [
+    0.03,
+    0.09045226130653267,
+    0.4,
+    0.3015075376884422
+   ],
+   "ref_shape": "HH"
+  },
+  {
+   "id": "g2",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "color": "#7f1a0c",
+   "alt_color": "#fcaf6a",
+   "alt_over": "band",
+   "align": "left",
+   "uppercase": true,
+   "z": 2,
+   "box": [
+    0.03,
+    0.31155778894472363,
+    0.4,
+    0.5226130653266332
+   ],
+   "ref_shape": "H"
+  },
+  {
+   "id": "g3",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "color": "#7f1a0c",
+   "alt_color": "#fcaf6a",
+   "alt_over": "band",
+   "align": "left",
+   "uppercase": true,
+   "z": 2,
+   "box": [
+    0.03,
+    0.542713567839196,
+    0.4,
+    0.7537688442211056
+   ],
+   "ref_shape": "H"
+  },
+  {
+   "id": "g4",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "color": "#7f1a0c",
+   "alt_color": "#fcaf6a",
+   "alt_over": "band",
+   "align": "left",
+   "uppercase": true,
+   "z": 2,
+   "box": [
+    0.03,
+    0.7738693467336684,
+    0.4,
+    0.9748743718592965
+   ],
+   "ref_shape": "HH"
+  },
+  {
+   "id": "ph",
+   "type": "photo",
+   "style": "cutout",
+   "food": "burger",
+   "z": 3,
+   "box": [
+    0.13,
+    0.24120603015075376,
+    0.98,
+    0.7236180904522613
+   ]
+  },
+  {
+   "id": "off",
+   "type": "text",
+   "role": "offer",
+   "font_name": "Oswald",
+   "font_category": "display_condensed",
+   "weight": "bold",
+   "color": "#84260c",
+   "z": 5,
+   "box": [
+    0.74,
+    0.6633165829145728,
+    0.95,
+    0.7738693467336684
+   ],
+   "ref_shape": "88% HHH"
+  },
+  {
+   "id": "del",
+   "type": "text",
+   "role": "other",
+   "font_name": "Oswald",
+   "font_category": "display_condensed",
+   "weight": "bold",
+   "color": "#8a3219",
+   "lines": 2,
+   "z": 5,
+   "box": [
+    0.74,
+    0.7839195979899498,
+    0.95,
+    0.8341708542713567
+   ],
+   "ref_shape": "Hxxx Hxhxxxxp"
+  },
+  {
+   "id": "cta",
+   "type": "text",
+   "role": "cta",
+   "font_name": "Alfa Slab One",
+   "font_category": "serif_fat",
+   "color": "#7e210c",
+   "z": 5,
+   "box": [
+    0.58,
+    0.8492462311557789,
+    0.96,
+    0.8994974874371859
+   ],
+   "ref_shape": "Hxhxx Hxx!"
+  },
+  {
+   "id": "ph2",
+   "type": "text",
+   "role": "contact",
+   "font_name": "Poppins",
+   "weight": "bold",
+   "color": "#664730",
+   "align": "right",
+   "z": 5,
+   "box": [
+    0.62,
+    0.9095477386934674,
+    0.95,
+    0.9396984924623116
+   ],
+   "font_category": "sans_bold",
+   "ref_shape": "+88 88888 88888"
+  },
+  {
+   "id": "hd",
+   "type": "text",
+   "role": "handle",
+   "font_name": "Poppins",
+   "weight": "bold",
+   "color": "#6a4b2e",
+   "align": "right",
+   "uppercase": true,
+   "z": 5,
+   "box": [
+    0.57,
+    0.9447236180904522,
+    0.95,
+    0.9748743718592965
+   ],
+   "font_category": "sans_bold",
+   "ref_shape": "@HHHHHHHHHHHH_HHHH"
+  }
+ ],
+ "food": "crispy chicken burger",
+ "mood": "bold retro"
+}

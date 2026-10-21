@@ -373,7 +373,7 @@ def cmd_publish(cfg, names):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["make", "idea", "daily", "publish", "plan", "story", "publish-story"])
+    ap.add_argument("command", choices=["make", "idea", "daily", "publish", "plan", "story", "publish-story", "housekeeping"])
     ap.add_argument("--dir", default="")
     ap.add_argument("--item", default="")
     ap.add_argument("--idea", default="")
@@ -386,7 +386,12 @@ def main():
     cfg = load_cfg()
     kind = a.type if a.type in ("both", "image", "reel") else "both"
     preset = a.preset if a.preset in presets.PRESETS else "auto"
-    if a.command == "make":
+    if a.command in ("make", "idea", "daily", "story", "housekeeping"):
+        from . import library
+        library.housekeeping(cfg)  # nayi photos ko sahi naam + naye designs library me
+    if a.command == "housekeeping":
+        _out([])
+    elif a.command == "make":
         cmd_make(cfg, kind, a.idea or None, a.item or None, preset, a.offer.strip())
     elif a.command == "idea":
         cmd_idea(cfg, a.idea, a.item or None, kind, a.style, preset=preset, offer=a.offer.strip())

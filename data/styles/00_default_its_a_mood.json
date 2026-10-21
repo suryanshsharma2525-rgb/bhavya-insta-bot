@@ -1,0 +1,133 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#eee2d3"
+  ]
+ },
+ "elements": [
+  {
+   "id": "brand",
+   "type": "icon",
+   "kind": "logo",
+   "color": "#a8907a",
+   "z": 5,
+   "box": [
+    0.33,
+    0.02965599051008304,
+    0.67,
+    0.07236061684460261
+   ]
+  },
+  {
+   "id": "h1",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Fraunces",
+   "font_category": "serif",
+   "weight": "bold",
+   "color": "#914a26",
+   "align": "left",
+   "lines": 1,
+   "z": 2,
+   "box": [
+    0.118,
+    0.16725978647686834,
+    0.54,
+    0.27876631079478054
+   ],
+   "ref_shape": "xh'x x"
+  },
+  {
+   "id": "h2",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Fraunces",
+   "font_category": "serif",
+   "weight": "bold",
+   "color": "#924a26",
+   "align": "left",
+   "lines": 1,
+   "z": 2,
+   "box": [
+    0.19,
+    0.25504151838671413,
+    0.89,
+    0.3855278766310795
+   ],
+   "ref_shape": "xxxh."
+  },
+  {
+   "id": "ph",
+   "type": "photo",
+   "style": "cutout",
+   "food": "iced latte",
+   "z": 3,
+   "box": [
+    0.225,
+    0.34163701067615665,
+    0.775,
+    0.970344009489917
+   ]
+  },
+  {
+   "id": "a1",
+   "type": "icon",
+   "kind": "arrow",
+   "color": "#9e6a4f",
+   "z": 4,
+   "box": [
+    0.115,
+    0.35349940688018977,
+    0.215,
+    0.4365361803084223
+   ]
+  },
+  {
+   "id": "note",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Lexend",
+   "font_category": "geometric",
+   "weight": "regular",
+   "color": "#a48d7a",
+   "lines": 2,
+   "z": 4,
+   "box": [
+    0.775,
+    0.4899169632265718,
+    0.985,
+    0.5516014234875445
+   ],
+   "ref_shape": "Hxhhx xx\nxxh x hxxxh"
+  },
+  {
+   "id": "badge",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#934a25",
+   "z": 4,
+   "box": [
+    0.16,
+    0.5551601423487545,
+    0.372,
+    0.7058125741399762
+   ]
+  },
+  {
+   "id": "mark",
+   "type": "icon",
+   "kind": "logo",
+   "color": "#ecdac9",
+   "z": 5,
+   "box": [
+    0.18,
+    0.594306049822064,
+    0.352,
+    0.66785290628707
+   ]
+  }
+ ],
+ "food": "iced latte",
+ "mood": "minimal warm editorial"
+}
