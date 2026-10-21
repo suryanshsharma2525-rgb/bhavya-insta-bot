@@ -1,0 +1,237 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#370c15"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_leaf_1",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Green leaf",
+   "box": [
+    0.004,
+    0.226,
+    0.137,
+    0.353
+   ]
+  },
+  {
+   "id": "bg_petal_1",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Pink hibiscus petal",
+   "box": [
+    0.187,
+    0.345,
+    0.274,
+    0.442
+   ]
+  },
+  {
+   "id": "bg_petal_2",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Pink hibiscus petal",
+   "box": [
+    0.094,
+    0.483,
+    0.212,
+    0.577
+   ]
+  },
+  {
+   "id": "bg_leaf_2",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Green leaf",
+   "box": [
+    0.004,
+    0.679,
+    0.14,
+    0.888
+   ]
+  },
+  {
+   "id": "bg_leaf_3",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Green leaf",
+   "box": [
+    0.794,
+    0.304,
+    0.886,
+    0.389
+   ]
+  },
+  {
+   "id": "bg_petal_3",
+   "type": "photo",
+   "z": 1,
+   "style": "cutout",
+   "food": "Pink hibiscus petal",
+   "box": [
+    0.785,
+    0.725,
+    0.902,
+    0.814
+   ]
+  },
+  {
+   "id": "vertical_text_hibiscus",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Montserrat",
+   "font_category": "display_heavy",
+   "weight": "black",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "center",
+   "rotation": 90,
+   "pill": null,
+   "color": "#481E2E",
+   "z": 2,
+   "box": [
+    0.856,
+    0.018,
+    0.999,
+    0.814
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "main_cup_photo",
+   "type": "photo",
+   "z": 3,
+   "style": "cutout",
+   "food": "Hibiscus latte in ceramic cup with saucer and flower",
+   "box": [
+    0.237,
+    0.334,
+    0.786,
+    0.78
+   ]
+  },
+  {
+   "id": "sub_heading",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.25,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#ba9398",
+   "z": 4,
+   "box": [
+    0.283,
+    0.075,
+    0.715,
+    0.107
+   ],
+   "ref_shape": "HHHH HHHHHHHHH"
+  },
+  {
+   "id": "main_heading",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Montserrat",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f4bfb4",
+   "z": 4,
+   "box": [
+    0.219,
+    0.121,
+    0.824,
+    0.287
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "cta_pill",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#5e2430",
+   "z": 4,
+   "box": [
+    0.361,
+    0.834,
+    0.64,
+    0.908
+   ]
+  },
+  {
+   "id": "cta_text",
+   "type": "text",
+   "role": "cta",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "semibold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.15,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#dfb3b6",
+   "z": 5,
+   "box": [
+    0.399,
+    0.862,
+    0.603,
+    0.886
+   ],
+   "ref_shape": "HHHHH HHH"
+  },
+  {
+   "id": "body_text",
+   "type": "text",
+   "role": "body",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#91747a",
+   "z": 4,
+   "box": [
+    0.222,
+    0.925,
+    0.777,
+    0.963
+   ],
+   "ref_shape": "Hxxxx xpxxx hxhxx xxh xxxh, xxxxxxhxhxx xhxpxxxxxp xhxh, xxh hx xxxxxxh hxxpxx xxxxhxhxxh xh hxhxxx xh hxhxxx xxpxx xhxpxx."
+  }
+ ],
+ "food": "Hibiscus latte in a dark cup with latte art, surrounded by hibiscus petals and leaves",
+ "mood": "Elegant and warm cafe promotional poster with deep burgundy tones and soft pastel typography"
+}

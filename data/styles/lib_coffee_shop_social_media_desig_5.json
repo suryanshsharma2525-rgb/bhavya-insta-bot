@@ -1,0 +1,173 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#f1d2d0"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "enjoy_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.3,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#523635",
+   "z": 1,
+   "box": [
+    0.379,
+    0.057,
+    0.62,
+    0.078
+   ],
+   "ref_shape": "HHHHH"
+  },
+  {
+   "id": "main_heading",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Anton",
+   "font_category": "display_condensed",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#391119",
+   "z": 2,
+   "box": [
+    0.161,
+    0.107,
+    0.839,
+    0.258
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "sub_heading",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Playfair Display",
+   "font_category": "serif_italic",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#6a4d4d",
+   "z": 3,
+   "box": [
+    0.616,
+    0.273,
+    0.842,
+    0.311
+   ],
+   "ref_shape": "Hxxxxx Hxhhx"
+  },
+  {
+   "id": "latte_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Three hibiscus fusion lattes in clear plastic cups",
+   "color": null,
+   "z": 4,
+   "box": [
+    0.175,
+    0.203,
+    0.825,
+    0.874
+   ]
+  },
+  {
+   "id": "cta_button_bg",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#3c171d",
+   "z": 5,
+   "box": [
+    0.355,
+    0.862,
+    0.642,
+    0.936
+   ]
+  },
+  {
+   "id": "cta_text",
+   "type": "text",
+   "role": "cta",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "medium",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d4b7bb",
+   "z": 6,
+   "box": [
+    0.388,
+    0.875,
+    0.574,
+    0.915
+   ],
+   "ref_shape": "Hxhxx Hxx"
+  },
+  {
+   "id": "cta_icon",
+   "type": "icon",
+   "icon": "arrow",
+   "color": "#5b3d40",
+   "z": 7,
+   "box": [
+    0.597,
+    0.883,
+    0.621,
+    0.918
+   ]
+  },
+  {
+   "id": "footer_disclaimer",
+   "type": "text",
+   "role": "body",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b09595",
+   "z": 8,
+   "box": [
+    0.161,
+    0.956,
+    0.836,
+    0.988
+   ],
+   "ref_shape": "Hxxxx xpxxx hxhxx xxh xxxh, xxxxxxhxhxx xhxpxxxxxxp xhxh, xxh hx xxxxxxh hxxpxx xxxxhxhxxh xh"
+  }
+ ],
+ "food": "Three plastic cups of iced pink and red hibiscus fusion latte with black straws",
+ "mood": "Minimalist, clean, elegant promotional cafe poster with soft pastel pink background and dark plum typography"
+}

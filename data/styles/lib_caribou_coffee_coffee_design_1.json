@@ -1,0 +1,159 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#8bb4b1"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Hand reaching for a coffee cup next to a croissant and coffee beans",
+   "color": "#000000",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "date_text",
+   "type": "text",
+   "role": "date",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#214246",
+   "z": 2,
+   "box": [
+    0.069,
+    0.108,
+    0.244,
+    0.126
+   ],
+   "ref_shape": "88 HHH 8888"
+  },
+  {
+   "id": "sub_text",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "medium",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d5e8e9",
+   "z": 3,
+   "box": [
+    0.069,
+    0.209,
+    0.431,
+    0.23
+   ],
+   "ref_shape": "HH HHHHHHH HHHHHH"
+  },
+  {
+   "id": "giant_text",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#6b6b5f",
+   "z": 4,
+   "box": [
+    0.069,
+    0.252,
+    0.903,
+    0.34
+   ],
+   "ref_shape": "HHHHHH"
+  },
+  {
+   "id": "script_text",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Great Vibes",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#e1ebea",
+   "z": 5,
+   "box": [
+    0.066,
+    0.334,
+    0.444,
+    0.461
+   ],
+   "ref_shape": "Hxhhxx"
+  },
+  {
+   "id": "body_text",
+   "type": "text",
+   "role": "body",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#214447",
+   "z": 6,
+   "box": [
+    0.069,
+    0.53,
+    0.244,
+    0.58
+   ],
+   "ref_shape": "HHHH HH HHHHH\nHHHH HHHHH\nHHH HH."
+  },
+  {
+   "id": "icon_coffee",
+   "type": "icon",
+   "color": "#283f42",
+   "z": 7,
+   "box": [
+    0.073,
+    0.488,
+    0.117,
+    0.517
+   ]
+  }
+ ],
+ "food": "Coffee cup and croissant with coffee beans on teal background",
+ "mood": "Minimalist, stylish, clean cafe promotional poster"
+}

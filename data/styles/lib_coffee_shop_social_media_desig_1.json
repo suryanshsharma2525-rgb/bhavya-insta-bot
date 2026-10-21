@@ -1,0 +1,183 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#f2d4d3"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_card",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#3a101b",
+   "z": 1,
+   "box": [
+    0.453,
+    0.29,
+    0.955,
+    0.723
+   ]
+  },
+  {
+   "id": "giant_text",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "left",
+   "rotation": -90,
+   "pill": null,
+   "color": "#f8e6e6",
+   "z": 2,
+   "box": [
+    -0.166,
+    0.023,
+    0.344,
+    0.846
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "food_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Iced hibiscus fusion latte with black straw and flower garnish",
+   "z": 3,
+   "box": [
+    0.074,
+    0.097,
+    0.485,
+    0.839
+   ]
+  },
+  {
+   "id": "logo_text",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 2,
+   "align": "right",
+   "rotation": 0,
+   "pill": null,
+   "color": "#422625",
+   "z": 4,
+   "box": [
+    0.832,
+    0.043,
+    0.946,
+    0.107
+   ],
+   "ref_shape": "Hxpx Hxxx."
+  },
+  {
+   "id": "sub_enjoy",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.5,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c6a6ac",
+   "z": 5,
+   "box": [
+    0.565,
+    0.383,
+    0.845,
+    0.431
+   ],
+   "ref_shape": "H H H H H"
+  },
+  {
+   "id": "item_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Montserrat",
+   "font_category": "display_heavy",
+   "weight": "extrabold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f6d7c4",
+   "z": 6,
+   "box": [
+    0.493,
+    0.444,
+    0.915,
+    0.571
+   ],
+   "ref_shape": "HHHHHHHH"
+  },
+  {
+   "id": "tagline",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Playfair Display",
+   "font_category": "serif_italic",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c09098",
+   "z": 7,
+   "box": [
+    0.542,
+    0.578,
+    0.867,
+    0.642
+   ],
+   "ref_shape": "Hxxxxx Hxhhx"
+  },
+  {
+   "id": "body_desc",
+   "type": "text",
+   "role": "body",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#836c6a",
+   "z": 8,
+   "box": [
+    0.037,
+    0.873,
+    0.499,
+    0.933
+   ],
+   "ref_shape": "Hxxxx xpxxx hxhxx xxh xxxh, xxxxxxhxhxx xhxpxxxxxp xhxh, xxh hx xxxxxxh hxxpxx xxxxhxhxxh xh hxhxxx xh hxhxxx xxpxx xhxpxx."
+  }
+ ],
+ "food": "Iced Hibiscus Fusion Latte",
+ "mood": "Modern, elegant, and refreshing cafe promotional design with warm burgundy and pink tones."
+}

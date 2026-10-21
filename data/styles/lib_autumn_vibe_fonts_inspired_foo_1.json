@@ -1,0 +1,99 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#201109"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_image",
+   "type": "photo",
+   "style": "fill",
+   "food": "french toast with ice cream, strawberries, walnuts, and syrup, with a glass of iced tea",
+   "color": "#000000",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "text_agood",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Playfair Display",
+   "font_category": "serif_italic",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#815838",
+   "z": 2,
+   "box": [
+    0.489,
+    0.196,
+    0.834,
+    0.322
+   ],
+   "ref_shape": "x pxxh"
+  },
+  {
+   "id": "text_brunch",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f8f4ea",
+   "z": 3,
+   "box": [
+    0.132,
+    0.3,
+    0.867,
+    0.425
+   ],
+   "ref_shape": "HHHHHH"
+  },
+  {
+   "id": "text_subtitle",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Playfair Display",
+   "font_category": "serif_italic",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#dac9b4",
+   "z": 4,
+   "box": [
+    0.234,
+    0.455,
+    0.508,
+    0.518
+   ],
+   "ref_shape": "Hxx hhx hxxh xxpxxxxxxx\nxxh xh hxhh xxhxxx"
+  }
+ ],
+ "food": "French toast with strawberries and ice cream",
+ "mood": "Warm, elegant, and appetizing brunch advertisement with minimalist typography and rich tones."
+}

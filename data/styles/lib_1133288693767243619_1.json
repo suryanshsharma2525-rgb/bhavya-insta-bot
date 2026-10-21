@@ -1,0 +1,315 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#fcaf6a"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "text_giant_1",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#7f1a0b",
+   "z": 2,
+   "box": [
+    0.045,
+    0.07186234817813765,
+    0.441,
+    0.3147773279352227
+   ],
+   "ref_shape": "HH"
+  },
+  {
+   "id": "text_giant_2",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f6a96c",
+   "z": 3,
+   "box": [
+    0.045,
+    0.3259109311740891,
+    0.198,
+    0.5334008097165992
+   ],
+   "ref_shape": "H"
+  },
+  {
+   "id": "text_giant_3",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#edb37a",
+   "z": 4,
+   "box": [
+    0.045,
+    0.5576923076923077,
+    0.352,
+    0.7803643724696356
+   ],
+   "ref_shape": "H"
+  },
+  {
+   "id": "text_giant_4",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#7e1b0b",
+   "z": 5,
+   "box": [
+    0.045,
+    0.8016194331983806,
+    0.352,
+    0.9615384615384615
+   ],
+   "ref_shape": "HH"
+  },
+  {
+   "id": "text_headline",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif_display",
+   "weight": "bold",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#7f200a",
+   "z": 6,
+   "box": [
+    0.293,
+    0.018218623481781375,
+    0.705,
+    0.08299595141700405
+   ],
+   "ref_shape": "Hhxxxp Hxxxxhp\nHxxpxx"
+  },
+  {
+   "id": "photo_burger",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Crispy chicken burger",
+   "color": "#000000",
+   "z": 7,
+   "box": [
+    0.146,
+    0.2591093117408907,
+    0.952,
+    0.6993927125506072
+   ]
+  },
+  {
+   "id": "text_offer",
+   "type": "text",
+   "role": "offer",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#81230a",
+   "z": 8,
+   "box": [
+    0.756,
+    0.6538461538461539,
+    0.933,
+    0.7803643724696356
+   ],
+   "ref_shape": "88% HHH"
+  },
+  {
+   "id": "text_offer_sub",
+   "type": "text",
+   "role": "small_caps",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#96441a",
+   "z": 9,
+   "box": [
+    0.841,
+    0.7459514170040485,
+    0.931,
+    0.7803643724696356
+   ],
+   "ref_shape": "HH HHH\nHHHHHHHH"
+  },
+  {
+   "id": "icon_delivery",
+   "type": "icon",
+   "color": "#984228",
+   "z": 10,
+   "box": [
+    0.751,
+    0.8036437246963564,
+    0.838,
+    0.8532388663967612
+   ]
+  },
+  {
+   "id": "text_delivery",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#852b0e",
+   "z": 11,
+   "box": [
+    0.844,
+    0.8016194331983806,
+    0.95,
+    0.8512145748987854
+   ],
+   "ref_shape": "Hxxx\nHxhxxxxp"
+  },
+  {
+   "id": "text_cta",
+   "type": "text",
+   "role": "cta",
+   "font_name": "Playfair Display",
+   "font_category": "serif_display",
+   "weight": "bold",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#7e210c",
+   "z": 12,
+   "box": [
+    0.587,
+    0.8623481781376519,
+    0.947,
+    0.8997975708502024
+   ],
+   "ref_shape": "Hxhxx Hxx!"
+  },
+  {
+   "id": "icon_phone",
+   "type": "icon",
+   "color": "#892e11",
+   "z": 13,
+   "box": [
+    0.687,
+    0.924089068825911,
+    0.715,
+    0.9433198380566802
+   ]
+  },
+  {
+   "id": "text_contact",
+   "type": "text",
+   "role": "contact",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "semibold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#5f4832",
+   "z": 14,
+   "box": [
+    0.723,
+    0.9220647773279352,
+    0.947,
+    0.9423076923076924
+   ],
+   "ref_shape": "+88 88888 88888"
+  },
+  {
+   "id": "text_handle",
+   "type": "text",
+   "role": "handle",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#6a4b2e",
+   "z": 15,
+   "box": [
+    0.581,
+    0.9544534412955465,
+    0.948,
+    0.9746963562753036
+   ],
+   "ref_shape": "@HHHHHHHHHHHH_HHHH"
+  }
+ ],
+ "food": "Crispy chicken burger with melting cheese, lettuce and tomato",
+ "mood": "Appetizing, bold, vibrant fast food promotional poster with retro-modern aesthetic"
+}
