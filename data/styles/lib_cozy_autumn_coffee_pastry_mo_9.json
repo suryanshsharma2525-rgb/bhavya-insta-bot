@@ -1,0 +1,99 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#4e2d1a"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Supreme lotus croissant on a plate with autumn leaves and vase background",
+   "color": "#ffffff",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Great Vibes",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d1bfb1",
+   "z": 2,
+   "box": [
+    0.107,
+    0.089,
+    0.218,
+    0.137
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "item_title",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Playfair Display",
+   "font_category": "serif_italic",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d1bfae",
+   "z": 3,
+   "box": [
+    0.132,
+    0.291,
+    0.665,
+    0.349
+   ],
+   "ref_shape": "Hxpxxxx hxhxx xxxxxxxxh"
+  },
+  {
+   "id": "tagline_sub",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "semibold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d0bcad",
+   "z": 4,
+   "box": [
+    0.203,
+    0.36,
+    0.591,
+    0.388
+   ],
+   "ref_shape": "HHHHHH HH HHHHHHHHHH"
+  }
+ ],
+ "food": "Supreme lotus croissant",
+ "mood": "Warm, rustic, autumnal cafe pastry poster with earthy tones and elegant typography."
+}

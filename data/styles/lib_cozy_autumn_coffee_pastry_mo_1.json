@@ -1,0 +1,75 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#3a2312"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Autumn forest and street background with a falling leaf",
+   "color": "#000000",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Pacifico",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#daaf88",
+   "z": 2,
+   "box": [
+    0.126,
+    0.09,
+    0.269,
+    0.142
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "headline_text",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Inter",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c2a38b",
+   "z": 3,
+   "box": [
+    0.396,
+    0.323,
+    0.73,
+    0.415
+   ],
+   "ref_shape": "Hhxxh hhx hxp\nhhx Hxxxxh xxp."
+  }
+ ],
+ "food": "Coffee cup held in hand in an autumn setting",
+ "mood": "Warm, cozy autumn coffee advertisement with a rich brown and golden theme"
+}

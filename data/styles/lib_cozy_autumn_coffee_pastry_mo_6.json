@@ -1,0 +1,75 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#603921"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Cozy living room with coffee cup on table and warm lighting",
+   "color": "#ffffff",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Pacifico",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d5bda9",
+   "z": 2,
+   "box": [
+    0.107,
+    0.075,
+    0.237,
+    0.126
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "headline_text",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b59684",
+   "z": 3,
+   "box": [
+    0.102,
+    0.267,
+    0.42,
+    0.408
+   ],
+   "ref_shape": "Hxxx xx\nxhxxx xxxhxxh\nxxxhx xxhhxx."
+  }
+ ],
+ "food": "Coffee cup",
+ "mood": "Warm, cozy, inviting cafe poster with ambient lighting and comfortable interior aesthetic"
+}

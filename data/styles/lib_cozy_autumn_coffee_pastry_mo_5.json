@@ -1,0 +1,99 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#603f2a"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "photo_1",
+   "type": "photo",
+   "style": "fill",
+   "food": "A\u00e7ai bowl with fresh fruits, granola, and a hand holding the wooden bowl",
+   "color": "#ffffff",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Pacifico",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c9b9ae",
+   "z": 2,
+   "box": [
+    0.424,
+    0.092,
+    0.574,
+    0.146
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "headline_1",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Pacifico",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#e0d1c2",
+   "z": 3,
+   "box": [
+    0.312,
+    0.185,
+    0.687,
+    0.286
+   ],
+   "ref_shape": "Hxxx hxxh"
+  },
+  {
+   "id": "subheadline_1",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b68b71",
+   "z": 4,
+   "box": [
+    0.361,
+    0.297,
+    0.638,
+    0.322
+   ],
+   "ref_shape": "H hxxh hxhh xh xxhxxxxx"
+  }
+ ],
+ "food": "A\u00e7a\u00ed bowl",
+ "mood": "Warm, earthy, artisanal, cozy cafe promotional poster"
+}

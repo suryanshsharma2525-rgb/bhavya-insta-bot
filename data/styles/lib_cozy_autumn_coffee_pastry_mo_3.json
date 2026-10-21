@@ -1,0 +1,99 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#532e1a"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Red velvet cake slice and coffee cup on table with vase",
+   "color": "#4a3528",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Caveat",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c3a592",
+   "z": 2,
+   "box": [
+    0.108,
+    0.082,
+    0.202,
+    0.129
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "headline_text",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Caveat",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#e0cfbf",
+   "z": 3,
+   "box": [
+    0.105,
+    0.438,
+    0.482,
+    0.518
+   ],
+   "ref_shape": "Hxh xxhxxh"
+  },
+  {
+   "id": "tagline_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c2b0a6",
+   "z": 4,
+   "box": [
+    0.106,
+    0.539,
+    0.274,
+    0.597
+   ],
+   "ref_shape": "HHH HHHH\nHH HHHHHH"
+  }
+ ],
+ "food": "Red velvet cake slice",
+ "mood": "Warm, rustic, cozy cafe poster with earthy tones and elegant script typography."
+}
