@@ -1,0 +1,566 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#ee5902"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_pattern",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#f16e05",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "logo_text",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#ffffff",
+   "z": 2,
+   "box": [
+    0.399,
+    0.012,
+    0.6,
+    0.038
+   ],
+   "ref_shape": "HHHH HHHH"
+  },
+  {
+   "id": "header_new",
+   "type": "text",
+   "role": "giant_word",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f78008",
+   "z": 3,
+   "box": [
+    0.096,
+    0.119,
+    0.597,
+    0.256
+   ],
+   "ref_shape": "HHH"
+  },
+  {
+   "id": "header_dishes_drinks",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f3810f",
+   "z": 4,
+   "box": [
+    0.602,
+    0.12,
+    0.903,
+    0.259
+   ],
+   "ref_shape": "HHHHHH\n&\nHHHHHH"
+  },
+  {
+   "id": "card_pork",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#fbe6c7",
+   "z": 5,
+   "box": [
+    0.068,
+    0.304,
+    0.93,
+    0.518
+   ]
+  },
+  {
+   "id": "item1_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#703307",
+   "z": 6,
+   "box": [
+    0.117,
+    0.342,
+    0.479,
+    0.45
+   ],
+   "ref_shape": "HHHHHHH\nHHHH"
+  },
+  {
+   "id": "item1_desc",
+   "type": "text",
+   "role": "body",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#aa8e6e",
+   "z": 7,
+   "box": [
+    0.117,
+    0.452,
+    0.441,
+    0.494
+   ],
+   "ref_shape": "Hxxxx xpxxx hxhxx xxh xxxh, xxxxxxhxhxx\nxhxpxxxxxp xhxh, xxh hx xxxxxxh hxxpxx\nxxxxhxhxxh xh hxhxxx xh hxhxxx xxpxx xhxpxx."
+  },
+  {
+   "id": "badge_pork",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#ed650b",
+   "z": 8,
+   "box": [
+    0.453,
+    0.4,
+    0.545,
+    0.476
+   ]
+  },
+  {
+   "id": "price_pork",
+   "type": "text",
+   "role": "price",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fce5be",
+   "z": 9,
+   "box": [
+    0.462,
+    0.418,
+    0.535,
+    0.462
+   ],
+   "ref_shape": "$88"
+  },
+  {
+   "id": "photo_pork",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Roasted pork platter with salad and sauce",
+   "z": 10,
+   "box": [
+    0.493,
+    0.268,
+    0.954,
+    0.469
+   ]
+  },
+  {
+   "id": "card_rice",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#f5e1c3",
+   "z": 11,
+   "box": [
+    0.068,
+    0.496,
+    0.93,
+    0.718
+   ]
+  },
+  {
+   "id": "photo_rice",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Fried rice with fried egg and chicken",
+   "z": 12,
+   "box": [
+    0.088,
+    0.496,
+    0.521,
+    0.72
+   ]
+  },
+  {
+   "id": "badge_rice",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#ee6306",
+   "z": 13,
+   "box": [
+    0.504,
+    0.571,
+    0.597,
+    0.647
+   ]
+  },
+  {
+   "id": "price_rice",
+   "type": "text",
+   "role": "price",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fce6c0",
+   "z": 14,
+   "box": [
+    0.513,
+    0.588,
+    0.588,
+    0.633
+   ],
+   "ref_shape": "$88"
+  },
+  {
+   "id": "item2_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#703306",
+   "z": 15,
+   "box": [
+    0.602,
+    0.518,
+    0.878,
+    0.656
+   ],
+   "ref_shape": "HHHHH\nHHHH"
+  },
+  {
+   "id": "item2_desc",
+   "type": "text",
+   "role": "body",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 3,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#ab8e6e",
+   "z": 16,
+   "box": [
+    0.542,
+    0.661,
+    0.879,
+    0.697
+   ],
+   "ref_shape": "Hxxxx xpxxx hxhxx xxh xxxh, xxxxxxhxhxx xhxpxxxxxp\nxhxh, xxh hx xxxxxxh hxxpxx xxxxhxhxxh xh hxhxxx xh\nhxhxxx xxpxx xhxpxx. Hxxx xpxxx xxxpxxhxxxx"
+  },
+  {
+   "id": "card_cola",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#fce7c7",
+   "z": 17,
+   "box": [
+    0.07,
+    0.811,
+    0.342,
+    0.875
+   ]
+  },
+  {
+   "id": "price_cola",
+   "type": "text",
+   "role": "price",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fce7c4",
+   "z": 18,
+   "box": [
+    0.105,
+    0.738,
+    0.191,
+    0.81
+   ],
+   "ref_shape": "$8"
+  },
+  {
+   "id": "item3_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#703810",
+   "z": 19,
+   "box": [
+    0.094,
+    0.829,
+    0.21,
+    0.859
+   ],
+   "ref_shape": "HHHH"
+  },
+  {
+   "id": "photo_cola",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Glass of cola with ice",
+   "z": 20,
+   "box": [
+    0.219,
+    0.737,
+    0.307,
+    0.867
+   ]
+  },
+  {
+   "id": "card_choco",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#f9e5c4",
+   "z": 21,
+   "box": [
+    0.362,
+    0.811,
+    0.634,
+    0.875
+   ]
+  },
+  {
+   "id": "price_choco",
+   "type": "text",
+   "role": "price",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fce7c5",
+   "z": 22,
+   "box": [
+    0.397,
+    0.738,
+    0.484,
+    0.81
+   ],
+   "ref_shape": "$8"
+  },
+  {
+   "id": "item4_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#6d3914",
+   "z": 23,
+   "box": [
+    0.388,
+    0.817,
+    0.483,
+    0.867
+   ],
+   "ref_shape": "HHH\nHHHHH"
+  },
+  {
+   "id": "photo_choco",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Hot chocolate mug with chocolate pieces",
+   "z": 24,
+   "box": [
+    0.457,
+    0.733,
+    0.656,
+    0.867
+   ]
+  },
+  {
+   "id": "card_tea",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#f6e2c2",
+   "z": 25,
+   "box": [
+    0.654,
+    0.811,
+    0.928,
+    0.875
+   ]
+  },
+  {
+   "id": "price_tea",
+   "type": "text",
+   "role": "price",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fce8c5",
+   "z": 26,
+   "box": [
+    0.681,
+    0.738,
+    0.773,
+    0.81
+   ],
+   "ref_shape": "$8"
+  },
+  {
+   "id": "item5_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Anton",
+   "font_category": "display_heavy",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.02,
+   "lines": 2,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#6a3711",
+   "z": 27,
+   "box": [
+    0.691,
+    0.817,
+    0.761,
+    0.867
+   ],
+   "ref_shape": "HHH\nHHH"
+  },
+  {
+   "id": "photo_tea",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Hot tea cup on a wooden coaster",
+   "z": 28,
+   "box": [
+    0.769,
+    0.737,
+    0.943,
+    0.867
+   ]
+  },
+  {
+   "id": "website_url",
+   "type": "text",
+   "role": "contact",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "semibold",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#fad5a7",
+   "z": 29,
+   "box": [
+    0.347,
+    0.939,
+    0.654,
+    0.959
+   ],
+   "ref_shape": "xxx.xxxhhppxxxhxxhx.xxx"
+  }
+ ],
+ "food": "Roasted pork, fried rice, cola, hot chocolate, hot tea",
+ "mood": "Vibrant and appetizing promotional food poster featuring multiple dishes and drinks with bold typography"
+}

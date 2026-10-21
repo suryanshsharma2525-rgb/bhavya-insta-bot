@@ -1,0 +1,148 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#3f513b"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_arch",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#7e4b44",
+   "z": 1,
+   "box": [
+    0.172,
+    0.186,
+    0.775,
+    0.831
+   ]
+  },
+  {
+   "id": "bg_arch_inner",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#c1877c",
+   "z": 2,
+   "box": [
+    0.292,
+    0.223,
+    0.612,
+    0.519
+   ]
+  },
+  {
+   "id": "main_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Chago delivery cup and green scooter",
+   "z": 3,
+   "box": [
+    0.16,
+    0.319,
+    0.816,
+    0.903
+   ]
+  },
+  {
+   "id": "text_brand",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.15,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d0d7cf",
+   "z": 4,
+   "box": [
+    0.34,
+    0.031,
+    0.658,
+    0.093
+   ],
+   "ref_shape": "HHHHH"
+  },
+  {
+   "id": "text_sub",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c4ccc3",
+   "z": 5,
+   "box": [
+    0.331,
+    0.1,
+    0.667,
+    0.137
+   ],
+   "ref_shape": "xx xhxxxx hhxx pxx hhxxh"
+  },
+  {
+   "id": "text_footer_left",
+   "type": "text",
+   "role": "label",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#a2b89f",
+   "z": 6,
+   "box": [
+    0.072,
+    0.917,
+    0.161,
+    0.94
+   ],
+   "ref_shape": "Hxxxh hxx"
+  },
+  {
+   "id": "text_footer_right",
+   "type": "text",
+   "role": "small_caps",
+   "font_name": "Roboto",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "right",
+   "rotation": -90,
+   "pill": null,
+   "color": "#B4C2B8",
+   "z": 7,
+   "box": [
+    0.894,
+    0.759,
+    0.928,
+    0.946
+   ],
+   "ref_shape": "xx   HHHHH Hxhxxxxp"
+  }
+ ],
+ "food": "Chago takeaway tea cup with a scooter delivery theme",
+ "mood": "Elegant, earthy, minimalist promotional design with muted green and terracotta tones"
+}

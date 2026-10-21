@@ -1,0 +1,113 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#263921"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_lower_rect",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#30472b",
+   "z": 1,
+   "box": [
+    0.0,
+    0.5,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "podium_rect",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#1e2e19",
+   "z": 2,
+   "box": [
+    0.211,
+    0.787,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "main_drink_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Peach oolong bubble tea in a transparent cup with milk pouring and peach pieces at the bottom",
+   "z": 3,
+   "box": [
+    0.287,
+    0.0,
+    0.695,
+    0.905
+   ]
+  },
+  {
+   "id": "peach_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Fresh whole peach and a sliced peach",
+   "z": 4,
+   "box": [
+    0.629,
+    0.606,
+    0.994,
+    0.849
+   ]
+  },
+  {
+   "id": "text_headline",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#4f352e",
+   "z": 5,
+   "box": [
+    0.077,
+    0.086,
+    0.316,
+    0.179
+   ],
+   "ref_shape": "Hxhx xx\nxxxxp xxp"
+  },
+  {
+   "id": "text_label",
+   "type": "text",
+   "role": "label",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#9eb098",
+   "z": 6,
+   "box": [
+    0.248,
+    0.542,
+    0.363,
+    0.599
+   ],
+   "ref_shape": "HHHHH\nHHHHHH"
+  }
+ ],
+ "food": "Peach Oolong tea with milk being poured into it, with fresh peaches on the side",
+ "mood": "Calm, minimalist, and elegant drink advertisement poster with split pastel pink and deep green background"
+}

@@ -1,0 +1,149 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#678465"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_plane",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#648664",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "pink_circle",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#c8978f",
+   "z": 2,
+   "box": [
+    0.259,
+    0.337,
+    0.75,
+    0.733
+   ]
+  },
+  {
+   "id": "drink_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Iced jasmine tea drink in a plastic cup with blackberries at the bottom",
+   "color": "#ffffff",
+   "z": 3,
+   "box": [
+    0.319,
+    0.217,
+    0.683,
+    0.856
+   ]
+  },
+  {
+   "id": "text_jasmine",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d8e3db",
+   "z": 4,
+   "box": [
+    0.375,
+    0.064,
+    0.624,
+    0.127
+   ],
+   "ref_shape": "HHHHHHH"
+  },
+  {
+   "id": "text_sub",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#deebe2",
+   "z": 4,
+   "box": [
+    0.362,
+    0.128,
+    0.634,
+    0.169
+   ],
+   "ref_shape": "Hhxxhhxxxp Hhxxx xx"
+  },
+  {
+   "id": "text_body",
+   "type": "text",
+   "role": "body",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#8bb68f",
+   "z": 4,
+   "box": [
+    0.068,
+    0.89,
+    0.422,
+    0.938
+   ],
+   "ref_shape": "H hxhxxxhx hhxxxh hxx\nHxhxxxh xxhh hhx xxxhxxxx xh xxhh hxxxxxx."
+  },
+  {
+   "id": "text_handle",
+   "type": "text",
+   "role": "handle",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.2,
+   "lines": 1,
+   "align": "right",
+   "rotation": -90,
+   "pill": null,
+   "color": "#a8c2b1",
+   "z": 4,
+   "box": [
+    0.894,
+    0.823,
+    0.908,
+    0.915
+   ],
+   "ref_shape": "HHHHH HHHHH 8888"
+  }
+ ],
+ "food": "Iced jasmine tea with blackberries and bamboo styling",
+ "mood": "Elegant, botanical, serene cafe drink advertisement"
+}

@@ -1,0 +1,139 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#9e6461"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_wall",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#c58e8b",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    0.796
+   ]
+  },
+  {
+   "id": "bg_pillar",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#c18683",
+   "z": 2,
+   "box": [
+    0.172,
+    0.182,
+    0.828,
+    0.796
+   ]
+  },
+  {
+   "id": "bg_floor",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#55644a",
+   "z": 3,
+   "box": [
+    0.0,
+    0.796,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "podium",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#142515",
+   "z": 4,
+   "box": [
+    0.21,
+    0.787,
+    0.793,
+    0.912
+   ]
+  },
+  {
+   "id": "hanging_sign_bg",
+   "type": "shape",
+   "shape": "rounded",
+   "color": "#445c44",
+   "z": 5,
+   "box": [
+    0.142,
+    0.063,
+    0.856,
+    0.201
+   ]
+  },
+  {
+   "id": "hanging_sign_text",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#cdddcd",
+   "z": 6,
+   "box": [
+    0.201,
+    0.11,
+    0.793,
+    0.137
+   ],
+   "ref_shape": "Hxxpxhxxxh Hxhhxxp"
+  },
+  {
+   "id": "beverage_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Iced grapefruit tea in plastic cup with black lid and phone receiver wrapped around",
+   "z": 7,
+   "box": [
+    0.239,
+    0.215,
+    0.85,
+    0.821
+   ]
+  },
+  {
+   "id": "footer_tagline",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.1,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#a5b69c",
+   "z": 8,
+   "box": [
+    0.069,
+    0.931,
+    0.458,
+    0.955
+   ],
+   "ref_shape": "HHHHH \u2022 Hxhxxx \u2022 Hxxxh \u2022 Hxxphh"
+  }
+ ],
+ "food": "Iced grapefruit tea beverage in a plastic cup with a phone receiver graphic element",
+ "mood": "Minimalist, surreal product advertising with retro green and dusty rose aesthetic"
+}

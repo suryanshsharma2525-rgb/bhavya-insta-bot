@@ -1,0 +1,172 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#526048"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_top",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#a9736a",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    0.649
+   ]
+  },
+  {
+   "id": "bg_bottom",
+   "type": "shape",
+   "shape": "rect",
+   "color": "#547157",
+   "z": 2,
+   "box": [
+    0.0,
+    0.649,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "drink_photo",
+   "type": "photo",
+   "style": "cutout",
+   "food": "Jasmine Milk Tea cup with teapots pouring tea and milk",
+   "z": 3,
+   "box": [
+    0.169,
+    0.0,
+    0.678,
+    0.907
+   ]
+  },
+  {
+   "id": "title_line_1",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f1d9d1",
+   "z": 4,
+   "box": [
+    0.103,
+    0.484,
+    0.307,
+    0.521
+   ],
+   "ref_shape": "Hxxxxxx"
+  },
+  {
+   "id": "title_line_2",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f6dfd6",
+   "z": 4,
+   "box": [
+    0.107,
+    0.53,
+    0.222,
+    0.574
+   ],
+   "ref_shape": "Hxhh"
+  },
+  {
+   "id": "title_line_3",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Playfair Display",
+   "font_category": "serif",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#f1d5ca",
+   "z": 4,
+   "box": [
+    0.103,
+    0.583,
+    0.201,
+    0.638
+   ],
+   "ref_shape": "Hxx"
+  },
+  {
+   "id": "tagline_left",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Inter",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#97b89d",
+   "z": 4,
+   "box": [
+    0.072,
+    0.917,
+    0.266,
+    0.946
+   ],
+   "ref_shape": "Hxhxxxhx Hxxxxxx"
+  },
+  {
+   "id": "tagline_right",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Inter",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "right",
+   "rotation": 0,
+   "pill": null,
+   "color": "#8ba48f",
+   "z": 4,
+   "box": [
+    0.634,
+    0.917,
+    0.929,
+    0.946
+   ],
+   "ref_shape": "Hxxxhh Hhxxxh Hxxxxxxxxx"
+  }
+ ],
+ "food": "Jasmine Milk Tea being poured from a green teapot and white creamer into a branded paper cup",
+ "mood": "Minimalist, aesthetic, elegant caf\u00e9 promotional poster with pastel pink and muted green tones"
+}
