@@ -1134,5 +1134,327 @@
    "Red saucer color clashes slightly with the earthy green tone of matcha",
    "Surface foam has some uneven bubbling"
   ]
+ },
+ "assets/photos_ai/kulhad_pizza_2.jpg": {
+  "ok": false,
+  "sharpness": 254,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": false,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 6,
+  "premium_look": 5,
+  "problems": [
+   "Not served in a traditional kulhad (clay cup); resembles a shallow earthenware bowl or pot pie",
+   "Obvious AI-generated look with unnatural, floating toppings",
+   "Topping placement accidentally resembles a cartoon face",
+   "Stark black void background lacks cafe ambiance and warmth"
+  ]
+ },
+ "assets/photos_ai/loaded_chips_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 323,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 7,
+  "premium_look": 6,
+  "problems": [
+   "distinctly AI-generated appearance",
+   "looks more like Tex-Mex loaded nachos than Indian-style chaat (lacks sev, tangy chutneys)"
+  ]
+ },
+ "assets/photos_ai/loaded_chips_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 442,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 8,
+  "problems": [
+   "lemon wedge placement is slightly awkward",
+   "background is a bit plain"
+  ]
+ },
+ "assets/photos_ai/matcha_shake_1.jpg": {
+  "ok": true,
+  "sharpness": 227,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/matcha_shake_2.jpg": {
+  "ok": true,
+  "sharpness": 214,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/mocha_shake_1.jpg": {
+  "ok": true,
+  "sharpness": 238,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/mocha_shake_2.jpg": {
+  "ok": true,
+  "sharpness": 194,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Two different colored straws create a slightly mismatched aesthetic"
+  ]
+ },
+ "assets/photos_ai/nachos_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 572,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly artificial looking cheese drizzle",
+   "Background is a bit plain"
+  ]
+ },
+ "assets/photos_ai/nachos_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 343,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/paneer_momos_1.jpg": {
+  "ok": true,
+  "sharpness": 310,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/paneer_momos_2.jpg": {
+  "ok": true,
+  "sharpness": 430,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/peshawari_khewani_kheer_1.jpg": {
+  "ok": true,
+  "sharpness": 510,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "Some toppings look a bit unusual or scattered randomly"
+  ]
+ },
+ "assets/photos_ai/peshawari_khewani_kheer_2.jpg": {
+  "ok": true,
+  "sharpness": 315,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/potato_twister_1.jpg": {
+  "ok": true,
+  "sharpness": 344,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "Skewer sticks appear unusually thick, resembling chopsticks",
+   "Slightly sparse plating could use more dynamic garnish"
+  ]
+ },
+ "assets/photos_ai/potato_twister_2.jpg": {
+  "ok": false,
+  "sharpness": 195,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": false,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 4,
+  "premium_look": 5,
+  "problems": [
+   "Not a traditional potato twister (spiral potato on a stick)",
+   "Looks more like a deconstructed abstract art dish than a cafe snack",
+   "Portion of potato is very small and unrecognisable as street-style potato twister",
+   "Unappetizing gray sauce base"
+  ]
+ },
+ "assets/photos_ai/simple_chips_chaat_1.jpg": {
+  "ok": true,
+  "sharpness": 285,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": []
+ },
+ "assets/photos_ai/simple_chips_chaat_2.jpg": {
+  "ok": true,
+  "sharpness": 257,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Slightly dark background limits ambient detail",
+   "Chaat could use more visible drizzled chutneys for a richer look"
+  ]
+ },
+ "assets/photos_ai/tandoori_burger_1.jpg": {
+  "ok": true,
+  "sharpness": 246,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/tandoori_burger_2.jpg": {
+  "ok": true,
+  "sharpness": 292,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": []
+ },
+ "assets/photos_ai/vada_pav_1.jpg": {
+  "ok": true,
+  "sharpness": 248,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 9,
+  "problems": [
+   "untraditional presentation with two smaller vadas and unusual toppings"
+  ]
+ },
+ "assets/photos_ai/aloo_tikki_burger_3.jpg": {
+  "ok": true,
+  "sharpness": 497,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 9,
+  "premium_look": 9,
+  "problems": [
+   "Bun is separated from the burger, which looks unconventional for a hero shot"
+  ]
+ },
+ "assets/photos_ai/aloo_tikki_burger_4.jpg": {
+  "ok": true,
+  "sharpness": 281,
+  "issues": [],
+  "ai_checked": true,
+  "is_item": true,
+  "sharp_hd": true,
+  "clean": true,
+  "whole_dish": true,
+  "appetizing": 8,
+  "premium_look": 8,
+  "problems": [
+   "Unusual mint leaves garnish placement inside the burger",
+   "Background lighting is a bit dark and moody for a cafe hero shot"
+  ]
  }
 }
