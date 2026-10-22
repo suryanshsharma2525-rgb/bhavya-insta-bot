@@ -1,0 +1,98 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#522e18"
+  ]
+ },
+ "elements": [
+  {
+   "id": "photo_main",
+   "type": "photo",
+   "style": "fill",
+   "food": "Supreme lotus roll croissant drizzled with caramel lotus spread on a square ceramic plate, autumn dried leaves and ceramic vase in warm moody lighting",
+   "color": null,
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Playball",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d5c2b3",
+   "z": 2,
+   "box": [
+    0.09,
+    0.072,
+    0.246,
+    0.134
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "text_item_name",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Dancing Script",
+   "font_category": "script",
+   "weight": "medium",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#cebbaa",
+   "z": 2,
+   "box": [
+    0.118,
+    0.288,
+    0.674,
+    0.357
+   ],
+   "ref_shape": "Hxpxxxx hxhxx xxxxxxxxh"
+  },
+  {
+   "id": "text_tagline",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "medium",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.18,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d0bcac",
+   "z": 2,
+   "box": [
+    0.188,
+    0.36,
+    0.598,
+    0.389
+   ],
+   "ref_shape": "HHHHHH HH HHHHHHHHHH"
+  }
+ ],
+ "food": "Lotus biscoff circular laminated supreme croissant pastry with caramel drizzle",
+ "mood": "Warm, cozy, rustic-luxury autumn pastry aesthetic with dark moody earth tones and soft directional lighting"
+}

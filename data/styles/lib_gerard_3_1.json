@@ -1,0 +1,99 @@
+{
+ "background": {
+  "type": "solid",
+  "colors": [
+   "#5f361f"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "bg_photo",
+   "type": "photo",
+   "style": "fill",
+   "food": "Red velvet cake slice and coffee cup",
+   "color": "#ffffff",
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "brand_logo",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Great Vibes",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#d8b9a7",
+   "z": 2,
+   "box": [
+    0.089,
+    0.087,
+    0.217,
+    0.137
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "headline_item",
+   "type": "text",
+   "role": "item_name",
+   "font_name": "Great Vibes",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#dfccbd",
+   "z": 3,
+   "box": [
+    0.097,
+    0.438,
+    0.484,
+    0.521
+   ],
+   "ref_shape": "Hxh xxhxxh"
+  },
+  {
+   "id": "sub_text",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans_bold",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.05,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c9b7ad",
+   "z": 4,
+   "box": [
+    0.097,
+    0.542,
+    0.286,
+    0.596
+   ],
+   "ref_shape": "HHH HHHH\nHH HHHHHH"
+  }
+ ],
+ "food": "Red velvet cake slice on a white plate with a branded paper cup of coffee",
+ "mood": "Warm, cozy, elegant, rustic caf\u00e9 aesthetic with deep brown and cream tones"
+}

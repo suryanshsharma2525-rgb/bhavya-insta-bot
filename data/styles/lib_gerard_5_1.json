@@ -1,0 +1,101 @@
+{
+ "background": {
+  "type": "radial",
+  "colors": [
+   "#6e4935",
+   "#3a2116",
+   "#21130d"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "photo_main",
+   "type": "photo",
+   "style": "fill",
+   "food": "Acai smoothie bowl with sliced bananas, blueberries, blackberries, raspberries, chia seeds, and granola in a dark wooden bowl, held by a hand with a wooden spoon on a warm brown surface",
+   "color": null,
+   "z": 1,
+   "box": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "text_brand",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Satisfy",
+   "font_category": "script",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.05,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#c5b4a9",
+   "z": 2,
+   "box": [
+    0.422,
+    0.066,
+    0.582,
+    0.132
+   ],
+   "ref_shape": "Hxxxxh"
+  },
+  {
+   "id": "text_headline",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Caveat",
+   "font_category": "handwritten",
+   "weight": "bold",
+   "italic": true,
+   "uppercase": false,
+   "tracking": 0.02,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#e1d0c1",
+   "z": 2,
+   "box": [
+    0.305,
+    0.174,
+    0.706,
+    0.273
+   ],
+   "ref_shape": "Hxxx hxxh"
+  },
+  {
+   "id": "text_tagline",
+   "type": "text",
+   "role": "tagline",
+   "font_name": "Montserrat",
+   "font_category": "sans",
+   "weight": "light",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.06,
+   "lines": 1,
+   "align": "center",
+   "rotation": 0,
+   "pill": null,
+   "color": "#b68b70",
+   "z": 2,
+   "box": [
+    0.354,
+    0.277,
+    0.658,
+    0.305
+   ],
+   "ref_shape": "H hxxh hxhh xh xxhxxxxx"
+  }
+ ],
+ "food": "Acai smoothie bowl with fresh fruits and granola",
+ "mood": "warm earthy minimalist aesthetic focusing on healthy rustic breakfast vibes"
+}

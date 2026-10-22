@@ -1,0 +1,173 @@
+{
+ "background": {
+  "type": "gradient",
+  "colors": [
+   "#2e533b",
+   "#3b6448"
+  ],
+  "direction": "vertical"
+ },
+ "elements": [
+  {
+   "id": "pink_disc",
+   "type": "shape",
+   "shape": "circle",
+   "color": "#cb9a94",
+   "z": 1,
+   "box": [
+    0.305,
+    0.3637295081967213,
+    0.937,
+    0.728483606557377
+   ]
+  },
+  {
+   "id": "bamboo_stem",
+   "type": "photo",
+   "style": "cutout",
+   "food": "lucky bamboo shoot and green leaves",
+   "color": null,
+   "z": 2,
+   "box": [
+    0.078,
+    0.025614754098360656,
+    0.447,
+    0.8176229508196722
+   ]
+  },
+  {
+   "id": "drink_cup",
+   "type": "photo",
+   "style": "cutout",
+   "food": "iced jasmine tea layered with crushed blackberries and ice cubes",
+   "color": null,
+   "z": 3,
+   "box": [
+    0.387,
+    0.2141393442622951,
+    0.831,
+    0.8688524590163934
+   ]
+  },
+  {
+   "id": "blackberry_props",
+   "type": "photo",
+   "style": "cutout",
+   "food": "fresh blackberries on small dish and table",
+   "color": null,
+   "z": 4,
+   "box": [
+    0.807,
+    0.6885245901639345,
+    1.0,
+    0.8903688524590164
+   ]
+  },
+  {
+   "id": "brand_cup_text",
+   "type": "text",
+   "role": "brand",
+   "font_name": "Oswald",
+   "font_category": "display_condensed",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.15,
+   "lines": 1,
+   "align": "center",
+   "rotation": 90,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#2c4728",
+   "z": 5,
+   "box": [
+    0.569,
+    0.3709016393442623,
+    0.657,
+    0.6331967213114754
+   ],
+   "ref_shape": "HHHHH"
+  },
+  {
+   "id": "title_jasmine",
+   "type": "text",
+   "role": "headline",
+   "font_name": "Cinzel",
+   "font_category": "serif",
+   "weight": "bold",
+   "italic": false,
+   "uppercase": true,
+   "tracking": 0.08,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#d2e3d8",
+   "z": 6,
+   "box": [
+    0.442,
+    0.08299180327868853,
+    0.903,
+    0.1516393442622951
+   ],
+   "ref_shape": "HHHHHHH"
+  },
+  {
+   "id": "subtitle_bloom",
+   "type": "text",
+   "role": "subheadline",
+   "font_name": "Inter",
+   "font_category": "sans",
+   "weight": "medium",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0.03,
+   "lines": 1,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#98af9d",
+   "z": 7,
+   "box": [
+    0.432,
+    0.14856557377049182,
+    0.908,
+    0.1875
+   ],
+   "ref_shape": "Hhxxhhxxxp Hhxxx xx"
+  },
+  {
+   "id": "desc_copy",
+   "type": "text",
+   "role": "body",
+   "font_name": "Inter",
+   "font_category": "sans",
+   "weight": "regular",
+   "italic": false,
+   "uppercase": false,
+   "tracking": 0,
+   "lines": 2,
+   "align": "left",
+   "rotation": 0,
+   "pill": null,
+   "alt_color": null,
+   "alt_over": null,
+   "color": "#91b791",
+   "z": 8,
+   "box": [
+    0.067,
+    0.9334016393442623,
+    0.517,
+    0.9743852459016393
+   ],
+   "ref_shape": "H hxhxxxhx hhxxxh hxx\nxxhxxxh xxhh hhx xxxhxxxx xh xxhh hxxxxxx."
+  }
+ ],
+ "food": "layered iced jasmine blackberry fruit tea",
+ "mood": "minimalist zen botanical beverage promotion with rich forest green and blush pink palette"
+}
